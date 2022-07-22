@@ -9,21 +9,31 @@
 /* Begin PBXBuildFile section */
 		DB62012D288A49A90026C0C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62012C288A49A90026C0C3 /* AppDelegate.swift */; };
 		DB62012F288A49A90026C0C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62012E288A49A90026C0C3 /* SceneDelegate.swift */; };
-		DB620131288A49A90026C0C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB620130288A49A90026C0C3 /* ViewController.swift */; };
+		DB620131288A49A90026C0C3 /* FirstDownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB620130288A49A90026C0C3 /* FirstDownloadView.swift */; };
 		DB620134288A49A90026C0C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB620132288A49A90026C0C3 /* Main.storyboard */; };
 		DB620136288A49AA0026C0C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB620135288A49AA0026C0C3 /* Assets.xcassets */; };
 		DB620139288A49AA0026C0C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB620137288A49AA0026C0C3 /* LaunchScreen.storyboard */; };
+		DB620142288A60D00026C0C3 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB620140288A60D00026C0C3 /* Utilities.swift */; };
+		DB620143288A60D00026C0C3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB620141288A60D00026C0C3 /* Extensions.swift */; };
+		DB620148288A61AC0026C0C3 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB620145288A61AC0026C0C3 /* Raleway-Bold.ttf */; };
+		DB620149288A61AC0026C0C3 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB620146288A61AC0026C0C3 /* Raleway-SemiBold.ttf */; };
+		DB62014A288A61AC0026C0C3 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB620147288A61AC0026C0C3 /* Raleway-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DB620129288A49A90026C0C3 /* Nano2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nano2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB62012C288A49A90026C0C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB62012E288A49A90026C0C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DB620130288A49A90026C0C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DB620130288A49A90026C0C3 /* FirstDownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstDownloadView.swift; sourceTree = "<group>"; };
 		DB620133288A49A90026C0C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB620135288A49AA0026C0C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB620138288A49AA0026C0C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB62013A288A49AA0026C0C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB620140288A60D00026C0C3 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		DB620141288A60D00026C0C3 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		DB620145288A61AC0026C0C3 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
+		DB620146288A61AC0026C0C3 /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
+		DB620147288A61AC0026C0C3 /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +68,34 @@
 			children = (
 				DB62012C288A49A90026C0C3 /* AppDelegate.swift */,
 				DB62012E288A49A90026C0C3 /* SceneDelegate.swift */,
-				DB620130288A49A90026C0C3 /* ViewController.swift */,
+				DB620130288A49A90026C0C3 /* FirstDownloadView.swift */,
 				DB620132288A49A90026C0C3 /* Main.storyboard */,
-				DB620135288A49AA0026C0C3 /* Assets.xcassets */,
 				DB620137288A49AA0026C0C3 /* LaunchScreen.storyboard */,
+				DB620144288A60D40026C0C3 /* Utilities */,
+				DB62014B288A61B10026C0C3 /* Fonts */,
+				DB620135288A49AA0026C0C3 /* Assets.xcassets */,
 				DB62013A288A49AA0026C0C3 /* Info.plist */,
 			);
 			path = Nano2;
+			sourceTree = "<group>";
+		};
+		DB620144288A60D40026C0C3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				DB620141288A60D00026C0C3 /* Extensions.swift */,
+				DB620140288A60D00026C0C3 /* Utilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		DB62014B288A61B10026C0C3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DB620145288A61AC0026C0C3 /* Raleway-Bold.ttf */,
+				DB620147288A61AC0026C0C3 /* Raleway-Medium.ttf */,
+				DB620146288A61AC0026C0C3 /* Raleway-SemiBold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,8 +157,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB620139288A49AA0026C0C3 /* LaunchScreen.storyboard in Resources */,
+				DB62014A288A61AC0026C0C3 /* Raleway-Medium.ttf in Resources */,
 				DB620136288A49AA0026C0C3 /* Assets.xcassets in Resources */,
 				DB620134288A49A90026C0C3 /* Main.storyboard in Resources */,
+				DB620148288A61AC0026C0C3 /* Raleway-Bold.ttf in Resources */,
+				DB620149288A61AC0026C0C3 /* Raleway-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +172,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB620131288A49A90026C0C3 /* ViewController.swift in Sources */,
+				DB620143288A60D00026C0C3 /* Extensions.swift in Sources */,
+				DB620131288A49A90026C0C3 /* FirstDownloadView.swift in Sources */,
 				DB62012D288A49A90026C0C3 /* AppDelegate.swift in Sources */,
+				DB620142288A60D00026C0C3 /* Utilities.swift in Sources */,
 				DB62012F288A49A90026C0C3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
