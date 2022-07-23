@@ -67,7 +67,7 @@ class AppButton: UIButton {
         
         self.titleLabel?.font = UIFont.buttonText()
         self.setDimensions(height: 50, width: UIScreen.main.bounds.width - 40)
-        self.layer.cornerRadius = 10
+        self.layer.cornerRadius = 12
     }
     
     private func configureButtonText() {

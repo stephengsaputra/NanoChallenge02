@@ -299,7 +299,7 @@ extension UIFont {
     
     static func subHeading() -> UIFont {
         
-        guard let customFont = UIFont(name: "Raleway-SemiBold", size: 20) else {
+        guard let customFont = UIFont(name: "Raleway-Medium", size: 20) else {
             return UIFont.systemFont(ofSize: 20)
         }
         
