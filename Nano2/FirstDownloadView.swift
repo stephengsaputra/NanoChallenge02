@@ -20,7 +20,7 @@ class FirstDownloadView: UIViewController {
         
         let stack = UIStackView(arrangedSubviews: [button1, button2, button3])
         stack.axis = .vertical
-        stack.spacing = 100
+        stack.spacing = 150
         
         view.addSubview(stack)
         stack.centerX(inView: view)

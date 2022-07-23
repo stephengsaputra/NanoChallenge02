@@ -45,27 +45,29 @@ class AppButton: UIButton {
             case .normal:
                 backgroundColor = .textColor
                 setTitleColor(.backgroundColor, for: .normal)
+                self.setupShadow(
+                    opacity: 0.4,
+                    radius: 25,
+                    offset: CGSize(width: 0.0, height: 8),
+                    color: .systemGray
+                )
             case .disabled:
                 backgroundColor = UIColor(named: "disabledButtonBG")
                 setTitleColor(UIColor(named: "disabledButtonText"), for: .normal)
             case .destructive:
                 backgroundColor = UIColor(named: "customRed")
                 setTitleColor(.white, for: .normal)
+                self.setupShadow(
+                    opacity: 0.4,
+                    radius: 25,
+                    offset: CGSize(width: 0.0, height: 8),
+                    color: .systemGray
+                )
         }
         
         self.titleLabel?.font = UIFont.buttonText()
-        
         self.setDimensions(height: 50, width: UIScreen.main.bounds.width - 40)
-        
         self.layer.cornerRadius = 10
-        self.layer.shadowOpacity = 0.6
-        self.layer.shadowColor = UIColor.systemGray.cgColor
-        self.setupShadow(
-            opacity: 0.3,
-            radius: 20,
-            offset: CGSize(width: 0.0, height: 8.0),
-            color: .systemGray
-        )
     }
     
     private func configureButtonText() {
