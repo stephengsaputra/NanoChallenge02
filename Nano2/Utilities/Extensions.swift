@@ -46,7 +46,6 @@ extension UIColor {
     
     static let textColor = UIColor(named: "textColor")
     static let backgroundColor = UIColor(named: "backgroundColor")
-    static let tfHint = UIColor(named: "tfHintTextColor")
 }
 
 extension UIView {
@@ -319,6 +318,15 @@ extension UIFont {
         
         guard let customFont = UIFont(name: "Raleway-SemiBold", size: 16) else {
             return UIFont.systemFont(ofSize: 16)
+        }
+        
+        return customFont
+    }
+    
+    static func textField() -> UIFont {
+        
+        guard let customFont = UIFont(name: "Raleway-Medium", size: 20) else {
+            return UIFont.systemFont(ofSize: 20)
         }
         
         return customFont

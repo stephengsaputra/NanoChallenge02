@@ -117,7 +117,7 @@ class FirstDownloadVC: UIViewController {
             left: view.leftAnchor,
             bottom: view.safeAreaLayoutGuide.bottomAnchor,
             paddingLeft: 20,
-            paddingBottom: UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 0 : 20
+            paddingBottom: 20
         )
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.75) {
             UIView.animate(withDuration: 0.5) {

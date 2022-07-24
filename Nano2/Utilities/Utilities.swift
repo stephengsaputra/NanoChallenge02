@@ -17,4 +17,18 @@ class Utilities {
             notificationGenerator.notificationOccurred(type)
         }
     }
+    
+    func textField(withPlaceholder placeholder: String) -> UITextField {
+        let tf = UITextField()
+        tf.textColor = .textColor
+        tf.font = UIFont.textField()
+        tf.attributedPlaceholder = NSAttributedString(
+            string: placeholder,
+            attributes: [
+                NSAttributedString.Key.foregroundColor: UIColor(named: "tFHintTextColor"),
+                .font: UIFont.textField()
+            ]
+        )
+        return tf
+    }
 }

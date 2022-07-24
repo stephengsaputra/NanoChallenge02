@@ -136,7 +136,7 @@ class FirstSetupVC: UIViewController {
             pageControl.currentPage = contentIsShown
         } else {
             contentIsShown = 0
-            navigationController?.pushViewController(SecondSetupVC(), animated: true)
+            navigationController?.pushViewController(IntegrationTokenInputVC(), animated: true)
         }
     }
     
@@ -149,7 +149,7 @@ class FirstSetupVC: UIViewController {
         headingLabel.anchor(
             top: view.topAnchor,
             left: view.leftAnchor,
-            paddingTop: UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 100 : 80,
+            paddingTop: UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 120 : 80,
             paddingLeft: 20
         )
 
@@ -215,7 +215,7 @@ class FirstSetupVC: UIViewController {
             left: view.leftAnchor,
             bottom: view.safeAreaLayoutGuide.bottomAnchor,
             paddingLeft: 20,
-            paddingBottom: UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 0 : 20
+            paddingBottom: 20
         )
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             UIView.animate(withDuration: 0.5) {

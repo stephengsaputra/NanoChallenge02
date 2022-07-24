@@ -51,9 +51,11 @@ class AppButton: UIButton {
                     offset: CGSize(width: 0.0, height: 8),
                     color: .systemGray
                 )
+                isEnabled = true
             case .disabled:
                 backgroundColor = UIColor(named: "disabledButtonBG")
                 setTitleColor(UIColor(named: "disabledButtonText"), for: .normal)
+                isEnabled = false
             case .destructive:
                 backgroundColor = UIColor(named: "customRed")
                 setTitleColor(.white, for: .normal)
