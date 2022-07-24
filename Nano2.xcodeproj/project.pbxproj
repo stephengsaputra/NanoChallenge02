@@ -72,9 +72,37 @@
 		DB2129F5288DB9B900EC6413 /* Main Application */ = {
 			isa = PBXGroup;
 			children = (
-				DB2129F6288DB9D600EC6413 /* TitleInputVC.swift */,
+				DB2129FA288DC11D00EC6413 /* View Controller */,
 			);
 			path = "Main Application";
+			sourceTree = "<group>";
+		};
+		DB2129F8288DC0F900EC6413 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB979DE2288D13C900EEEA43 /* SetupModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DB2129F9288DC10700EC6413 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DB620130288A49A90026C0C3 /* FirstDownloadVC.swift */,
+				DB2DD7A5288D4EA500FDC70F /* Integration Token Setup  */,
+				DB2DD7A8288D60C200FDC70F /* Database ID Setup */,
+				DBCEFCA4288D9D080076E011 /* NotificationSetupVC.swift */,
+				DB2129F3288DB6EC00EC6413 /* FinishSetupVC.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		DB2129FA288DC11D00EC6413 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DB2129F6288DB9D600EC6413 /* TitleInputVC.swift */,
+			);
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 		DB2DD7A5288D4EA500FDC70F /* Integration Token Setup  */ = {
@@ -116,7 +144,6 @@
 			children = (
 				DB62012C288A49A90026C0C3 /* AppDelegate.swift */,
 				DB62012E288A49A90026C0C3 /* SceneDelegate.swift */,
-				DB620130288A49A90026C0C3 /* FirstDownloadVC.swift */,
 				DB979DE4288D13D500EEEA43 /* Setup Phase */,
 				DB2129F5288DB9B900EC6413 /* Main Application */,
 				DB979DE5288D13E400EEEA43 /* Storyboard */,
@@ -153,11 +180,8 @@
 		DB979DE4288D13D500EEEA43 /* Setup Phase */ = {
 			isa = PBXGroup;
 			children = (
-				DB979DE2288D13C900EEEA43 /* SetupModel.swift */,
-				DB2DD7A5288D4EA500FDC70F /* Integration Token Setup  */,
-				DB2DD7A8288D60C200FDC70F /* Database ID Setup */,
-				DBCEFCA4288D9D080076E011 /* NotificationSetupVC.swift */,
-				DB2129F3288DB6EC00EC6413 /* FinishSetupVC.swift */,
+				DB2129F8288DC0F900EC6413 /* Model */,
+				DB2129F9288DC10700EC6413 /* View Controller */,
 			);
 			path = "Setup Phase";
 			sourceTree = "<group>";
