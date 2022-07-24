@@ -18,19 +18,13 @@ class FirstSetupVC: UIViewController {
     
     var contentIsShown: Int = 0
     
-    private lazy var headingLabel: UILabel = {
-        let label = UILabel()
-        label.text = "First Setup"
-        label.textColor = .textColor
-        label.font = UIFont.heading()
+    private lazy var headingLabel: AppLabel = {
+        let label = AppLabel(style: .heading, textString: "First Setup")
         return label
     }()
     
-    private lazy var subtitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "I know you can do it 💪🏻"
-        label.textColor = .textColor
-        label.font = UIFont.subHeading()
+    private lazy var subtitleLabel: AppLabel = {
+        let label = AppLabel(style: .subHeading, textString: "I know you can do it 💪🏻")
         return label
     }()
     
@@ -41,39 +35,13 @@ class FirstSetupVC: UIViewController {
         return image
     }()
     
-    private lazy var stepLabel1: UILabel = {
-        let label = UILabel()
-        label.textColor = .textColor
-        label.font = UIFont.body()
-        label.numberOfLines = 4
-        
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.minimumLineHeight = CGFloat(24)
-        paragraphStyle.maximumLineHeight = CGFloat(24)
-        
-        label.attributedText = NSAttributedString(
-            string: setupContent[contentIsShown].step1,
-            attributes: [
-                .paragraphStyle: paragraphStyle
-            ])
+    private lazy var stepLabel1: AppLabel = {
+        let label = AppLabel(style: .body, textString: setupContent[contentIsShown].step1)
         return label
     }()
     
     private lazy var stepLabel2: UILabel = {
-        let label = UILabel()
-        label.textColor = .textColor
-        label.font = UIFont.body()
-        label.numberOfLines = 4
-        
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.minimumLineHeight = CGFloat(24)
-        paragraphStyle.maximumLineHeight = CGFloat(24)
-        
-        label.attributedText = NSAttributedString(
-            string: setupContent[contentIsShown].step2,
-            attributes: [
-                .paragraphStyle: paragraphStyle
-            ])
+        let label = AppLabel(style: .body, textString: setupContent[contentIsShown].step2)
         return label
     }()
     

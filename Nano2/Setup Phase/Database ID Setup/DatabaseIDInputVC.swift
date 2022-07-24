@@ -11,33 +11,13 @@ import UIKit
 class DatabaseIDInputVC: UIViewController {
 
     //MARK: - Initializers
-    private lazy var headingLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Finally, paste in your Database ID"
-        label.textColor = .textColor
-        label.font = UIFont.heading()
-        label.numberOfLines = 4
+    private lazy var headingLabel: AppLabel = {
+        let label = AppLabel(style: .heading, textString: "Finally, paste in your Database ID")
         return label
     }()
     
-    var bottomLine: CALayer = {
-        let line = CALayer()
-        line.frame = CGRect(
-            x: 0.0,
-            y: 20 + 14,
-            width: UIScreen.main.bounds.width - 40,
-            height: 1.0
-        )
-        line.backgroundColor = UIColor.textColor?.cgColor
-        return line
-    }()
-    
-    private lazy var databaseIDTF: UITextField = {
-        let tf = Utilities().textField(withPlaceholder: "Database ID")
-        tf.autocapitalizationType = .none
-        tf.keyboardType = .default
-        tf.borderStyle = .none
-        tf.layer.addSublayer(bottomLine)
+    private lazy var databaseIDTF: AppTextField = {
+        let tf = AppTextField(placeholderText: "Integration Token")
         return tf
     }()
     
@@ -67,7 +47,7 @@ class DatabaseIDInputVC: UIViewController {
     
     //MARK: - Selectors
     @objc func handleButtonTapped() {
-//        navigationController?.pushViewController(SecondSetupVC(), animated: true)
+        navigationController?.pushViewController(NotificationSetupVC(), animated: true)
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {

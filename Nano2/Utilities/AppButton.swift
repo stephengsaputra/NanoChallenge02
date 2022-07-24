@@ -46,7 +46,7 @@ class AppButton: UIButton {
                 backgroundColor = .textColor
                 setTitleColor(.backgroundColor, for: .normal)
                 self.setupShadow(
-                    opacity: 0.4,
+                    opacity: 0.25,
                     radius: 25,
                     offset: CGSize(width: 0.0, height: 8),
                     color: .systemGray
@@ -60,7 +60,7 @@ class AppButton: UIButton {
                 backgroundColor = UIColor(named: "customRed")
                 setTitleColor(.white, for: .normal)
                 self.setupShadow(
-                    opacity: 0.4,
+                    opacity: 0.25,
                     radius: 25,
                     offset: CGSize(width: 0.0, height: 8),
                     color: .systemGray

@@ -10,33 +10,13 @@ import UIKit
 class IntegrationTokenInputVC: UIViewController {
 
     //MARK: - Initializers
-    private lazy var headingLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Paste in your Integration Token"
-        label.textColor = .textColor
-        label.font = UIFont.heading()
-        label.numberOfLines = 4
+    private lazy var headingLabel: AppLabel = {
+        let label = AppLabel(style: .heading, textString: "Paste in your Integration Token")
         return label
     }()
     
-    var bottomLine: CALayer = {
-        let line = CALayer()
-        line.frame = CGRect(
-            x: 0.0,
-            y: 20 + 14,
-            width: UIScreen.main.bounds.width - 40,
-            height: 1.0
-        )
-        line.backgroundColor = UIColor.textColor?.cgColor
-        return line
-    }()
-    
-    private lazy var integrationTokenTF: UITextField = {
-        let tf = Utilities().textField(withPlaceholder: "Integration Token")
-        tf.autocapitalizationType = .none
-        tf.keyboardType = .default
-        tf.borderStyle = .none
-        tf.layer.addSublayer(bottomLine)
+    private lazy var integrationTokenTF: AppTextField = {
+        let tf = AppTextField(placeholderText: "Integration Token")
         return tf
     }()
     

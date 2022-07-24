@@ -17,28 +17,18 @@ class FirstDownloadVC: UIViewController {
         return label
     }()
     
-    private lazy var welcomeLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Welcome!!"
-        label.font = UIFont.largeTitle()
-        label.textColor = UIColor.textColor
+    private lazy var welcomeLabel: AppLabel = {
+        let label = AppLabel(style: .largeTitle, textString: "Welcome!!")
         return label
     }()
     
-    private lazy var subHeadingLabel1: UILabel = {
-        let label = UILabel()
-        label.text = "Experience a new way to\nwrite Reflections"
-        label.font = UIFont.subHeading()
-        label.textColor = UIColor.textColor
-        label.numberOfLines = 2
+    private lazy var subHeadingLabel1: AppLabel = {
+        let label = AppLabel(style: .subHeading, textString: "Experience a new way to\nwrite Reflections")
         return label
     }()
     
     private lazy var subHeadingLabel2: UILabel = {
-        let label = UILabel()
-        label.text = "By a Learner, for all Learners"
-        label.font = UIFont.subHeading()
-        label.textColor = UIColor.textColor
+        let label = AppLabel(style: .subHeading, textString: "By a Learner, for all Learners")
         return label
     }()
     
