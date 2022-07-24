@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DB19B5ED288C71AD002EE3F1 /* FirstSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19B5EC288C71AD002EE3F1 /* FirstSetupVC.swift */; };
+		DB2129F4288DB6EC00EC6413 /* FinishSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2129F3288DB6EC00EC6413 /* FinishSetupVC.swift */; };
+		DB2129F7288DB9D600EC6413 /* TitleInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2129F6288DB9D600EC6413 /* TitleInputVC.swift */; };
 		DB2DD7A4288D4D4900FDC70F /* IntegrationTokenInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2DD7A3288D4D4900FDC70F /* IntegrationTokenInputVC.swift */; };
 		DB2DD7A7288D60BD00FDC70F /* DatabaseIDInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2DD7A6288D60BD00FDC70F /* DatabaseIDInputVC.swift */; };
 		DB62012D288A49A90026C0C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62012C288A49A90026C0C3 /* AppDelegate.swift */; };
@@ -31,6 +33,8 @@
 
 /* Begin PBXFileReference section */
 		DB19B5EC288C71AD002EE3F1 /* FirstSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSetupVC.swift; sourceTree = "<group>"; };
+		DB2129F3288DB6EC00EC6413 /* FinishSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishSetupVC.swift; sourceTree = "<group>"; };
+		DB2129F6288DB9D600EC6413 /* TitleInputVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleInputVC.swift; sourceTree = "<group>"; };
 		DB2DD7A3288D4D4900FDC70F /* IntegrationTokenInputVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTokenInputVC.swift; sourceTree = "<group>"; };
 		DB2DD7A6288D60BD00FDC70F /* DatabaseIDInputVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseIDInputVC.swift; sourceTree = "<group>"; };
 		DB620129288A49A90026C0C3 /* Nano2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nano2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +69,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB2129F5288DB9B900EC6413 /* Main Application */ = {
+			isa = PBXGroup;
+			children = (
+				DB2129F6288DB9D600EC6413 /* TitleInputVC.swift */,
+			);
+			path = "Main Application";
+			sourceTree = "<group>";
+		};
 		DB2DD7A5288D4EA500FDC70F /* Integration Token Setup  */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +118,7 @@
 				DB62012E288A49A90026C0C3 /* SceneDelegate.swift */,
 				DB620130288A49A90026C0C3 /* FirstDownloadVC.swift */,
 				DB979DE4288D13D500EEEA43 /* Setup Phase */,
+				DB2129F5288DB9B900EC6413 /* Main Application */,
 				DB979DE5288D13E400EEEA43 /* Storyboard */,
 				DB620144288A60D40026C0C3 /* Utilities */,
 				DB62014B288A61B10026C0C3 /* Fonts */,
@@ -144,6 +157,7 @@
 				DB2DD7A5288D4EA500FDC70F /* Integration Token Setup  */,
 				DB2DD7A8288D60C200FDC70F /* Database ID Setup */,
 				DBCEFCA4288D9D080076E011 /* NotificationSetupVC.swift */,
+				DB2129F3288DB6EC00EC6413 /* FinishSetupVC.swift */,
 			);
 			path = "Setup Phase";
 			sourceTree = "<group>";
@@ -239,10 +253,12 @@
 				DBCEFCA3288D97830076E011 /* AppLabel.swift in Sources */,
 				DB979DE3288D13C900EEEA43 /* SetupModel.swift in Sources */,
 				DB2DD7A7288D60BD00FDC70F /* DatabaseIDInputVC.swift in Sources */,
+				DB2129F7288DB9D600EC6413 /* TitleInputVC.swift in Sources */,
 				DB979DE7288D199600EEEA43 /* SecondSetupVC.swift in Sources */,
 				DB19B5ED288C71AD002EE3F1 /* FirstSetupVC.swift in Sources */,
 				DB2DD7A4288D4D4900FDC70F /* IntegrationTokenInputVC.swift in Sources */,
 				DBCEFCA5288D9D080076E011 /* NotificationSetupVC.swift in Sources */,
+				DB2129F4288DB6EC00EC6413 /* FinishSetupVC.swift in Sources */,
 				DB62012F288A49A90026C0C3 /* SceneDelegate.swift in Sources */,
 				DBCEFCA1288D95A00076E011 /* AppTextField.swift in Sources */,
 			);

@@ -17,6 +17,8 @@ class AppTextField: UITextField {
         self.placeholderText = placeholderText
         super.init(frame: .zero)
         configureTF()
+        
+        self.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -56,5 +58,12 @@ class AppTextField: UITextField {
                 .font: UIFont.textField()
             ]
         )
+    }
+}
+
+extension AppTextField: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
     }
 }

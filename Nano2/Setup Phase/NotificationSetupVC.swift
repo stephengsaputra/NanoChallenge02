@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class NotificationSetupVC: UIViewController {
     
@@ -22,27 +23,29 @@ class NotificationSetupVC: UIViewController {
         return image
     }()
     
-    private lazy var stepLabel1: AppLabel = {
+    private lazy var bodyLabel1: AppLabel = {
         let label = AppLabel(style: .body, textString: "As a Learner, I also want to help other ADA Learners (yes, you) to write Reflections everyday")
         return label
     }()
     
-    private lazy var stepLabel2: UILabel = {
+    private lazy var bodyLabel2: UILabel = {
         let label = AppLabel(style: .body, textString: "This app can remind you everyday through Notification Center so that you remember to reflect your day")
         return label
     }()
     
-    private lazy var nextButton: AppButton = {
+    private lazy var agreeNotificationButton: AppButton = {
         let button = AppButton(style: .normal, text: "Enable notifications")
-        button.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleAgreeButtonTapped), for: .touchUpInside)
         return button
     }()
     
-    private lazy var declineButton: AppButton = {
+    private lazy var declineNoticicationButton: AppButton = {
         let button = AppButton(style: .destructive, text: "No thanks, I’m good")
-        button.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleDeclineButtonTapped), for: .touchUpInside)
         return button
     }()
+    
+    let notification = UNUserNotificationCenter.current()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -52,8 +55,17 @@ class NotificationSetupVC: UIViewController {
     }
     
     //MARK: - Selectors
-    @objc func handleButtonTapped() {
-        print("Test")
+    @objc func handleAgreeButtonTapped() {
+        notification.requestAuthorization(
+            options: [.alert, .sound, .badge]) { permissionGranted, error in
+            Utilities().addNotification()
+        }
+        
+        navigationController?.pushViewController(FinishSetupVC(), animated: true)
+    }
+    
+    @objc func handleDeclineButtonTapped() {
+        self.present(pushAlertTwoAction(), animated: true)
     }
     
     //MARK: - Helpers
@@ -86,10 +98,10 @@ class NotificationSetupVC: UIViewController {
             }
         }
         
-        stepLabel1.alpha = 0
-        view.addSubview(stepLabel1)
-        stepLabel1.centerX(inView: view)
-        stepLabel1.anchor(
+        bodyLabel1.alpha = 0
+        view.addSubview(bodyLabel1)
+        bodyLabel1.centerX(inView: view)
+        bodyLabel1.anchor(
             top: illustrationImage.bottomAnchor,
             left: view.leftAnchor,
             right: view.rightAnchor,
@@ -98,11 +110,11 @@ class NotificationSetupVC: UIViewController {
             paddingRight: 20
         )
         
-        stepLabel2.alpha = 0
-        view.addSubview(stepLabel2)
-        stepLabel2.centerX(inView: view)
-        stepLabel2.anchor(
-            top: stepLabel1.bottomAnchor,
+        bodyLabel2.alpha = 0
+        view.addSubview(bodyLabel2)
+        bodyLabel2.centerX(inView: view)
+        bodyLabel2.anchor(
+            top: bodyLabel1.bottomAnchor,
             left: view.leftAnchor,
             right: view.rightAnchor,
             paddingTop: 25,
@@ -111,35 +123,80 @@ class NotificationSetupVC: UIViewController {
         )
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             UIView.animate(withDuration: 0.5) {
-                self.stepLabel1.alpha = 1
-                self.stepLabel2.alpha = 1
+                self.bodyLabel1.alpha = 1
+                self.bodyLabel2.alpha = 1
             }
         }
         
-        declineButton.alpha = 0
-        view.addSubview(declineButton)
-        declineButton.centerX(inView: view)
-        declineButton.anchor(
+        declineNoticicationButton.alpha = 0
+        view.addSubview(declineNoticicationButton)
+        declineNoticicationButton.centerX(inView: view)
+        declineNoticicationButton.anchor(
             left: view.leftAnchor,
             bottom: view.safeAreaLayoutGuide.bottomAnchor,
             paddingLeft: 20,
             paddingBottom: 20
         )
         
-        nextButton.alpha = 0
-        view.addSubview(nextButton)
-        nextButton.centerX(inView: view)
-        nextButton.anchor(
+        agreeNotificationButton.alpha = 0
+        view.addSubview(agreeNotificationButton)
+        agreeNotificationButton.centerX(inView: view)
+        agreeNotificationButton.anchor(
             left: view.leftAnchor,
-            bottom: declineButton.topAnchor,
+            bottom: declineNoticicationButton.topAnchor,
             paddingLeft: 20,
             paddingBottom: 5
         )
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             UIView.animate(withDuration: 0.5) {
-                self.nextButton.alpha = 1
-                self.declineButton.alpha = 1
+                self.agreeNotificationButton.alpha = 1
+                self.declineNoticicationButton.alpha = 1
             }
         }
+    }
+}
+
+extension NotificationSetupVC {
+    
+    func pushAlertTwoAction() -> UIViewController {
+        
+        let alert = UIAlertController(
+            title: "Are you sure?",
+            message: "This application will not be able to remind you to write your Reflections.",
+            preferredStyle: .alert
+        )
+        alert.view.tintColor = UIColor.textColor
+        
+        let action1 = UIAlertAction(title: "Yes", style: .cancel) { action in
+            self.present(self.pushAlertOneAction(), animated: true)
+        }
+        
+        let action2 = UIAlertAction(title: "Cancel", style: .default) { action in
+            self.dismiss(animated: true)
+        }
+        
+        alert.addAction(action1)
+        alert.addAction(action2)
+        
+        return alert
+    }
+    
+    func pushAlertOneAction() -> UIViewController {
+        
+        let alert = UIAlertController(
+            title: "Reminders Disabled?",
+            message: "If you do change your mind, you can always enable it in the Settings page.",
+            preferredStyle: .alert
+        )
+        alert.view.tintColor = UIColor.textColor
+        
+        let action = UIAlertAction(title: "Alrighty!", style: .cancel) { action in
+            self.dismiss(animated: true)
+            self.navigationController?.pushViewController(FinishSetupVC(), animated: true)
+        }
+        
+        alert.addAction(action)
+        
+        return alert
     }
 }

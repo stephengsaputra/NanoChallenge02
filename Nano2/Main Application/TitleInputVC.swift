@@ -1,30 +1,47 @@
 //
-//  DatabaseIDInputVC.swift
+//  TitleInputVC.swift
 //  Nano2
 //
-//  Created by Stephen Giovanni Saputra on 24/07/22.
+//  Created by Stephen Giovanni Saputra on 25/07/22.
 //
 
-import Foundation
 import UIKit
 
-class DatabaseIDInputVC: UIViewController {
+class TitleInputVC: UIViewController {
 
-    //MARK: - Initializers
-    private lazy var headingLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "Finally, paste in your Database ID")
+    //MARK: - Properties
+    private lazy var largeTitleLabel: AppLabel = {
+        let label = AppLabel(style: .largeTitle, textString: "Let’s write your Reflections")
         return label
     }()
     
-    private lazy var databaseIDTF: AppTextField = {
-        let tf = AppTextField(placeholderText: "Integration Token")
+    private lazy var headingLabel: AppLabel = {
+        let label = AppLabel(style: .heading, textString: "First, let’s write\ndown a Title")
+        return label
+    }()
+    
+    private lazy var bodyLabel: AppLabel = {
+        let label = AppLabel(style: .body, textString: "It could be anything you want 😚")
+        return label
+    }()
+    
+    private lazy var reflectionsTitleTF: AppTextField = {
+        let tf = AppTextField(placeholderText: "Reflections Title")
         tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return tf
     }()
     
     private lazy var nextButton: AppButton = {
         let button = AppButton(style: .disabled, text: "Next")
-        button.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleNextButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var settingsButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "settingsIcon")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = .textColor
+        button.addTarget(self, action: #selector(handleSettingsButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -44,8 +61,12 @@ class DatabaseIDInputVC: UIViewController {
     }
     
     //MARK: - Selectors
-    @objc func handleButtonTapped() {
-        navigationController?.pushViewController(NotificationSetupVC(), animated: true)
+    @objc func handleNextButtonTapped() {
+        print("TEST")
+    }
+    
+    @objc func handleSettingsButtonTapped() {
+        print("TEST")
     }
     
     //MARK: - Helpers
@@ -53,22 +74,52 @@ class DatabaseIDInputVC: UIViewController {
         
         view.backgroundColor = .backgroundColor
         
-        view.addSubview(headingLabel)
-        headingLabel.anchor(
+        view.addSubview(settingsButton)
+        settingsButton.setDimensions(
+            height: view.frame.height / 19.2,
+            width: view.frame.width / 8.53)
+        settingsButton.anchor(
+            top: view.safeAreaLayoutGuide.topAnchor,
+            right: view.rightAnchor,
+            paddingTop: 26,
+            paddingRight: 10
+        )
+        
+        view.addSubview(largeTitleLabel)
+        largeTitleLabel.anchor(
             top: view.topAnchor,
             left: view.leftAnchor,
             right: view.rightAnchor,
-            paddingTop: UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 120 : 80,
+            paddingTop: UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 140 : 100,
             paddingLeft: 20,
             paddingRight: 20
         )
         
-        view.addSubview(databaseIDTF)
-        databaseIDTF.anchor(
+        view.addSubview(headingLabel)
+        headingLabel.anchor(
+            top: largeTitleLabel.bottomAnchor,
+            left: view.leftAnchor,
+            paddingTop: view.frame.height / 10.68,
+            paddingLeft: 20
+        )
+        
+        view.addSubview(bodyLabel)
+        bodyLabel.centerX(inView: view)
+        bodyLabel.anchor(
             top: headingLabel.bottomAnchor,
             left: view.leftAnchor,
             right: view.rightAnchor,
-            paddingTop: view.frame.height / 3.4,
+            paddingTop: 25,
+            paddingLeft: 20,
+            paddingRight: 20
+        )
+        
+        view.addSubview(reflectionsTitleTF)
+        reflectionsTitleTF.anchor(
+            top: bodyLabel.bottomAnchor,
+            left: view.leftAnchor,
+            right: view.rightAnchor,
+            paddingTop: 60,
             paddingLeft: 20,
             paddingRight: 20
         )
@@ -79,12 +130,12 @@ class DatabaseIDInputVC: UIViewController {
             left: view.leftAnchor,
             bottom: view.safeAreaLayoutGuide.bottomAnchor,
             paddingLeft: 20,
-            paddingBottom: 20
+            paddingBottom: 5
         )
     }
 }
 
-extension DatabaseIDInputVC {
+extension TitleInputVC {
     
     @objc func keyboardWillShow(notification: NSNotification) {
         

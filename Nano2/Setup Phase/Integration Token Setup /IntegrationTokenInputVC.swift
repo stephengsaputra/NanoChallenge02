@@ -17,6 +17,7 @@ class IntegrationTokenInputVC: UIViewController {
     
     private lazy var integrationTokenTF: AppTextField = {
         let tf = AppTextField(placeholderText: "Integration Token")
+        tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return tf
     }()
     
@@ -33,9 +34,6 @@ class IntegrationTokenInputVC: UIViewController {
         super.viewDidLoad()
         configureUI()
         
-        integrationTokenTF.delegate = self
-        integrationTokenTF.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -48,20 +46,6 @@ class IntegrationTokenInputVC: UIViewController {
     //MARK: - Selectors
     @objc func handleButtonTapped() {
         navigationController?.pushViewController(SecondSetupVC(), animated: true)
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            
-            let keyboardHeight = keyboardFrame.cgRectValue.height
-            let bottomSpacing = self.view.frame.height - (nextButton.frame.origin.y + nextButton.frame.height)
-            self.view.frame.origin.y -= keyboardHeight - bottomSpacing + 50
-        }
-    }
-    
-    @objc func keyboardWillHide() {
-        self.view.frame.origin.y = 0
     }
     
     //MARK: - Helpers
@@ -100,10 +84,20 @@ class IntegrationTokenInputVC: UIViewController {
     }
 }
 
-extension IntegrationTokenInputVC: UITextFieldDelegate {
+extension IntegrationTokenInputVC {
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return textField.resignFirstResponder()
+    @objc func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            
+            let keyboardHeight = keyboardFrame.cgRectValue.height
+            let bottomSpacing = self.view.frame.height - (nextButton.frame.origin.y + nextButton.frame.height)
+            self.view.frame.origin.y -= keyboardHeight - bottomSpacing + 50
+        }
+    }
+    
+    @objc func keyboardWillHide() {
+        self.view.frame.origin.y = 0
     }
     
     @objc func textFieldEditingChanged(_ textField: UITextField) {
