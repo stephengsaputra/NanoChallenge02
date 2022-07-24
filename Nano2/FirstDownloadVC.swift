@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FirstDownloadVC.swift
 //  Nano2
 //
 //  Created by Stephen Giovanni Saputra on 22/07/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FirstDownloadView: UIViewController {
+class FirstDownloadVC: UIViewController {
     
     //MARK: - Properties
     private lazy var emojiHi: UILabel = {
@@ -42,7 +42,11 @@ class FirstDownloadView: UIViewController {
         return label
     }()
     
-    private lazy var nextButton = AppButton(style: .normal, text: "Let's get started!")
+    private lazy var nextButton: AppButton = {
+        let button = AppButton(style: .normal, text: "Let's get started!")
+        button.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        return button
+    }()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -52,25 +56,40 @@ class FirstDownloadView: UIViewController {
     }
     
     //MARK: - Selectors
-    @objc func nextButtonTapped() {
-        
+    @objc func handleButtonTapped() {
         print("Test")
+        navigationController?.pushViewController(FirstSetupVC(), animated: true)
     }
     
     //MARK: - Helpers
     func configureUI() {
         
-        view.backgroundColor = UIColor(named: "backgroundColor")
+        view.backgroundColor = .backgroundColor
         
         view.addSubview(emojiHi)
-        emojiHi.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, paddingTop: 205, paddingLeft: 20)
+        emojiHi.anchor(
+            top: view.safeAreaLayoutGuide.topAnchor,
+            left: view.leftAnchor,
+            paddingTop: 160,
+            paddingLeft: 14
+        )
         
         view.addSubview(welcomeLabel)
-        welcomeLabel.anchor(top: emojiHi.bottomAnchor, left: view.leftAnchor, paddingTop: 5, paddingLeft: 20)
+        welcomeLabel.anchor(
+            top: emojiHi.bottomAnchor,
+            left: view.leftAnchor,
+            paddingTop: 5,
+            paddingLeft: 20
+        )
         
         subHeadingLabel1.alpha = 0
         view.addSubview(subHeadingLabel1)
-        subHeadingLabel1.anchor(top: welcomeLabel.bottomAnchor, left: view.leftAnchor, paddingTop: 35, paddingLeft: 20)
+        subHeadingLabel1.anchor(
+            top: welcomeLabel.bottomAnchor,
+            left: view.leftAnchor,
+            paddingTop: 35,
+            paddingLeft: 20
+        )
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             UIView.animate(withDuration: 0.5) {
                 self.subHeadingLabel1.alpha = 1
@@ -79,8 +98,13 @@ class FirstDownloadView: UIViewController {
         
         subHeadingLabel2.alpha = 0
         view.addSubview(subHeadingLabel2)
-        subHeadingLabel2.anchor(top: subHeadingLabel1.bottomAnchor, left: view.leftAnchor, paddingTop: 140, paddingLeft: 20)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        subHeadingLabel2.anchor(
+            top: subHeadingLabel1.bottomAnchor,
+            left: view.leftAnchor,
+            paddingTop: 140,
+            paddingLeft: 20
+        )
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             UIView.animate(withDuration: 0.5) {
                 self.subHeadingLabel2.alpha = 1
             }
@@ -88,10 +112,14 @@ class FirstDownloadView: UIViewController {
         
         nextButton.alpha = 0
         view.addSubview(nextButton)
-        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
         nextButton.centerX(inView: view)
-        nextButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, paddingLeft: 20, paddingBottom: 20)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+        nextButton.anchor(
+            left: view.leftAnchor,
+            bottom: view.safeAreaLayoutGuide.bottomAnchor,
+            paddingLeft: 20,
+            paddingBottom: 20
+        )
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             UIView.animate(withDuration: 0.5) {
                 self.nextButton.alpha = 1
             }

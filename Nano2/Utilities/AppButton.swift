@@ -15,7 +15,7 @@ class AppButton: UIButton {
         case destructive
     }
     
-    /// MARK: - Initializers
+    //MARK: - Initializers
     public private(set) var style: Style
     public private(set) var text: String
     
@@ -32,7 +32,7 @@ class AppButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    /// MARK: - Methods
+    //MARK: - Methods
     private func configureButton() {
         
         configureButtonText()
