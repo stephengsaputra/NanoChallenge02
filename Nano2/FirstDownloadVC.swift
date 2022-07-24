@@ -90,7 +90,7 @@ class FirstDownloadVC: UIViewController {
             paddingTop: 35,
             paddingLeft: 20
         )
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             UIView.animate(withDuration: 0.5) {
                 self.subHeadingLabel1.alpha = 1
             }
@@ -104,7 +104,7 @@ class FirstDownloadVC: UIViewController {
             paddingTop: 140,
             paddingLeft: 20
         )
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             UIView.animate(withDuration: 0.5) {
                 self.subHeadingLabel2.alpha = 1
             }
@@ -119,7 +119,7 @@ class FirstDownloadVC: UIViewController {
             paddingLeft: 20,
             paddingBottom: UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 0 : 20
         )
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.75) {
             UIView.animate(withDuration: 0.5) {
                 self.nextButton.alpha = 1
             }

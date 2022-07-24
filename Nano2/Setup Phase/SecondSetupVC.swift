@@ -125,17 +125,11 @@ class SecondSetupVC: UIViewController {
                 }
             }
             
-            // To display the first step
+            // To display the steps
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 UIView.animate(withDuration: 0.5) {
                     self.stepLabel1.text = self.setupContent[self.contentIsShown].step1
                     self.stepLabel1.alpha = 1
-                }
-            }
-            
-            // To display the second step
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                UIView.animate(withDuration: 0.5) {
                     self.stepLabel2.text = self.setupContent[self.contentIsShown].step2
                     self.stepLabel2.alpha = 1
                 }
@@ -143,7 +137,7 @@ class SecondSetupVC: UIViewController {
             
             pageControl.currentPage = contentIsShown
         } else {
-            contentIsShown = 3
+            contentIsShown = 4
         }
     }
     
@@ -156,7 +150,7 @@ class SecondSetupVC: UIViewController {
         headingLabel.anchor(
             top: view.topAnchor,
             left: view.leftAnchor,
-            paddingTop: UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 120 : 80,
+            paddingTop: UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 100 : 80,
             paddingLeft: 20
         )
 
@@ -196,11 +190,6 @@ class SecondSetupVC: UIViewController {
             paddingLeft: 20,
             paddingRight: 20
         )
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            UIView.animate(withDuration: 0.5) {
-                self.stepLabel1.alpha = 1
-            }
-        }
         
         stepLabel2.alpha = 0
         view.addSubview(stepLabel2)
@@ -213,8 +202,9 @@ class SecondSetupVC: UIViewController {
             paddingLeft: 20,
             paddingRight: 20
         )
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             UIView.animate(withDuration: 0.5) {
+                self.stepLabel1.alpha = 1
                 self.stepLabel2.alpha = 1
             }
         }
@@ -228,7 +218,7 @@ class SecondSetupVC: UIViewController {
             paddingLeft: 20,
             paddingBottom: UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 0 : 20
         )
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.25) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             UIView.animate(withDuration: 0.5) {
                 self.nextButton.alpha = 1
             }
@@ -241,7 +231,7 @@ class SecondSetupVC: UIViewController {
             bottom: nextButton.topAnchor,
             paddingBottom: 25
         )
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             UIView.animate(withDuration: 0.5) {
                 self.pageControl.alpha = 1
             }
