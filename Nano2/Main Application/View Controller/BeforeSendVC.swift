@@ -51,6 +51,8 @@ class BeforeSendVC: UIViewController {
         
         super.viewDidLoad()
         configureUI()
+        
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
     //MARK: - Selectors

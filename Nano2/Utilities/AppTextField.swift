@@ -39,9 +39,9 @@ class AppTextField: UITextField {
                 x: 0.0,
                 y: 35,
                 width: UIScreen.main.bounds.width - 40,
-                height: 1.0
+                height: 1.5
             )
-            line.backgroundColor = UIColor.textColor?.resolvedColor(with: self.traitCollection).cgColor
+            line.backgroundColor = UIColor.lightGray.cgColor
             return line
         }()
         

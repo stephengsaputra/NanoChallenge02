@@ -130,7 +130,7 @@ class TitleInputVC: UIViewController {
             left: view.leftAnchor,
             bottom: view.safeAreaLayoutGuide.bottomAnchor,
             paddingLeft: 20,
-            paddingBottom: 5
+            paddingBottom: 20
         )
     }
 }

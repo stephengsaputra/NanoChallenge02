@@ -51,6 +51,8 @@ class SettingsVC: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureTextFieldObservers()
+        
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
     //MARK: - Selectors

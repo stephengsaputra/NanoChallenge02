@@ -40,6 +40,8 @@ class BodyInputVC: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureTextViewObservers()
+        
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
     //MARK: - Selectors

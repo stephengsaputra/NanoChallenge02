@@ -148,7 +148,7 @@ class NotificationSetupVC: UIViewController {
             left: view.leftAnchor,
             bottom: declineNoticicationButton.topAnchor,
             paddingLeft: 20,
-            paddingBottom: 5
+            paddingBottom: 7.5
         )
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             UIView.animate(withDuration: 0.5) {
