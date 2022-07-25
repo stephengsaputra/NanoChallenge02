@@ -52,8 +52,6 @@ class FailedSubmitVC: UIViewController {
         return button
     }()
     
-    let notification = UNUserNotificationCenter.current()
-    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         
@@ -63,7 +61,10 @@ class FailedSubmitVC: UIViewController {
     
     //MARK: - Selectors
     @objc func handleButtonTapped() {
-        print("Oh no")
+        UserDefaults.standard.set(integrationTokenTF.text ?? "", forKey: "integrationToken")
+        UserDefaults.standard.set(databaseIDTF.text ?? "", forKey: "databaseID")
+        
+        navigationController?.popViewController(animated: true)
     }
     
     //MARK: - Helpers

@@ -37,7 +37,7 @@ class SuccessSubmitVC: UIViewController {
         return button
     }()
     
-    let notification = UNUserNotificationCenter.current()
+    let sceneDelegate = UIApplication.shared.connectedScenes.first
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -48,7 +48,10 @@ class SuccessSubmitVC: UIViewController {
     
     //MARK: - Selectors
     @objc func handleButtonTapped() {
-        print("FINISH")
+        
+        if let scene: SceneDelegate = (self.sceneDelegate?.delegate as? SceneDelegate) {
+            scene.setToMain()
+        }
     }
     
     //MARK: - Helpers
