@@ -80,6 +80,7 @@ class FailedSubmitVC: UIViewController {
     //MARK: - Helpers
     func configureUI() {
         
+        Utilities().vibrate(for: .error)
         view.backgroundColor = .backgroundColor
         
         view.addSubview(headingLabel)

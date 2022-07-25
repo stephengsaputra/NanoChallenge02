@@ -60,6 +60,7 @@ class SuccessSubmitVC: UIViewController {
     //MARK: - Helpers
     func configureUI() {
         
+        Utilities().vibrate(for: .success)
         view.backgroundColor = .backgroundColor
         
         view.addSubview(headingLabel)
