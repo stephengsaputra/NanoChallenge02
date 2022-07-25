@@ -24,8 +24,14 @@ class BodyInputVC: UIViewController {
     }()
     
     private lazy var textView: AppTextView = {
-        let tv = AppTextView(placeholderText: "Write it down here...")
+        let tv = AppTextView(style: .editable,
+            placeholderText: "Write it down here...")
         return tv
+    }()
+    
+    private lazy var finishButton: AppButton = {
+        let button = AppButton(style: .disabled, text: "Finish", #selector(handleFinishButtonTapped), self)
+        return button
     }()
     
     //MARK: - Lifecycle
@@ -41,6 +47,10 @@ class BodyInputVC: UIViewController {
         UserDefaults.standard.set(textView.text ?? "", forKey: "reflectionBody")
 //        navigationController?.popViewController(animated: true)
         print(UserDefaults.standard.string(forKey: "reflectionBody"))
+    }
+    
+    @objc func handleFinishButtonTapped() {
+        print("FINISH")
     }
     
     @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
@@ -70,15 +80,24 @@ class BodyInputVC: UIViewController {
             paddingRight: 20
         )
         
+        view.addSubview(finishButton)
+        finishButton.centerX(inView: view)
+        finishButton.anchor(
+            left: view.leftAnchor,
+            bottom: view.safeAreaLayoutGuide.bottomAnchor,
+            paddingLeft: 20,
+            paddingBottom: 5
+        )
+        
         view.addSubview(textView)
         textView.anchor(
             top: headingLabel.bottomAnchor,
             left: view.leftAnchor,
-            bottom: view.safeAreaLayoutGuide.bottomAnchor,
+            bottom: finishButton.topAnchor,
             right: view.rightAnchor,
             paddingTop: 16,
             paddingLeft: 20,
-            paddingBottom: 20,
+            paddingBottom: 16,
             paddingRight: 20
         )
     }

@@ -1,5 +1,5 @@
 //
-//  SettingsVC.swift
+//  FailedSubmitVC.swift
 //  Nano2
 //
 //  Created by Stephen Giovanni Saputra on 25/07/22.
@@ -7,11 +7,21 @@
 
 import UIKit
 
-class SettingsVC: UIViewController {
-
+class FailedSubmitVC: UIViewController {
+    
     //MARK: - Properties
     private lazy var headingLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "Settings")
+        let label = AppLabel(style: .heading, textString: "Uh-oh!!")
+        return label
+    }()
+    
+    private lazy var bodyLabel1: AppLabel = {
+        let label = AppLabel(style: .body, textString: "It seems that there has been an error!")
+        return label
+    }()
+    
+    private lazy var bodyLabel2: UILabel = {
+        let label = AppLabel(style: .body, textString: "To make sure, please recheck your Integration Token and database ID below. You can edit it right here:")
         return label
     }()
     
@@ -37,27 +47,23 @@ class SettingsVC: UIViewController {
         return tf
     }()
     
-    private lazy var backButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "backIcon")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        button.tintColor = .textColor
-        button.addTarget(self, action: #selector(handleBackButtonTapped), for: .touchUpInside)
+    private lazy var startWritingButton: AppButton = {
+        let button = AppButton(style: .normal, text: "Back to summary", #selector(handleButtonTapped), self)
         return button
     }()
+    
+    let notification = UNUserNotificationCenter.current()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         
         super.viewDidLoad()
         configureUI()
-        configureTextFieldObservers()
     }
     
     //MARK: - Selectors
-    @objc func handleBackButtonTapped() {
-        UserDefaults.standard.set(integrationTokenTF.text ?? "", forKey: "integrationToken")
-        UserDefaults.standard.set(databaseIDTF.text ?? "", forKey: "databaseID")
-        navigationController?.popViewController(animated: true)
+    @objc func handleButtonTapped() {
+        print("Oh no")
     }
     
     //MARK: - Helpers
@@ -65,20 +71,32 @@ class SettingsVC: UIViewController {
         
         view.backgroundColor = .backgroundColor
         
-        view.addSubview(backButton)
-        backButton.anchor(
-            top: view.safeAreaLayoutGuide.topAnchor,
-            left: view.leftAnchor,
-            paddingTop: 26,
-            paddingLeft: 20
-        )
-        
         view.addSubview(headingLabel)
         headingLabel.anchor(
             top: view.topAnchor,
             left: view.leftAnchor,
+            paddingTop: UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 120 : 80,
+            paddingLeft: 20
+        )
+        
+        view.addSubview(bodyLabel1)
+        bodyLabel1.centerX(inView: view)
+        bodyLabel1.anchor(
+            top: headingLabel.bottomAnchor,
+            left: view.leftAnchor,
             right: view.rightAnchor,
-            paddingTop: 151,
+            paddingTop: 32,
+            paddingLeft: 20,
+            paddingRight: 20
+        )
+        
+        view.addSubview(bodyLabel2)
+        bodyLabel2.centerX(inView: view)
+        bodyLabel2.anchor(
+            top: bodyLabel1.bottomAnchor,
+            left: view.leftAnchor,
+            right: view.rightAnchor,
+            paddingTop: 25,
             paddingLeft: 20,
             paddingRight: 20
         )
@@ -88,10 +106,10 @@ class SettingsVC: UIViewController {
         integrationStack.axis = .vertical
         view.addSubview(integrationStack)
         integrationStack.anchor(
-            top: headingLabel.bottomAnchor,
+            top: bodyLabel2.bottomAnchor,
             left: view.leftAnchor,
             right: view.rightAnchor,
-            paddingTop: view.frame.height / 14.07,
+            paddingTop: view.frame.height / 7.15,
             paddingLeft: 20,
             paddingRight: 20
         )
@@ -108,19 +126,14 @@ class SettingsVC: UIViewController {
             paddingLeft: 20,
             paddingRight: 20
         )
-    }
-}
-
-extension SettingsVC {
-    
-    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        integrationTokenTF.resignFirstResponder()
-        databaseIDTF.resignFirstResponder()
-    }
-    
-    private func configureTextFieldObservers() {
         
-        var tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
-        self.view.addGestureRecognizer(tap)
+        view.addSubview(startWritingButton)
+        startWritingButton.centerX(inView: view)
+        startWritingButton.anchor(
+            left: view.leftAnchor,
+            bottom: view.safeAreaLayoutGuide.bottomAnchor,
+            paddingLeft: 20,
+            paddingBottom: 5
+        )
     }
 }

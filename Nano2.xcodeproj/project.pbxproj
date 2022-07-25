@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB114725288E8673002631C1 /* BeforeSendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB114724288E8673002631C1 /* BeforeSendVC.swift */; };
+		DB114728288E90DA002631C1 /* SuccessSubmitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB114727288E90DA002631C1 /* SuccessSubmitVC.swift */; };
+		DB11472A288E9251002631C1 /* FailedSubmitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB114729288E9251002631C1 /* FailedSubmitVC.swift */; };
 		DB19B5ED288C71AD002EE3F1 /* FirstSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19B5EC288C71AD002EE3F1 /* FirstSetupVC.swift */; };
 		DB2129F4288DB6EC00EC6413 /* FinishSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2129F3288DB6EC00EC6413 /* FinishSetupVC.swift */; };
 		DB2129F7288DB9D600EC6413 /* TitleInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2129F6288DB9D600EC6413 /* TitleInputVC.swift */; };
@@ -36,6 +39,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB114724288E8673002631C1 /* BeforeSendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeSendVC.swift; sourceTree = "<group>"; };
+		DB114727288E90DA002631C1 /* SuccessSubmitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessSubmitVC.swift; sourceTree = "<group>"; };
+		DB114729288E9251002631C1 /* FailedSubmitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailedSubmitVC.swift; sourceTree = "<group>"; };
 		DB19B5EC288C71AD002EE3F1 /* FirstSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSetupVC.swift; sourceTree = "<group>"; };
 		DB2129F3288DB6EC00EC6413 /* FinishSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishSetupVC.swift; sourceTree = "<group>"; };
 		DB2129F6288DB9D600EC6413 /* TitleInputVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleInputVC.swift; sourceTree = "<group>"; };
@@ -77,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB114726288E90BA002631C1 /* Response View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DB114727288E90DA002631C1 /* SuccessSubmitVC.swift */,
+				DB114729288E9251002631C1 /* FailedSubmitVC.swift */,
+			);
+			path = "Response View Controller";
+			sourceTree = "<group>";
+		};
 		DB2129F5288DB9B900EC6413 /* Main Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +125,8 @@
 			children = (
 				DB2129F6288DB9D600EC6413 /* TitleInputVC.swift */,
 				DB7F99B5288E5E0800649211 /* BodyInputVC.swift */,
+				DB114724288E8673002631C1 /* BeforeSendVC.swift */,
+				DB114726288E90BA002631C1 /* Response View Controller */,
 				DB7F99B3288E543D00649211 /* SettingsVC.swift */,
 			);
 			path = "View Controller";
@@ -288,8 +305,10 @@
 				DB620142288A60D00026C0C3 /* Utilities.swift in Sources */,
 				DB7F99B1288E42DB00649211 /* OnboardingManager.swift in Sources */,
 				DBCEFCA3288D97830076E011 /* AppLabel.swift in Sources */,
+				DB114725288E8673002631C1 /* BeforeSendVC.swift in Sources */,
 				DB979DE3288D13C900EEEA43 /* SetupModel.swift in Sources */,
 				DB2DD7A7288D60BD00FDC70F /* DatabaseIDInputVC.swift in Sources */,
+				DB114728288E90DA002631C1 /* SuccessSubmitVC.swift in Sources */,
 				DB7F99B8288E5F0900649211 /* AppTextView.swift in Sources */,
 				DB2129F7288DB9D600EC6413 /* TitleInputVC.swift in Sources */,
 				DB979DE7288D199600EEEA43 /* SecondSetupVC.swift in Sources */,
@@ -297,6 +316,7 @@
 				DB2DD7A4288D4D4900FDC70F /* IntegrationTokenInputVC.swift in Sources */,
 				DBCEFCA5288D9D080076E011 /* NotificationSetupVC.swift in Sources */,
 				DB2129F4288DB6EC00EC6413 /* FinishSetupVC.swift in Sources */,
+				DB11472A288E9251002631C1 /* FailedSubmitVC.swift in Sources */,
 				DB62012F288A49A90026C0C3 /* SceneDelegate.swift in Sources */,
 				DB7F99B6288E5E0800649211 /* BodyInputVC.swift in Sources */,
 				DBCEFCA1288D95A00076E011 /* AppTextField.swift in Sources */,

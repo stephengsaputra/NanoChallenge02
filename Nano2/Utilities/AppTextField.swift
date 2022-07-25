@@ -33,7 +33,7 @@ class AppTextField: UITextField {
     
     private func configureTFStyle() {
         
-        var bottomLine: CALayer = {
+        let bottomLine: CALayer = {
             let line = CALayer()
             line.frame = CGRect(
                 x: 0.0,
@@ -41,7 +41,7 @@ class AppTextField: UITextField {
                 width: UIScreen.main.bounds.width - 40,
                 height: 1.0
             )
-            line.backgroundColor = UIColor.textColor?.cgColor
+            line.backgroundColor = UIColor.textColor?.resolvedColor(with: self.traitCollection).cgColor
             return line
         }()
         
