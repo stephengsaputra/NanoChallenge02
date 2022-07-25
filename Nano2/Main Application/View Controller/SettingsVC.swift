@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsVC: UIViewController {
 
-    //MARK: - Initializers
+    //MARK: - Properties
     private lazy var headingLabel: AppLabel = {
         let label = AppLabel(style: .heading, textString: "Settings")
         return label
@@ -59,7 +59,7 @@ class SettingsVC: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    //MARK: - Methods
+    //MARK: - Helpers
     func configureUI() {
         
         view.backgroundColor = .backgroundColor

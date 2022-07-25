@@ -25,6 +25,8 @@
 		DB62014A288A61AC0026C0C3 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB620147288A61AC0026C0C3 /* Raleway-Medium.ttf */; };
 		DB7F99B1288E42DB00649211 /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F99B0288E42DB00649211 /* OnboardingManager.swift */; };
 		DB7F99B4288E543D00649211 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F99B3288E543D00649211 /* SettingsVC.swift */; };
+		DB7F99B6288E5E0800649211 /* BodyInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F99B5288E5E0800649211 /* BodyInputVC.swift */; };
+		DB7F99B8288E5F0900649211 /* AppTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F99B7288E5F0900649211 /* AppTextView.swift */; };
 		DB979DE3288D13C900EEEA43 /* SetupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB979DE2288D13C900EEEA43 /* SetupModel.swift */; };
 		DB979DE7288D199600EEEA43 /* SecondSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB979DE6288D199600EEEA43 /* SecondSetupVC.swift */; };
 		DBCEFCA1288D95A00076E011 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCEFCA0288D95A00076E011 /* AppTextField.swift */; };
@@ -54,6 +56,8 @@
 		DB620147288A61AC0026C0C3 /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
 		DB7F99B0288E42DB00649211 /* OnboardingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
 		DB7F99B3288E543D00649211 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		DB7F99B5288E5E0800649211 /* BodyInputVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyInputVC.swift; sourceTree = "<group>"; };
+		DB7F99B7288E5F0900649211 /* AppTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextView.swift; sourceTree = "<group>"; };
 		DB979DE2288D13C900EEEA43 /* SetupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupModel.swift; sourceTree = "<group>"; };
 		DB979DE6288D199600EEEA43 /* SecondSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSetupVC.swift; sourceTree = "<group>"; };
 		DBCEFCA0288D95A00076E011 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				DB2129F6288DB9D600EC6413 /* TitleInputVC.swift */,
+				DB7F99B5288E5E0800649211 /* BodyInputVC.swift */,
 				DB7F99B3288E543D00649211 /* SettingsVC.swift */,
 			);
 			path = "View Controller";
@@ -169,6 +174,7 @@
 				DBEA85AB288BE01C0036BAB8 /* AppButton.swift */,
 				DBCEFCA0288D95A00076E011 /* AppTextField.swift */,
 				DBCEFCA2288D97830076E011 /* AppLabel.swift */,
+				DB7F99B7288E5F0900649211 /* AppTextView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -284,6 +290,7 @@
 				DBCEFCA3288D97830076E011 /* AppLabel.swift in Sources */,
 				DB979DE3288D13C900EEEA43 /* SetupModel.swift in Sources */,
 				DB2DD7A7288D60BD00FDC70F /* DatabaseIDInputVC.swift in Sources */,
+				DB7F99B8288E5F0900649211 /* AppTextView.swift in Sources */,
 				DB2129F7288DB9D600EC6413 /* TitleInputVC.swift in Sources */,
 				DB979DE7288D199600EEEA43 /* SecondSetupVC.swift in Sources */,
 				DB19B5ED288C71AD002EE3F1 /* FirstSetupVC.swift in Sources */,
@@ -291,6 +298,7 @@
 				DBCEFCA5288D9D080076E011 /* NotificationSetupVC.swift in Sources */,
 				DB2129F4288DB6EC00EC6413 /* FinishSetupVC.swift in Sources */,
 				DB62012F288A49A90026C0C3 /* SceneDelegate.swift in Sources */,
+				DB7F99B6288E5E0800649211 /* BodyInputVC.swift in Sources */,
 				DBCEFCA1288D95A00076E011 /* AppTextField.swift in Sources */,
 				DB7F99B4288E543D00649211 /* SettingsVC.swift in Sources */,
 			);
