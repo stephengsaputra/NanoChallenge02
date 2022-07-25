@@ -70,6 +70,7 @@ class AppTextView: UITextView {
 extension AppTextView: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
+        
         if textView.textColor == UIColor(named: "tFHintTextColor") {
             textView.text = nil
             textView.textColor = .textColor

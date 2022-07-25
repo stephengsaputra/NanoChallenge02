@@ -41,22 +41,21 @@ class BodyInputVC: UIViewController {
         configureUI()
         configureTextViewObservers()
         
+        Utilities().slideViewWhenShowKeyboard(self, #selector(keyboardWillShow(notification:)), #selector(keyboardWillHide))
+        
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
     //MARK: - Selectors
     @objc func handleBackButtonTapped() {
         UserDefaults.standard.set(textView.text ?? "", forKey: "reflectionBody")
-//        navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
         print(UserDefaults.standard.string(forKey: "reflectionBody"))
     }
     
     @objc func handleFinishButtonTapped() {
-        print("FINISH")
-    }
-    
-    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        textView.resignFirstResponder()
+        UserDefaults.standard.set(textView.text ?? "", forKey: "reflectionBody")
+        navigationController?.pushViewController(BeforeSendVC(), animated: true)
     }
     
     //MARK: - Helpers
@@ -88,7 +87,7 @@ class BodyInputVC: UIViewController {
             left: view.leftAnchor,
             bottom: view.safeAreaLayoutGuide.bottomAnchor,
             paddingLeft: 20,
-            paddingBottom: 5
+            paddingBottom: 20
         )
         
         view.addSubview(textView)
@@ -103,10 +102,39 @@ class BodyInputVC: UIViewController {
             paddingRight: 20
         )
     }
+}
+
+extension BodyInputVC {
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            
+            let keyboardHeight = keyboardFrame.cgRectValue.height
+            let bottomSpacing = self.view.frame.height - (finishButton.frame.origin.y + finishButton.frame.height)
+            self.view.frame.origin.y -= keyboardHeight - bottomSpacing + 50
+        }
+    }
+    
+    @objc func keyboardWillHide() {
+        self.view.frame.origin.y = 0
+    }
+    
+    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        textView.resignFirstResponder()
+        
+        if textView.text != nil && textView.text!.isEmpty {
+            finishButton.isEnabled = false
+        } else {
+            finishButton.isEnabled = true
+        }
+    }
     
     private func configureTextViewObservers() {
         
         var tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
         self.view.addGestureRecognizer(tap)
     }
+    
+    
 }

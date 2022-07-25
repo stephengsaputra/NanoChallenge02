@@ -32,6 +32,8 @@
 		DB7F99B8288E5F0900649211 /* AppTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F99B7288E5F0900649211 /* AppTextView.swift */; };
 		DB979DE3288D13C900EEEA43 /* SetupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB979DE2288D13C900EEEA43 /* SetupModel.swift */; };
 		DB979DE7288D199600EEEA43 /* SecondSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB979DE6288D199600EEEA43 /* SecondSetupVC.swift */; };
+		DBBEE79A288EB695002109B0 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBEE799288EB695002109B0 /* Helper.swift */; };
+		DBBEE79C288EC27D002109B0 /* ReflectionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBEE79B288EC27D002109B0 /* ReflectionsModel.swift */; };
 		DBCEFCA1288D95A00076E011 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCEFCA0288D95A00076E011 /* AppTextField.swift */; };
 		DBCEFCA3288D97830076E011 /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCEFCA2288D97830076E011 /* AppLabel.swift */; };
 		DBCEFCA5288D9D080076E011 /* NotificationSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCEFCA4288D9D080076E011 /* NotificationSetupVC.swift */; };
@@ -66,6 +68,8 @@
 		DB7F99B7288E5F0900649211 /* AppTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextView.swift; sourceTree = "<group>"; };
 		DB979DE2288D13C900EEEA43 /* SetupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupModel.swift; sourceTree = "<group>"; };
 		DB979DE6288D199600EEEA43 /* SecondSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSetupVC.swift; sourceTree = "<group>"; };
+		DBBEE799288EB695002109B0 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		DBBEE79B288EC27D002109B0 /* ReflectionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionsModel.swift; sourceTree = "<group>"; };
 		DBCEFCA0288D95A00076E011 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
 		DBCEFCA2288D97830076E011 /* AppLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
 		DBCEFCA4288D9D080076E011 /* NotificationSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSetupVC.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				DB2129FA288DC11D00EC6413 /* View Controller */,
+				DBBEE799288EB695002109B0 /* Helper.swift */,
+				DBBEE79B288EC27D002109B0 /* ReflectionsModel.swift */,
 			);
 			path = "Main Application";
 			sourceTree = "<group>";
@@ -188,10 +194,7 @@
 				DB7F99B0288E42DB00649211 /* OnboardingManager.swift */,
 				DB620141288A60D00026C0C3 /* Extensions.swift */,
 				DB620140288A60D00026C0C3 /* Utilities.swift */,
-				DBEA85AB288BE01C0036BAB8 /* AppButton.swift */,
-				DBCEFCA0288D95A00076E011 /* AppTextField.swift */,
-				DBCEFCA2288D97830076E011 /* AppLabel.swift */,
-				DB7F99B7288E5F0900649211 /* AppTextView.swift */,
+				DBBEE798288EB67F002109B0 /* Custom Assets */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -222,6 +225,17 @@
 				DB620137288A49AA0026C0C3 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		DBBEE798288EB67F002109B0 /* Custom Assets */ = {
+			isa = PBXGroup;
+			children = (
+				DBEA85AB288BE01C0036BAB8 /* AppButton.swift */,
+				DBCEFCA0288D95A00076E011 /* AppTextField.swift */,
+				DBCEFCA2288D97830076E011 /* AppLabel.swift */,
+				DB7F99B7288E5F0900649211 /* AppTextView.swift */,
+			);
+			path = "Custom Assets";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,10 +331,12 @@
 				DBCEFCA5288D9D080076E011 /* NotificationSetupVC.swift in Sources */,
 				DB2129F4288DB6EC00EC6413 /* FinishSetupVC.swift in Sources */,
 				DB11472A288E9251002631C1 /* FailedSubmitVC.swift in Sources */,
+				DBBEE79C288EC27D002109B0 /* ReflectionsModel.swift in Sources */,
 				DB62012F288A49A90026C0C3 /* SceneDelegate.swift in Sources */,
 				DB7F99B6288E5E0800649211 /* BodyInputVC.swift in Sources */,
 				DBCEFCA1288D95A00076E011 /* AppTextField.swift in Sources */,
 				DB7F99B4288E543D00649211 /* SettingsVC.swift in Sources */,
+				DBBEE79A288EB695002109B0 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

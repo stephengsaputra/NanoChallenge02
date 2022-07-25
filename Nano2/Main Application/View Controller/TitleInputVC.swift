@@ -62,7 +62,7 @@ class TitleInputVC: UIViewController {
     //MARK: - Selectors
     @objc func handleNextButtonTapped() {
         UserDefaults.standard.set(reflectionsTitleTF.text ?? "", forKey: "reflectionTitle")
-        print("TEST")
+        navigationController?.pushViewController(BodyInputVC(), animated: true)
     }
     
     @objc func handleSettingsButtonTapped() {
