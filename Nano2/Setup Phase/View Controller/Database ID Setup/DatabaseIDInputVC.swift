@@ -32,6 +32,7 @@ class DatabaseIDInputVC: UIViewController {
         
         super.viewDidLoad()
         configureUI()
+        configureTextFieldObservers()
         
         Utilities().slideViewWhenShowKeyboard(self, #selector(self.keyboardWillShow(notification:)), #selector(self.keyboardWillHide))
     }
@@ -106,5 +107,15 @@ extension DatabaseIDInputVC {
         } else {
             nextButton.isEnabled = true
         }
+    }
+    
+    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        databaseIDTF.resignFirstResponder()
+    }
+    
+    private func configureTextFieldObservers() {
+        
+        var tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
+        self.view.addGestureRecognizer(tap)
     }
 }

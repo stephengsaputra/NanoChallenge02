@@ -60,7 +60,7 @@ class AppButton: UIButton {
             case .disabled:
                 backgroundColor = UIColor(named: "disabledButtonBG")
                 setTitleColor(UIColor(named: "disabledButtonText"), for: .normal)
-            self.alpha = 0.5
+                self.alpha = 0.5
                 isEnabled = false
             case .destructive:
                 backgroundColor = UIColor(named: "customRed")

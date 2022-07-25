@@ -49,6 +49,7 @@ class TitleInputVC: UIViewController {
         
         super.viewDidLoad()
         configureUI()
+        configureTextFieldObservers()
         
         Utilities().slideViewWhenShowKeyboard(self, #selector(self.keyboardWillShow(notification:)), #selector(self.keyboardWillHide))
     }
@@ -157,5 +158,15 @@ extension TitleInputVC {
         } else {
             nextButton.isEnabled = true
         }
+    }
+    
+    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        reflectionsTitleTF.resignFirstResponder()
+    }
+    
+    private func configureTextFieldObservers() {
+        
+        var tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
+        self.view.addGestureRecognizer(tap)
     }
 }

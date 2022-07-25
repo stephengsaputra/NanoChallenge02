@@ -33,6 +33,7 @@ class BodyInputVC: UIViewController {
         
         super.viewDidLoad()
         configureUI()
+        configureTextViewObservers()
     }
     
     //MARK: - Selectors
@@ -40,6 +41,10 @@ class BodyInputVC: UIViewController {
         UserDefaults.standard.set(textView.text ?? "", forKey: "reflectionBody")
 //        navigationController?.popViewController(animated: true)
         print(UserDefaults.standard.string(forKey: "reflectionBody"))
+    }
+    
+    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        textView.resignFirstResponder()
     }
     
     //MARK: - Helpers
@@ -76,5 +81,11 @@ class BodyInputVC: UIViewController {
             paddingBottom: 20,
             paddingRight: 20
         )
+    }
+    
+    private func configureTextViewObservers() {
+        
+        var tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
+        self.view.addGestureRecognizer(tap)
     }
 }

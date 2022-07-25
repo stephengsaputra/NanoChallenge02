@@ -15,6 +15,7 @@ class AppTextView: UITextView {
     init(placeholderText: String) {
         
         self.placeholderText = placeholderText
+        
         super.init(frame: .zero, textContainer: nil)
         configureTV()
         
@@ -50,9 +51,5 @@ extension AppTextView: UITextViewDelegate {
             textView.text = nil
             textView.textColor = .textColor
         }
-    }
-    
-    func textFieldShouldReturn(_ textView: UITextView) -> Bool {
-        return textView.resignFirstResponder()
     }
 }
