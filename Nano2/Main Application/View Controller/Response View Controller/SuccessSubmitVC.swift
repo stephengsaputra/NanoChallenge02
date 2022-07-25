@@ -32,7 +32,7 @@ class SuccessSubmitVC: UIViewController {
         return label
     }()
     
-    private lazy var startWritingButton: AppButton = {
+    private lazy var backToMainButton: AppButton = {
         let button = AppButton(style: .normal, text: "Back to main", #selector(handleButtonTapped), self)
         return button
     }()
@@ -48,6 +48,9 @@ class SuccessSubmitVC: UIViewController {
     
     //MARK: - Selectors
     @objc func handleButtonTapped() {
+        
+        UserDefaults.standard.set("", forKey: "reflectionTitle")
+        UserDefaults.standard.set("", forKey: "reflectionBody")
         
         if let scene: SceneDelegate = (self.sceneDelegate?.delegate as? SceneDelegate) {
             scene.setToMain()
@@ -100,13 +103,13 @@ class SuccessSubmitVC: UIViewController {
             paddingRight: 20
         )
         
-        view.addSubview(startWritingButton)
-        startWritingButton.centerX(inView: view)
-        startWritingButton.anchor(
+        view.addSubview(backToMainButton)
+        backToMainButton.centerX(inView: view)
+        backToMainButton.anchor(
             left: view.leftAnchor,
             bottom: view.safeAreaLayoutGuide.bottomAnchor,
             paddingLeft: 20,
-            paddingBottom: 5
+            paddingBottom: 20
         )
     }
 }

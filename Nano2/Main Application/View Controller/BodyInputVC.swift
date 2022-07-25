@@ -111,8 +111,8 @@ extension BodyInputVC {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             
             let keyboardHeight = keyboardFrame.cgRectValue.height
-            let bottomSpacing = self.view.frame.height - (finishButton.frame.origin.y + finishButton.frame.height)
-            self.view.frame.origin.y -= keyboardHeight - bottomSpacing + 50
+            let bottomSpacing = self.view.frame.height - (headingLabel.frame.origin.y + textView.frame.height)
+            self.view.frame.origin.y -= keyboardHeight - bottomSpacing
         }
     }
     
@@ -121,12 +121,23 @@ extension BodyInputVC {
     }
     
     @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        
         textView.resignFirstResponder()
         
         if textView.text != nil && textView.text!.isEmpty {
             finishButton.isEnabled = false
+            UIView.animate(withDuration: 0.2) {
+                self.finishButton.backgroundColor = UIColor(named: "disabledButtonBG")
+                self.finishButton.setTitleColor(UIColor(named: "disabledButtonText"), for: .normal)
+                self.finishButton.alpha = 0.5
+            }
         } else {
             finishButton.isEnabled = true
+            UIView.animate(withDuration: 0.2) {
+                self.finishButton.backgroundColor = .textColor
+                self.finishButton.setTitleColor(.backgroundColor, for: .normal)
+                self.finishButton.alpha = 1
+            }
         }
     }
     
@@ -135,6 +146,4 @@ extension BodyInputVC {
         var tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
         self.view.addGestureRecognizer(tap)
     }
-    
-    
 }

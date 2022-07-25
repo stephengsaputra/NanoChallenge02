@@ -103,9 +103,19 @@ extension DatabaseIDInputVC {
     @objc func textFieldEditingChanged(_ textField: UITextField) {
         
         if textField.text != nil && textField.text!.isEmpty {
-            // nextButton becomes .disabled
+            nextButton.isEnabled = false
+            UIView.animate(withDuration: 0.2) {
+                self.nextButton.backgroundColor = UIColor(named: "disabledButtonBG")
+                self.nextButton.setTitleColor(UIColor(named: "disabledButtonText"), for: .normal)
+                self.nextButton.alpha = 0.5
+            }
         } else {
             nextButton.isEnabled = true
+            UIView.animate(withDuration: 0.2) {
+                self.nextButton.backgroundColor = .textColor
+                self.nextButton.setTitleColor(.backgroundColor, for: .normal)
+                self.nextButton.alpha = 1
+            }
         }
     }
     

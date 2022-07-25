@@ -33,6 +33,7 @@ class FailedSubmitVC: UIViewController {
     private lazy var integrationTokenTF: AppTextField = {
         let tf = AppTextField(placeholderText: "Integration Token")
         tf.text = UserDefaults.standard.string(forKey: "integrationToken")
+        tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return tf
     }()
     
@@ -44,10 +45,11 @@ class FailedSubmitVC: UIViewController {
     private lazy var databaseIDTF: AppTextField = {
         let tf = AppTextField(placeholderText: "Database ID")
         tf.text = UserDefaults.standard.string(forKey: "databaseID")
+        tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return tf
     }()
     
-    private lazy var startWritingButton: AppButton = {
+    private lazy var backToSummaryButton: AppButton = {
         let button = AppButton(style: .normal, text: "Back to summary", #selector(handleButtonTapped), self)
         return button
     }()
@@ -57,6 +59,14 @@ class FailedSubmitVC: UIViewController {
         
         super.viewDidLoad()
         configureUI()
+        configureTextFieldObservers()
+        
+        Utilities().slideViewWhenShowKeyboard(self, #selector(self.keyboardWillShow(notification:)), #selector(self.keyboardWillHide))
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     //MARK: - Selectors
@@ -128,13 +138,60 @@ class FailedSubmitVC: UIViewController {
             paddingRight: 20
         )
         
-        view.addSubview(startWritingButton)
-        startWritingButton.centerX(inView: view)
-        startWritingButton.anchor(
+        view.addSubview(backToSummaryButton)
+        backToSummaryButton.centerX(inView: view)
+        backToSummaryButton.anchor(
             left: view.leftAnchor,
             bottom: view.safeAreaLayoutGuide.bottomAnchor,
             paddingLeft: 20,
-            paddingBottom: 5
+            paddingBottom: 20
         )
+    }
+}
+
+extension FailedSubmitVC {
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            
+            let keyboardHeight = keyboardFrame.cgRectValue.height
+            let bottomSpacing = self.view.frame.height - (bodyLabel2.frame.origin.y + bodyLabel2.frame.height)
+            self.view.frame.origin.y -= keyboardHeight - bottomSpacing + 400
+        }
+    }
+    
+    @objc func keyboardWillHide() {
+        self.view.frame.origin.y = 0
+    }
+    
+    @objc func textFieldEditingChanged(_ textField: UITextField) {
+        
+        if textField.text != nil && textField.text!.isEmpty {
+            backToSummaryButton.isEnabled = false
+            UIView.animate(withDuration: 0.2) {
+                self.backToSummaryButton.backgroundColor = UIColor(named: "disabledButtonBG")
+                self.backToSummaryButton.setTitleColor(UIColor(named: "disabledButtonText"), for: .normal)
+                self.backToSummaryButton.alpha = 0.5
+            }
+        } else {
+            backToSummaryButton.isEnabled = true
+            UIView.animate(withDuration: 0.2) {
+                self.backToSummaryButton.backgroundColor = .textColor
+                self.backToSummaryButton.setTitleColor(.backgroundColor, for: .normal)
+                self.backToSummaryButton.alpha = 1
+            }
+        }
+    }
+    
+    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        integrationTokenTF.resignFirstResponder()
+        databaseIDTF.resignFirstResponder()
+    }
+    
+    private func configureTextFieldObservers() {
+        
+        var tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
+        self.view.addGestureRecognizer(tap)
     }
 }
