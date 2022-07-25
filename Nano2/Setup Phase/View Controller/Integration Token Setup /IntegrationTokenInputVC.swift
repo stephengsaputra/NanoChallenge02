@@ -24,7 +24,6 @@ class IntegrationTokenInputVC: UIViewController {
     private lazy var nextButton: AppButton = {
         let button = AppButton(style: .disabled, text: "Next")
         button.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
-//        button.isEnabled = false
         return button
     }()
     
@@ -45,6 +44,7 @@ class IntegrationTokenInputVC: UIViewController {
     
     //MARK: - Selectors
     @objc func handleButtonTapped() {
+        UserDefaults.standard.set(integrationTokenTF.text ?? "", forKey: "integrationToken")
         navigationController?.pushViewController(SecondSetupVC(), animated: true)
     }
     

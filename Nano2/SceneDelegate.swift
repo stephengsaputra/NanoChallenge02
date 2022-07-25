@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let navigationController = UINavigationController()
         navigationController.isNavigationBarHidden = true
-        navigationController.pushViewController(TitleInputVC(), animated: false)
+        navigationController.pushViewController(IntegrationTokenInputVC(), animated: false)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }

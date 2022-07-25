@@ -17,7 +17,7 @@ class DatabaseIDInputVC: UIViewController {
     }()
     
     private lazy var databaseIDTF: AppTextField = {
-        let tf = AppTextField(placeholderText: "Integration Token")
+        let tf = AppTextField(placeholderText: "Database ID")
         tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return tf
     }()
@@ -45,6 +45,7 @@ class DatabaseIDInputVC: UIViewController {
     
     //MARK: - Selectors
     @objc func handleButtonTapped() {
+        UserDefaults.standard.set(databaseIDTF.text ?? "", forKey: "databaseID")
         navigationController?.pushViewController(NotificationSetupVC(), animated: true)
     }
     

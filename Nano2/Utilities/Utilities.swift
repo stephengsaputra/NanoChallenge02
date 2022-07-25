@@ -37,7 +37,6 @@ class Utilities {
             // Create the trigger as a repeating event
             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
             
-            
             // Create the request
             let uuidString = UUID().uuidString
             let request = UNNotificationRequest(

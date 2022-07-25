@@ -49,7 +49,7 @@ class FinishSetupVC: UIViewController {
     
     //MARK: - Selectors
     @objc func handleButtonTapped() {
-        print("TEST")
+        navigationController?.pushViewController(TitleInputVC(), animated: true)
     }
     
     //MARK: - Helpers

@@ -68,6 +68,7 @@ class SecondSetupVC: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        print(UserDefaults.standard.string(forKey: "integrationToken"))
         configureUI()
     }
     

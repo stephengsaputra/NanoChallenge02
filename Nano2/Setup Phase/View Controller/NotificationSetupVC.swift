@@ -51,6 +51,8 @@ class NotificationSetupVC: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        print(UserDefaults.standard.string(forKey: "integrationToken"))
+        print(UserDefaults.standard.string(forKey: "databaseID"))
         configureUI()
     }
     
@@ -58,10 +60,13 @@ class NotificationSetupVC: UIViewController {
     @objc func handleAgreeButtonTapped() {
         notification.requestAuthorization(
             options: [.alert, .sound, .badge]) { permissionGranted, error in
-            Utilities().addNotification()
-        }
-        
-        navigationController?.pushViewController(FinishSetupVC(), animated: true)
+                Utilities().addNotification()
+                
+                // Push new controller after user agrees
+                DispatchQueue.main.async {
+                    self.navigationController?.pushViewController(FinishSetupVC(), animated: true)
+                }
+            }
     }
     
     @objc func handleDeclineButtonTapped() {
