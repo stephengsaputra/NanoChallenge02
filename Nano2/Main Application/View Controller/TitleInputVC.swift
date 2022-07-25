@@ -65,7 +65,7 @@ class TitleInputVC: UIViewController {
     }
     
     @objc func handleSettingsButtonTapped() {
-        print("TEST")
+        navigationController?.pushViewController(SettingsVC(), animated: true)
     }
     
     //MARK: - Helpers

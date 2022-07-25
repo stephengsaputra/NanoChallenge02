@@ -24,6 +24,7 @@
 		DB620149288A61AC0026C0C3 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB620146288A61AC0026C0C3 /* Raleway-SemiBold.ttf */; };
 		DB62014A288A61AC0026C0C3 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB620147288A61AC0026C0C3 /* Raleway-Medium.ttf */; };
 		DB7F99B1288E42DB00649211 /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F99B0288E42DB00649211 /* OnboardingManager.swift */; };
+		DB7F99B4288E543D00649211 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F99B3288E543D00649211 /* SettingsVC.swift */; };
 		DB979DE3288D13C900EEEA43 /* SetupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB979DE2288D13C900EEEA43 /* SetupModel.swift */; };
 		DB979DE7288D199600EEEA43 /* SecondSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB979DE6288D199600EEEA43 /* SecondSetupVC.swift */; };
 		DBCEFCA1288D95A00076E011 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCEFCA0288D95A00076E011 /* AppTextField.swift */; };
@@ -52,6 +53,7 @@
 		DB620146288A61AC0026C0C3 /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
 		DB620147288A61AC0026C0C3 /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
 		DB7F99B0288E42DB00649211 /* OnboardingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
+		DB7F99B3288E543D00649211 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		DB979DE2288D13C900EEEA43 /* SetupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupModel.swift; sourceTree = "<group>"; };
 		DB979DE6288D199600EEEA43 /* SecondSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSetupVC.swift; sourceTree = "<group>"; };
 		DBCEFCA0288D95A00076E011 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				DB2129F6288DB9D600EC6413 /* TitleInputVC.swift */,
+				DB7F99B3288E543D00649211 /* SettingsVC.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				DB2129F4288DB6EC00EC6413 /* FinishSetupVC.swift in Sources */,
 				DB62012F288A49A90026C0C3 /* SceneDelegate.swift in Sources */,
 				DBCEFCA1288D95A00076E011 /* AppTextField.swift in Sources */,
+				DB7F99B4288E543D00649211 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

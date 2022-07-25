@@ -331,6 +331,15 @@ extension UIFont {
         
         return customFont
     }
+    
+    static func textFieldTitle() -> UIFont {
+        
+        guard let customFont = UIFont(name: "Raleway-Bold", size: 20) else {
+            return UIFont.systemFont(ofSize: 20)
+        }
+        
+        return customFont
+    }
 }
 
 extension UITextField {

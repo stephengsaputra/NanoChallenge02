@@ -14,6 +14,7 @@ class AppLabel: UILabel {
         case heading
         case subHeading
         case body
+        case tfTitle
     }
 
     //MARK: - Initializers
@@ -51,28 +52,30 @@ class AppLabel: UILabel {
         paragraphStyle.maximumLineHeight = CGFloat(24)
         
         switch style {
-        case .largeTitle:
-            self.font = UIFont.largeTitle()
-            self.text = textString
-        case .heading:
-            self.font = UIFont.heading()
-            self.text = textString
-        case .subHeading:
-            self.font = UIFont.subHeading()
-            
-            self.attributedText = NSAttributedString(
-                string: textString,
-                attributes: [
-                    .paragraphStyle: paragraphStyle
-                ])
-        case .body:
-            self.font = UIFont.body()
-            
-            self.attributedText = NSAttributedString(
-                string: textString,
-                attributes: [
-                    .paragraphStyle: paragraphStyle
-                ])
+            case .largeTitle:
+                self.font = UIFont.largeTitle()
+                self.text = textString
+            case .heading:
+                self.font = UIFont.heading()
+                self.text = textString
+            case .subHeading:
+                self.font = UIFont.subHeading()
+                
+                self.attributedText = NSAttributedString(
+                    string: textString,
+                    attributes: [
+                        .paragraphStyle: paragraphStyle
+                    ])
+            case .body:
+                self.font = UIFont.body()
+                
+                self.attributedText = NSAttributedString(
+                    string: textString,
+                    attributes: [
+                        .paragraphStyle: paragraphStyle
+                    ])
+            case .tfTitle:
+                self.font = UIFont.textFieldTitle()
         }
         
         self.textColor = .textColor

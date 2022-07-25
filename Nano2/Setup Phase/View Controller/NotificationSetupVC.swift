@@ -187,7 +187,7 @@ extension NotificationSetupVC {
     func pushAlertOneAction() -> UIViewController {
         
         let alert = UIAlertController(
-            title: "Reminders Disabled?",
+            title: "Reminders Disabled",
             message: "If you do change your mind, you can always enable it in the Settings page.",
             preferredStyle: .alert
         )

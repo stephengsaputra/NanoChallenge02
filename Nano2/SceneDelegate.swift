@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             vc = FirstDownloadVC()
         }
         
-        navigationController.pushViewController(vc, animated: false)
+        navigationController.pushViewController(TitleInputVC(), animated: false)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
