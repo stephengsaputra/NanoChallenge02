@@ -23,8 +23,7 @@ class DatabaseIDInputVC: UIViewController {
     }()
     
     private lazy var nextButton: AppButton = {
-        let button = AppButton(style: .disabled, text: "Next")
-        button.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        let button = AppButton(style: .disabled, text: "Next", #selector(handleButtonTapped), self)
         return button
     }()
     
@@ -34,8 +33,7 @@ class DatabaseIDInputVC: UIViewController {
         super.viewDidLoad()
         configureUI()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        Utilities().slideViewWhenShowKeyboard(self, #selector(self.keyboardWillShow(notification:)), #selector(self.keyboardWillHide))
     }
     
     deinit {

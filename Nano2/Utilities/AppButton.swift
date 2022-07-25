@@ -18,11 +18,15 @@ class AppButton: UIButton {
     //MARK: - Initializers
     public private(set) var style: Style
     public private(set) var text: String
+    public private(set) var action: Selector
+    public private(set) var target: Any
     
-    init(style: Style, text: String) {
+    init(style: Style, text: String, _ action: Selector, _ target: Any) {
         
         self.style = style
         self.text = text
+        self.action = action
+        self.target = target
         
         super.init(frame: .zero)
         configureButton()
@@ -37,6 +41,7 @@ class AppButton: UIButton {
         
         configureButtonText()
         configureButtonStyle()
+        configureButtonTarget()
     }
     
     private func configureButtonStyle() {
@@ -74,5 +79,9 @@ class AppButton: UIButton {
     
     private func configureButtonText() {
         setTitle(text, for: .normal)
+    }
+    
+    private func configureButtonTarget() {
+        addTarget(target, action: action, for: .touchUpInside)
     }
 }

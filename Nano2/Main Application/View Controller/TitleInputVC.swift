@@ -32,8 +32,7 @@ class TitleInputVC: UIViewController {
     }()
     
     private lazy var nextButton: AppButton = {
-        let button = AppButton(style: .disabled, text: "Next")
-        button.addTarget(self, action: #selector(handleNextButtonTapped), for: .touchUpInside)
+        let button = AppButton(style: .disabled, text: "Next", #selector(handleNextButtonTapped), self)
         return button
     }()
     
@@ -51,8 +50,7 @@ class TitleInputVC: UIViewController {
         super.viewDidLoad()
         configureUI()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        Utilities().slideViewWhenShowKeyboard(self, #selector(self.keyboardWillShow(notification:)), #selector(self.keyboardWillHide))
     }
     
     deinit {
@@ -62,6 +60,7 @@ class TitleInputVC: UIViewController {
     
     //MARK: - Selectors
     @objc func handleNextButtonTapped() {
+        UserDefaults.standard.set(reflectionsTitleTF.text ?? "", forKey: "reflectionTitle")
         print("TEST")
     }
     

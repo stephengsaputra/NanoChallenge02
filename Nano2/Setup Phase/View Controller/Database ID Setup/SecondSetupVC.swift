@@ -59,8 +59,7 @@ class SecondSetupVC: UIViewController {
     }()
     
     private lazy var nextButton: AppButton = {
-        let button = AppButton(style: .normal, text: "I got it!")
-        button.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        let button = AppButton(style: .normal, text: "I got it!", #selector(handleButtonTapped), self)
         return button
     }()
     

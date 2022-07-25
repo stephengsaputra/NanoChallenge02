@@ -33,8 +33,7 @@ class FirstDownloadVC: UIViewController {
     }()
     
     private lazy var nextButton: AppButton = {
-        let button = AppButton(style: .normal, text: "Let's get started!")
-        button.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        let button = AppButton(style: .normal, text: "Let's get started!", #selector(handleButtonTapped), self)
         return button
     }()
     

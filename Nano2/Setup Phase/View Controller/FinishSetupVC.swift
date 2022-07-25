@@ -33,8 +33,7 @@ class FinishSetupVC: UIViewController {
     }()
     
     private lazy var startWritingButton: AppButton = {
-        let button = AppButton(style: .normal, text: "Start writing!")
-        button.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        let button = AppButton(style: .normal, text: "Start writing!", #selector(handleButtonTapped), self)
         return button
     }()
     
