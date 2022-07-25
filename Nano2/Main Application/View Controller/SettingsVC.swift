@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class SettingsVC: UIViewController {
 
@@ -45,10 +46,19 @@ class SettingsVC: UIViewController {
         return button
     }()
     
+    private lazy var enableNotificationsButton: AppButton = {
+        let button = AppButton(style: .normal, text: "Enable notifications", #selector(handleNotificationButtonTapped), self)
+        return button
+    }()
+    
+    var check = true
+    let notification = UNUserNotificationCenter.current()
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        checkNotification()
         configureUI()
         configureTextFieldObservers()
         
@@ -60,6 +70,25 @@ class SettingsVC: UIViewController {
         UserDefaults.standard.set(integrationTokenTF.text ?? "", forKey: "integrationToken")
         UserDefaults.standard.set(databaseIDTF.text ?? "", forKey: "databaseID")
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func handleNotificationButtonTapped() {
+        notification.requestAuthorization(
+            options: [.alert, .sound, .badge]) { permissionGranted, error in
+                Utilities().addNotification()
+                
+                // Push new controller after user agrees
+                let center = UNUserNotificationCenter.current()
+                center.getNotificationSettings { settings in
+                    DispatchQueue.main.async {
+                        
+                        if settings.authorizationStatus == .denied {
+                            print("Push notification is denied")
+                            self.present(self.doNotAllowAlert(), animated: true)
+                        }
+                    }
+                }
+            }
     }
     
     //MARK: - Helpers
@@ -110,6 +139,18 @@ class SettingsVC: UIViewController {
             paddingLeft: 20,
             paddingRight: 20
         )
+        
+        if check == false {
+            view.addSubview(enableNotificationsButton)
+            enableNotificationsButton.anchor(
+                left: view.leftAnchor,
+                bottom: view.bottomAnchor,
+                right: view.rightAnchor,
+                paddingLeft: 20,
+                paddingBottom: 250,
+                paddingRight: 20
+            )
+        }
     }
 }
 
@@ -124,5 +165,45 @@ extension SettingsVC {
         
         var tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
         self.view.addGestureRecognizer(tap)
+    }
+    
+    func checkNotification() {
+        
+        let center = UNUserNotificationCenter.current()
+        center.getNotificationSettings { settings in
+
+            if settings.authorizationStatus == .authorized {
+                print("Push notification is enabled")
+                self.check = true
+            } else if settings.authorizationStatus == .denied {
+                print("Push notification is denied")
+                self.check = true
+            } else {
+                print("Push notification is not enabled")
+                self.check = false
+            }
+        }
+    }
+    
+    func doNotAllowAlert() -> UIViewController {
+        
+        let alert = UIAlertController(
+            title: "Reminders Not Allowed!",
+            message: "If this is an accident, you can turn on the notifications in Settings.",
+            preferredStyle: .alert
+        )
+        alert.view.tintColor = UIColor.textColor
+        
+        let action = UIAlertAction(title: "Alrighty!", style: .cancel) { action in
+            self.dismiss(animated: true)
+            UIView.animate(withDuration: 0.5) {
+                self.enableNotificationsButton.alpha = 0
+                self.enableNotificationsButton.isEnabled = false
+            }
+        }
+        
+        alert.addAction(action)
+        
+        return alert
     }
 }

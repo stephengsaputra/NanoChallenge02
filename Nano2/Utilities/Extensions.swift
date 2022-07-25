@@ -325,7 +325,7 @@ extension UIFont {
     
     static func textField() -> UIFont {
         
-        guard let customFont = UIFont(name: "Raleway-Medium", size: 20) else {
+        guard let customFont = UIFont(name: "Raleway-Medium", size: 18) else {
             return UIFont.systemFont(ofSize: 20)
         }
         

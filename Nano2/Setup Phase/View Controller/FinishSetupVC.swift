@@ -119,7 +119,7 @@ class FinishSetupVC: UIViewController {
             left: view.leftAnchor,
             bottom: view.safeAreaLayoutGuide.bottomAnchor,
             paddingLeft: 20,
-            paddingBottom: 5
+            paddingBottom: 20
         )
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             UIView.animate(withDuration: 0.5) {

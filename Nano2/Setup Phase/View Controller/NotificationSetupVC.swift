@@ -56,15 +56,29 @@ class NotificationSetupVC: UIViewController {
     
     //MARK: - Selectors
     @objc func handleAgreeButtonTapped() {
-        notification.requestAuthorization(
-            options: [.alert, .sound, .badge]) { permissionGranted, error in
-                Utilities().addNotification()
-                
-                // Push new controller after user agrees
+        
+        notification.requestAuthorization(options: [.alert, .sound, .badge]) { permissionGranted, error in
+            
+            Utilities().addNotification()
+            
+            // Push new controller after user agrees
+            let center = UNUserNotificationCenter.current()
+            center.getNotificationSettings { settings in
                 DispatchQueue.main.async {
-                    self.navigationController?.pushViewController(FinishSetupVC(), animated: true)
+                    
+                    if settings.authorizationStatus == .authorized {
+                        print("Push notification is enabled")
+                        self.navigationController?.pushViewController(FinishSetupVC(), animated: true)
+                    } else if settings.authorizationStatus == .denied {
+                        print("Push notification is denied")
+                        self.present(self.doNotAllowAlert(), animated: true)
+                    } else {
+                        print("Push notification is not enabled")
+                        self.present(self.noThanksAlert(), animated: true)
+                    }
                 }
             }
+        }
     }
     
     @objc func handleDeclineButtonTapped() {
@@ -171,7 +185,7 @@ extension NotificationSetupVC {
         alert.view.tintColor = UIColor.textColor
         
         let action1 = UIAlertAction(title: "Yes", style: .cancel) { action in
-            self.present(self.pushAlertOneAction(), animated: true)
+            self.present(self.noThanksAlert(), animated: true)
         }
         
         let action2 = UIAlertAction(title: "Cancel", style: .default) { action in
@@ -184,10 +198,29 @@ extension NotificationSetupVC {
         return alert
     }
     
-    func pushAlertOneAction() -> UIViewController {
+    func doNotAllowAlert() -> UIViewController {
         
         let alert = UIAlertController(
-            title: "Reminders Disabled",
+            title: "Reminders Not Allowed!",
+            message: "If this is an accident, you can turn on the notifications in Settings.",
+            preferredStyle: .alert
+        )
+        alert.view.tintColor = UIColor.textColor
+        
+        let action = UIAlertAction(title: "Alrighty!", style: .cancel) { action in
+            self.dismiss(animated: true)
+            self.navigationController?.pushViewController(FinishSetupVC(), animated: true)
+        }
+        
+        alert.addAction(action)
+        
+        return alert
+    }
+    
+    func noThanksAlert() -> UIViewController {
+        
+        let alert = UIAlertController(
+            title: "Reminders Disabled!",
             message: "If you do change your mind, you can always enable it in the Settings page.",
             preferredStyle: .alert
         )
