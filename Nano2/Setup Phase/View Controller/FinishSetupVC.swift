@@ -49,6 +49,7 @@ class FinishSetupVC: UIViewController {
     
     //MARK: - Selectors
     @objc func handleButtonTapped() {
+        OnboardingManager().setOnboardingSeen()
         navigationController?.pushViewController(TitleInputVC(), animated: true)
     }
     

@@ -13,11 +13,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
+        var isOnboardingSeen: Bool!
+        let onboardingManager = OnboardingManager()
+        isOnboardingSeen = onboardingManager.isOnboardingSeen()
+        
         guard (scene is UIWindowScene) else { return }
         
         let navigationController = UINavigationController()
         navigationController.isNavigationBarHidden = true
-        navigationController.pushViewController(IntegrationTokenInputVC(), animated: false)
+
+        var vc = UIViewController()
+        
+        if isOnboardingSeen {
+            vc = TitleInputVC()
+        } else {
+            vc = FirstDownloadVC()
+        }
+        
+        navigationController.pushViewController(vc, animated: false)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
