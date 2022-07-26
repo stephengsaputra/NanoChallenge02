@@ -30,7 +30,7 @@ class BodyInputVC: UIViewController {
     }()
     
     private lazy var finishButton: AppButton = {
-        let button = AppButton(style: .disabled, text: "Finish", #selector(handleFinishButtonTapped), self)
+        let button = AppButton(isEnabled: false, style: .normal, text: "Finish", #selector(handleFinishButtonTapped), self)
         return button
     }()
     
@@ -48,7 +48,6 @@ class BodyInputVC: UIViewController {
     
     //MARK: - Selectors
     @objc func handleBackButtonTapped() {
-        UserDefaults.standard.set(textView.text ?? "", forKey: "reflectionBody")
         navigationController?.popViewController(animated: true)
         print(UserDefaults.standard.string(forKey: "reflectionBody"))
     }
@@ -125,18 +124,12 @@ extension BodyInputVC {
         textView.resignFirstResponder()
         
         if textView.text != nil && textView.text!.isEmpty {
-            finishButton.isEnabled = false
             UIView.animate(withDuration: 0.2) {
-                self.finishButton.backgroundColor = UIColor(named: "disabledButtonBG")
-                self.finishButton.setTitleColor(UIColor(named: "disabledButtonText"), for: .normal)
-                self.finishButton.alpha = 0.5
+                self.finishButton.isEnabled = false
             }
         } else {
-            finishButton.isEnabled = true
             UIView.animate(withDuration: 0.2) {
-                self.finishButton.backgroundColor = .textColor
-                self.finishButton.setTitleColor(.backgroundColor, for: .normal)
-                self.finishButton.alpha = 1
+                self.finishButton.isEnabled = true
             }
         }
     }

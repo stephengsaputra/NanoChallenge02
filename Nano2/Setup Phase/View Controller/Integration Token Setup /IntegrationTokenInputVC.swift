@@ -22,7 +22,7 @@ class IntegrationTokenInputVC: UIViewController {
     }()
     
     private lazy var nextButton: AppButton = {
-        let button = AppButton(style: .disabled, text: "Next", #selector(handleButtonTapped), self)
+        let button = AppButton(isEnabled: false, style: .normal, text: "Next", #selector(handleButtonTapped), self)
         return button
     }()
     
@@ -102,18 +102,12 @@ extension IntegrationTokenInputVC {
     @objc func textFieldEditingChanged(_ textField: UITextField) {
         
         if textField.text != nil && textField.text!.isEmpty {
-            nextButton.isEnabled = false
             UIView.animate(withDuration: 0.2) {
-                self.nextButton.backgroundColor = UIColor(named: "disabledButtonBG")
-                self.nextButton.setTitleColor(UIColor(named: "disabledButtonText"), for: .normal)
-                self.nextButton.alpha = 0.5
+                self.nextButton.isEnabled = false
             }
         } else {
-            nextButton.isEnabled = true
             UIView.animate(withDuration: 0.2) {
-                self.nextButton.backgroundColor = .textColor
-                self.nextButton.setTitleColor(.backgroundColor, for: .normal)
-                self.nextButton.alpha = 1
+                self.nextButton.isEnabled = true
             }
         }
     }

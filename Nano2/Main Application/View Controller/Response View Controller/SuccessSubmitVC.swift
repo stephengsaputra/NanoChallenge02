@@ -33,7 +33,7 @@ class SuccessSubmitVC: UIViewController {
     }()
     
     private lazy var backToMainButton: AppButton = {
-        let button = AppButton(style: .normal, text: "Back to main", #selector(handleButtonTapped), self)
+        let button = AppButton(isEnabled: true, style: .normal, text: "Back to main", #selector(handleButtonTapped), self)
         return button
     }()
     

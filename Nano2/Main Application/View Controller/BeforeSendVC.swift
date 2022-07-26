@@ -30,7 +30,7 @@ class BeforeSendVC: UIViewController {
     }()
     
     private lazy var reflectionEmojiLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "Your mood today: 😉")
+        let label = AppLabel(style: .heading, textString: "Your mood today: \(UserDefaults.standard.string(forKey: "emoji") ?? "")")
         label.font = UIFont(name: "Raleway-Bold", size: 16)
         return label
     }()
@@ -42,7 +42,7 @@ class BeforeSendVC: UIViewController {
     }()
     
     private lazy var sendButton: AppButton = {
-        let button = AppButton(style: .normal, text: "Send", #selector(handleSendButtonTapped), self)
+        let button = AppButton(isEnabled: true, style: .normal, text: "Send", #selector(handleSendButtonTapped), self)
         return button
     }()
     
@@ -153,7 +153,7 @@ extension BeforeSendVC {
             ],
             "icon": [
                 "type": "emoji",
-                "emoji": "🔥"
+                "emoji": "\(UserDefaults.standard.string(forKey: "emoji") ?? "")"
             ],
             "properties": [
                 "title": [

@@ -79,6 +79,6 @@ class AppLabel: UILabel {
         }
         
         self.textColor = .textColor
-        self.numberOfLines = 4
+        self.numberOfLines = 100
     }
 }

@@ -32,7 +32,7 @@ class TitleInputVC: UIViewController {
     }()
     
     private lazy var nextButton: AppButton = {
-        let button = AppButton(style: .disabled, text: "Next", #selector(handleNextButtonTapped), self)
+        let button = AppButton(isEnabled: false, style: .normal, text: "Next", #selector(handleNextButtonTapped), self)
         return button
     }()
     
@@ -62,7 +62,7 @@ class TitleInputVC: UIViewController {
     //MARK: - Selectors
     @objc func handleNextButtonTapped() {
         UserDefaults.standard.set(reflectionsTitleTF.text ?? "", forKey: "reflectionTitle")
-        navigationController?.pushViewController(BodyInputVC(), animated: true)
+        navigationController?.pushViewController(EmojiPickerVC(), animated: true)
     }
     
     @objc func handleSettingsButtonTapped() {
@@ -154,18 +154,12 @@ extension TitleInputVC {
     @objc func textFieldEditingChanged(_ textField: UITextField) {
         
         if textField.text != nil && textField.text!.isEmpty {
-            nextButton.isEnabled = false
             UIView.animate(withDuration: 0.2) {
-                self.nextButton.backgroundColor = UIColor(named: "disabledButtonBG")
-                self.nextButton.setTitleColor(UIColor(named: "disabledButtonText"), for: .normal)
-                self.nextButton.alpha = 0.5
+                self.nextButton.isEnabled = false
             }
         } else {
-            nextButton.isEnabled = true
             UIView.animate(withDuration: 0.2) {
-                self.nextButton.backgroundColor = .textColor
-                self.nextButton.setTitleColor(.backgroundColor, for: .normal)
-                self.nextButton.alpha = 1
+                self.nextButton.isEnabled = true
             }
         }
     }

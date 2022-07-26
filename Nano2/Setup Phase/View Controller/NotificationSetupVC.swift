@@ -34,12 +34,12 @@ class NotificationSetupVC: UIViewController {
     }()
     
     private lazy var agreeNotificationButton: AppButton = {
-        let button = AppButton(style: .normal, text: "Enable notifications", #selector(handleAgreeButtonTapped), self)
+        let button = AppButton(isEnabled: true, style: .normal, text: "Enable notifications", #selector(handleAgreeButtonTapped), self)
         return button
     }()
     
     private lazy var declineNoticicationButton: AppButton = {
-        let button = AppButton(style: .destructive, text: "No thanks, I’m good", #selector(handleDeclineButtonTapped), self)
+        let button = AppButton(isEnabled: true, style: .destructive, text: "No thanks, I’m good", #selector(handleDeclineButtonTapped), self)
         return button
     }()
     

@@ -50,7 +50,7 @@ class FailedSubmitVC: UIViewController {
     }()
     
     private lazy var backToSummaryButton: AppButton = {
-        let button = AppButton(style: .normal, text: "Back to summary", #selector(handleButtonTapped), self)
+        let button = AppButton(isEnabled: true, style: .normal, text: "Back to summary", #selector(handleButtonTapped), self)
         return button
     }()
     

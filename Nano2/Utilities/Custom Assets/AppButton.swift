@@ -9,11 +9,35 @@ import UIKit
 
 class AppButton: UIButton {
 
-    enum Style {
+    enum Style
+    {
         case normal
-        case disabled
         case destructive
+        
+        var foregroundColor: UIColor? { get {
+            return self == .normal ? .backgroundColor : .white
+        }}
+        
+        var backgroundColor: UIColor? { get {
+            return self == .normal ? .textColor : UIColor(named: "customRed")
+        }}
+        
+        var disabledForegroundColor: UIColor? { get {
+            return UIColor(named: "disabledButtonText")
+        }}
+        
+        var disabledBackgroundColor: UIColor? { get {
+            UIColor(named: "disabledButtonBG")
+        }}
     }
+    
+    override var isEnabled: Bool { didSet {
+        super.isEnabled = isEnabled
+        // set styling
+        backgroundColor = isEnabled ? style.backgroundColor : style.disabledBackgroundColor
+        setTitleColor(isEnabled ? style.foregroundColor : style.disabledForegroundColor, for: .normal)
+        self.alpha = isEnabled ? 1.0 : 0.5
+    }}
     
     //MARK: - Initializers
     public private(set) var style: Style
@@ -21,7 +45,7 @@ class AppButton: UIButton {
     public private(set) var action: Selector
     public private(set) var target: Any
     
-    init(style: Style, text: String, _ action: Selector, _ target: Any) {
+    init(isEnabled: Bool, style: Style, text: String, _ action: Selector, _ target: Any) {
         
         self.style = style
         self.text = text
@@ -29,6 +53,12 @@ class AppButton: UIButton {
         self.target = target
         
         super.init(frame: .zero)
+        
+        self.isEnabled = isEnabled
+        
+        
+        // in order to invoke didSet
+        ({ self.isEnabled = self.isEnabled })()
         configureButton()
     }
     
@@ -45,21 +75,6 @@ class AppButton: UIButton {
     }
     
     private func configureButtonStyle() {
-        
-        switch style {
-            case .normal:
-                backgroundColor = .textColor
-                setTitleColor(.backgroundColor, for: .normal)
-            case .disabled:
-                backgroundColor = UIColor(named: "disabledButtonBG")
-                setTitleColor(UIColor(named: "disabledButtonText"), for: .normal)
-                self.alpha = 0.5
-                isEnabled = false
-            case .destructive:
-                backgroundColor = UIColor(named: "customRed")
-                setTitleColor(.white, for: .normal)
-        }
-        
         self.titleLabel?.font = UIFont.buttonText()
         self.setDimensions(height: 50, width: UIScreen.main.bounds.width - 40)
         self.layer.cornerRadius = 12

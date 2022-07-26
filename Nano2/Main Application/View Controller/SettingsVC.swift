@@ -47,7 +47,7 @@ class SettingsVC: UIViewController {
     }()
     
     private lazy var enableNotificationsButton: AppButton = {
-        let button = AppButton(style: .normal, text: "Enable notifications", #selector(handleNotificationButtonTapped), self)
+        let button = AppButton(isEnabled: true, style: .normal, text: "Enable notifications", #selector(handleNotificationButtonTapped), self)
         return button
     }()
     

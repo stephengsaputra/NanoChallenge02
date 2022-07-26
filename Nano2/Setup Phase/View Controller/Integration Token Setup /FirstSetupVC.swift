@@ -13,7 +13,7 @@ class FirstSetupVC: UIViewController {
     var setupContent: [Setup] = [
         Setup(image: "1-1", step1: "On your Safari or Chrome, login to your ADA Notion account", step2: "Then, open up notion.so/my-integrations and click the “New integration” button"),
         Setup(image: "1-2", step1: "Fill in the Integration Name (anything you want) and choose your Personal Workspace", step2: "When finished, click Submit"),
-        Setup(image: "1-3", step1: "Save your unique Integration Token! You will use it on the next screen", step2: "Congratulations! You are halfway there 🙌🏻")
+        Setup(image: "1-3", step1: "Save your unique Integration Token! You will use it on the next screen, so write it where you can easily paste it in\n\n(I prefer Apple's Notes)", step2: "Congratulations! You are halfway there 🙌🏻")
     ]
     
     var contentIsShown: Int = 0
@@ -57,7 +57,7 @@ class FirstSetupVC: UIViewController {
     }()
     
     private lazy var nextButton: AppButton = {
-        let button = AppButton(style: .normal, text: "I got it!", #selector(handleButtonTapped), self)
+        let button = AppButton(isEnabled: true, style: .normal, text: "I got it!", #selector(handleButtonTapped), self)
         return button
     }()
     
