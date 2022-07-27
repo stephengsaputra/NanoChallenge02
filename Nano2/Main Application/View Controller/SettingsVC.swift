@@ -51,7 +51,12 @@ class SettingsVC: UIViewController {
         return button
     }()
     
-    var check = true
+    private lazy var toSettingsButton: AppButton = {
+        let button = AppButton(isEnabled: true, style: .normal, text: "Enable in Settings", #selector(handleToSettingsButtonTapped), self)
+        return button
+    }()
+    
+    var check = false
     let notification = UNUserNotificationCenter.current()
     
     //MARK: - Lifecycle
@@ -89,6 +94,17 @@ class SettingsVC: UIViewController {
                     }
                 }
             }
+    }
+    
+    @objc func handleToSettingsButtonTapped() {
+        if let url = URL(string: UIApplication.openSettingsURLString) {
+            
+            if UIApplication.shared.canOpenURL(url) {
+                
+                // If we can open this settings URL, then open it
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
     }
     
     //MARK: - Helpers
@@ -141,15 +157,36 @@ class SettingsVC: UIViewController {
         )
         
         if check == false {
-            view.addSubview(enableNotificationsButton)
-            enableNotificationsButton.anchor(
-                left: view.leftAnchor,
-                bottom: view.bottomAnchor,
-                right: view.rightAnchor,
-                paddingLeft: 20,
-                paddingBottom: 250,
-                paddingRight: 20
-            )
+            
+            let center = UNUserNotificationCenter.current()
+            center.getNotificationSettings { settings in
+                
+                if settings.authorizationStatus == .denied {
+                    DispatchQueue.main.async {
+                        self.view.addSubview(self.toSettingsButton)
+                        self.toSettingsButton.anchor(
+                            left: self.view.leftAnchor,
+                            bottom: self.view.bottomAnchor,
+                            right: self.view.rightAnchor,
+                            paddingLeft: 20,
+                            paddingBottom: 250,
+                            paddingRight: 20
+                        )
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.view.addSubview(self.enableNotificationsButton)
+                        self.enableNotificationsButton.anchor(
+                            left: self.view.leftAnchor,
+                            bottom: self.view.bottomAnchor,
+                            right: self.view.rightAnchor,
+                            paddingLeft: 20,
+                            paddingBottom: 250,
+                            paddingRight: 20
+                        )
+                    }
+                }
+            }
         }
     }
 }
@@ -177,7 +214,7 @@ extension SettingsVC {
                 self.check = true
             } else if settings.authorizationStatus == .denied {
                 print("Push notification is denied")
-                self.check = true
+                self.check = false
             } else {
                 print("Push notification is not enabled")
                 self.check = false
@@ -198,7 +235,6 @@ extension SettingsVC {
             self.dismiss(animated: true)
             UIView.animate(withDuration: 0.5) {
                 self.enableNotificationsButton.alpha = 0
-                self.enableNotificationsButton.isEnabled = false
             }
         }
         
