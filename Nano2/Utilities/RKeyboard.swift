@@ -1,13 +1,13 @@
 //
-//  Utilities.swift
+//  RKeyboard.swift
 //  Nano2
 //
-//  Created by Stephen Giovanni Saputra on 22/07/22.
+//  Created by Stephen Giovanni Saputra on 27/07/22.
 //
 
 import UIKit
 
-class Utilities {
+class RKeyboard {
     
     func slideViewWhenShowKeyboard(_ target: Any, _ actionShowKeyboard: Selector, _ actionHideKeyboard: Selector) {
         

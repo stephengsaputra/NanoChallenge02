@@ -41,7 +41,7 @@ class BodyInputVC: UIViewController {
         configureUI()
         configureTextViewObservers()
         
-        Utilities().slideViewWhenShowKeyboard(self, #selector(keyboardWillShow(notification:)), #selector(keyboardWillHide))
+        RKeyboard().slideViewWhenShowKeyboard(self, #selector(keyboardWillShow(notification:)), #selector(keyboardWillHide))
         
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }

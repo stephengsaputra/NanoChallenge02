@@ -16,6 +16,7 @@
 		DB209A3D2890FCB70098AAC7 /* DatabaseIDInputVC + Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A3C2890FCB70098AAC7 /* DatabaseIDInputVC + Keyboard.swift */; };
 		DB209A3F289106F70098AAC7 /* RVibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A3E289106F70098AAC7 /* RVibration.swift */; };
 		DB209A41289107520098AAC7 /* RNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A40289107520098AAC7 /* RNotifications.swift */; };
+		DB209A432891081D0098AAC7 /* RKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A422891081D0098AAC7 /* RKeyboard.swift */; };
 		DB2129F4288DB6EC00EC6413 /* FinishSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2129F3288DB6EC00EC6413 /* FinishSetupVC.swift */; };
 		DB2129F7288DB9D600EC6413 /* TitleInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2129F6288DB9D600EC6413 /* TitleInputVC.swift */; };
 		DB2DD7A4288D4D4900FDC70F /* IntegrationTokenInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2DD7A3288D4D4900FDC70F /* IntegrationTokenInputVC.swift */; };
@@ -26,7 +27,6 @@
 		DB620134288A49A90026C0C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB620132288A49A90026C0C3 /* Main.storyboard */; };
 		DB620136288A49AA0026C0C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB620135288A49AA0026C0C3 /* Assets.xcassets */; };
 		DB620139288A49AA0026C0C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB620137288A49AA0026C0C3 /* LaunchScreen.storyboard */; };
-		DB620142288A60D00026C0C3 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB620140288A60D00026C0C3 /* Utilities.swift */; };
 		DB620143288A60D00026C0C3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB620141288A60D00026C0C3 /* Extensions.swift */; };
 		DB620148288A61AC0026C0C3 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB620145288A61AC0026C0C3 /* Raleway-Bold.ttf */; };
 		DB620149288A61AC0026C0C3 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB620146288A61AC0026C0C3 /* Raleway-SemiBold.ttf */; };
@@ -55,6 +55,7 @@
 		DB209A3C2890FCB70098AAC7 /* DatabaseIDInputVC + Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseIDInputVC + Keyboard.swift"; sourceTree = "<group>"; };
 		DB209A3E289106F70098AAC7 /* RVibration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RVibration.swift; sourceTree = "<group>"; };
 		DB209A40289107520098AAC7 /* RNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNotifications.swift; sourceTree = "<group>"; };
+		DB209A422891081D0098AAC7 /* RKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKeyboard.swift; sourceTree = "<group>"; };
 		DB2129F3288DB6EC00EC6413 /* FinishSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishSetupVC.swift; sourceTree = "<group>"; };
 		DB2129F6288DB9D600EC6413 /* TitleInputVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleInputVC.swift; sourceTree = "<group>"; };
 		DB2DD7A3288D4D4900FDC70F /* IntegrationTokenInputVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTokenInputVC.swift; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 		DB620135288A49AA0026C0C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB620138288A49AA0026C0C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB62013A288A49AA0026C0C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DB620140288A60D00026C0C3 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		DB620141288A60D00026C0C3 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DB620145288A61AC0026C0C3 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
 		DB620146288A61AC0026C0C3 /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -222,9 +222,9 @@
 			children = (
 				DB7F99B0288E42DB00649211 /* OnboardingManager.swift */,
 				DB620141288A60D00026C0C3 /* Extensions.swift */,
-				DB620140288A60D00026C0C3 /* Utilities.swift */,
 				DB209A3E289106F70098AAC7 /* RVibration.swift */,
 				DB209A40289107520098AAC7 /* RNotifications.swift */,
+				DB209A422891081D0098AAC7 /* RKeyboard.swift */,
 				DBBEE798288EB67F002109B0 /* Custom Assets */,
 			);
 			path = Utilities;
@@ -348,7 +348,6 @@
 				DB620131288A49A90026C0C3 /* FirstDownloadVC.swift in Sources */,
 				DBEA85AC288BE01C0036BAB8 /* RTButton.swift in Sources */,
 				DB62012D288A49A90026C0C3 /* AppDelegate.swift in Sources */,
-				DB620142288A60D00026C0C3 /* Utilities.swift in Sources */,
 				DB7F99B1288E42DB00649211 /* OnboardingManager.swift in Sources */,
 				DBCEFCA3288D97830076E011 /* RLabel.swift in Sources */,
 				DB114725288E8673002631C1 /* BeforeSendVC.swift in Sources */,
@@ -369,6 +368,7 @@
 				DB11472A288E9251002631C1 /* FailedSubmitVC.swift in Sources */,
 				DBBEE79C288EC27D002109B0 /* ReflectionsModel.swift in Sources */,
 				DB62012F288A49A90026C0C3 /* SceneDelegate.swift in Sources */,
+				DB209A432891081D0098AAC7 /* RKeyboard.swift in Sources */,
 				DB7F99B6288E5E0800649211 /* BodyInputVC.swift in Sources */,
 				DBCEFCA1288D95A00076E011 /* RTextField.swift in Sources */,
 				DB7F99B4288E543D00649211 /* SettingsVC.swift in Sources */,

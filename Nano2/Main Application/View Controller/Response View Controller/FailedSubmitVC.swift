@@ -61,7 +61,7 @@ class FailedSubmitVC: UIViewController {
         configureUI()
         configureTextFieldObservers()
         
-        Utilities().slideViewWhenShowKeyboard(self, #selector(self.keyboardWillShow(notification:)), #selector(self.keyboardWillHide))
+        RKeyboard().slideViewWhenShowKeyboard(self, #selector(self.keyboardWillShow(notification:)), #selector(self.keyboardWillHide))
     }
     
     deinit {
