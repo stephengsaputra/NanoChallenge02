@@ -25,13 +25,13 @@ class TitleInputVC: UIViewController {
         return label
     }()
     
-    private lazy var reflectionsTitleTF: RTextField = {
+    internal lazy var reflectionsTitleTF: RTextField = {
         let tf = RTextField(placeholderText: "Reflections Title")
         tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return tf
     }()
     
-    private lazy var nextButton: RTButton = {
+    internal lazy var nextButton: RTButton = {
         let button = RTButton(isEnabled: false, style: .normal, text: "Next", #selector(handleNextButtonTapped), self)
         return button
     }()
@@ -132,45 +132,5 @@ class TitleInputVC: UIViewController {
             paddingLeft: 20,
             paddingBottom: 20
         )
-    }
-}
-
-extension TitleInputVC {
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            
-            let keyboardHeight = keyboardFrame.cgRectValue.height
-            let bottomSpacing = self.view.frame.height - (nextButton.frame.origin.y + nextButton.frame.height)
-            self.view.frame.origin.y -= keyboardHeight - bottomSpacing + 50
-        }
-    }
-    
-    @objc func keyboardWillHide() {
-        self.view.frame.origin.y = 0
-    }
-    
-    @objc func textFieldEditingChanged(_ textField: UITextField) {
-        
-        if textField.text != nil && textField.text!.isEmpty {
-            UIView.animate(withDuration: 0.2) {
-                self.nextButton.isEnabled = false
-            }
-        } else {
-            UIView.animate(withDuration: 0.2) {
-                self.nextButton.isEnabled = true
-            }
-        }
-    }
-    
-    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        reflectionsTitleTF.resignFirstResponder()
-    }
-    
-    private func configureTextFieldObservers() {
-        
-        var tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
-        self.view.addGestureRecognizer(tap)
     }
 }

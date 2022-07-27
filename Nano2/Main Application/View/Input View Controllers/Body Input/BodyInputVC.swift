@@ -18,18 +18,18 @@ class BodyInputVC: UIViewController {
         return button
     }()
     
-    private lazy var headingLabel: RLabel = {
+    internal lazy var headingLabel: RLabel = {
         let label = RLabel(style: .heading, textString: "Finally, let’s write your Reflection")
         return label
     }()
     
-    private lazy var textView: RTextView = {
+    internal lazy var textView: RTextView = {
         let tv = RTextView(style: .editable,
             placeholderText: "Write it down here...")
         return tv
     }()
     
-    private lazy var finishButton: RTButton = {
+    internal lazy var finishButton: RTButton = {
         let button = RTButton(isEnabled: false, style: .normal, text: "Finish", #selector(handleFinishButtonTapped), self)
         return button
     }()
@@ -100,43 +100,5 @@ class BodyInputVC: UIViewController {
             paddingBottom: 16,
             paddingRight: 20
         )
-    }
-}
-
-extension BodyInputVC {
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            
-            let keyboardHeight = keyboardFrame.cgRectValue.height
-            let bottomSpacing = self.view.frame.height - (headingLabel.frame.origin.y + textView.frame.height)
-            self.view.frame.origin.y -= keyboardHeight - bottomSpacing
-        }
-    }
-    
-    @objc func keyboardWillHide() {
-        self.view.frame.origin.y = 0
-    }
-    
-    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        
-        textView.resignFirstResponder()
-        
-        if textView.text != nil && textView.text!.isEmpty {
-            UIView.animate(withDuration: 0.2) {
-                self.finishButton.isEnabled = false
-            }
-        } else {
-            UIView.animate(withDuration: 0.2) {
-                self.finishButton.isEnabled = true
-            }
-        }
-    }
-    
-    private func configureTextViewObservers() {
-        
-        var tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
-        self.view.addGestureRecognizer(tap)
     }
 }
