@@ -11,29 +11,29 @@ import UserNotifications
 class SettingsVC: UIViewController {
 
     //MARK: - Properties
-    private lazy var headingLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "Settings")
+    private lazy var headingLabel: RLabel = {
+        let label = RLabel(style: .heading, textString: "Settings")
         return label
     }()
     
-    private lazy var integrationTokenTFTitle: AppLabel = {
-        let label = AppLabel(style: .tfTitle, textString: "Integration Token")
+    private lazy var integrationTokenTFTitle: RLabel = {
+        let label = RLabel(style: .tfTitle, textString: "Integration Token")
         return label
     }()
     
-    private lazy var integrationTokenTF: AppTextField = {
-        let tf = AppTextField(placeholderText: "Integration Token")
+    private lazy var integrationTokenTF: RTextField = {
+        let tf = RTextField(placeholderText: "Integration Token")
         tf.text = UserDefaults.standard.string(forKey: "integrationToken")
         return tf
     }()
     
-    private lazy var databaseIDTFTitle: AppLabel = {
-        let label = AppLabel(style: .tfTitle, textString: "Database ID")
+    private lazy var databaseIDTFTitle: RLabel = {
+        let label = RLabel(style: .tfTitle, textString: "Database ID")
         return label
     }()
     
-    private lazy var databaseIDTF: AppTextField = {
-        let tf = AppTextField(placeholderText: "Database ID")
+    private lazy var databaseIDTF: RTextField = {
+        let tf = RTextField(placeholderText: "Database ID")
         tf.text = UserDefaults.standard.string(forKey: "databaseID")
         return tf
     }()
@@ -46,13 +46,13 @@ class SettingsVC: UIViewController {
         return button
     }()
     
-    private lazy var enableNotificationsButton: AppButton = {
-        let button = AppButton(isEnabled: true, style: .normal, text: "Enable notifications", #selector(handleNotificationButtonTapped), self)
+    private lazy var enableNotificationsButton: RTButton = {
+        let button = RTButton(isEnabled: true, style: .normal, text: "Enable notifications", #selector(handleNotificationButtonTapped), self)
         return button
     }()
     
-    private lazy var toSettingsButton: AppButton = {
-        let button = AppButton(isEnabled: true, style: .normal, text: "Enable in Settings", #selector(handleToSettingsButtonTapped), self)
+    private lazy var toSettingsButton: RTButton = {
+        let button = RTButton(isEnabled: true, style: .normal, text: "Enable in Settings", #selector(handleToSettingsButtonTapped), self)
         return button
     }()
     
@@ -80,7 +80,7 @@ class SettingsVC: UIViewController {
     @objc func handleNotificationButtonTapped() {
         notification.requestAuthorization(
             options: [.alert, .sound, .badge]) { permissionGranted, error in
-                Utilities().addNotification()
+                RNotifications().addNotification()
                 
                 // Push new controller after user agrees
                 let center = UNUserNotificationCenter.current()

@@ -11,8 +11,8 @@ import UserNotifications
 class NotificationSetupVC: UIViewController {
     
     //MARK: - Properties
-    private lazy var headingLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "One more thing...")
+    private lazy var headingLabel: RLabel = {
+        let label = RLabel(style: .heading, textString: "One more thing...")
         return label
     }()
     
@@ -23,23 +23,23 @@ class NotificationSetupVC: UIViewController {
         return image
     }()
     
-    private lazy var bodyLabel1: AppLabel = {
-        let label = AppLabel(style: .body, textString: "As a Learner, I also want to help other ADA Learners (yes, you) to write Reflections everyday")
+    private lazy var bodyLabel1: RLabel = {
+        let label = RLabel(style: .body, textString: "As a Learner, I also want to help other ADA Learners (yes, you) to write Reflections everyday")
         return label
     }()
     
     private lazy var bodyLabel2: UILabel = {
-        let label = AppLabel(style: .body, textString: "This app can remind you everyday through Notification Center so that you remember to reflect your day")
+        let label = RLabel(style: .body, textString: "This app can remind you everyday through Notification Center so that you remember to reflect your day")
         return label
     }()
     
-    private lazy var agreeNotificationButton: AppButton = {
-        let button = AppButton(isEnabled: true, style: .normal, text: "Enable notifications", #selector(handleAgreeButtonTapped), self)
+    private lazy var agreeNotificationButton: RTButton = {
+        let button = RTButton(isEnabled: true, style: .normal, text: "Enable notifications", #selector(handleAgreeButtonTapped), self)
         return button
     }()
     
-    private lazy var declineNoticicationButton: AppButton = {
-        let button = AppButton(isEnabled: true, style: .destructive, text: "No thanks, I’m good", #selector(handleDeclineButtonTapped), self)
+    private lazy var declineNoticicationButton: RTButton = {
+        let button = RTButton(isEnabled: true, style: .destructive, text: "No thanks, I’m good", #selector(handleDeclineButtonTapped), self)
         return button
     }()
     
@@ -59,7 +59,7 @@ class NotificationSetupVC: UIViewController {
         
         notification.requestAuthorization(options: [.alert, .sound, .badge]) { permissionGranted, error in
             
-            Utilities().addNotification()
+            RNotifications().addNotification()
             
             // Push new controller after user agrees
             let center = UNUserNotificationCenter.current()
@@ -170,69 +170,5 @@ class NotificationSetupVC: UIViewController {
                 self.declineNoticicationButton.alpha = 1
             }
         }
-    }
-}
-
-extension NotificationSetupVC {
-    
-    func pushAlertTwoAction() -> UIViewController {
-        
-        let alert = UIAlertController(
-            title: "Are you sure?",
-            message: "This application will not be able to remind you to write your Reflections.",
-            preferredStyle: .alert
-        )
-        alert.view.tintColor = UIColor.textColor
-        
-        let action1 = UIAlertAction(title: "Yes", style: .cancel) { action in
-            self.present(self.noThanksAlert(), animated: true)
-        }
-        
-        let action2 = UIAlertAction(title: "Cancel", style: .default) { action in
-            self.dismiss(animated: true)
-        }
-        
-        alert.addAction(action1)
-        alert.addAction(action2)
-        
-        return alert
-    }
-    
-    func doNotAllowAlert() -> UIViewController {
-        
-        let alert = UIAlertController(
-            title: "Reminders Not Allowed!",
-            message: "If this is an accident, you can turn on the notifications in Settings.",
-            preferredStyle: .alert
-        )
-        alert.view.tintColor = UIColor.textColor
-        
-        let action = UIAlertAction(title: "Alrighty!", style: .cancel) { action in
-            self.dismiss(animated: true)
-            self.navigationController?.pushViewController(FinishSetupVC(), animated: true)
-        }
-        
-        alert.addAction(action)
-        
-        return alert
-    }
-    
-    func noThanksAlert() -> UIViewController {
-        
-        let alert = UIAlertController(
-            title: "Reminders Disabled!",
-            message: "If you do change your mind, you can always enable it in the Settings page.",
-            preferredStyle: .alert
-        )
-        alert.view.tintColor = UIColor.textColor
-        
-        let action = UIAlertAction(title: "Alrighty!", style: .cancel) { action in
-            self.dismiss(animated: true)
-            self.navigationController?.pushViewController(FinishSetupVC(), animated: true)
-        }
-        
-        alert.addAction(action)
-        
-        return alert
     }
 }

@@ -1,29 +1,28 @@
 //
-//  DatabaseIDInputVC.swift
+//  IntegrationTokenInputVC.swift
 //  Nano2
 //
 //  Created by Stephen Giovanni Saputra on 24/07/22.
 //
 
-import Foundation
 import UIKit
 
-class DatabaseIDInputVC: UIViewController {
+class IntegrationTokenInputVC: UIViewController {
 
     //MARK: - Initializers
-    private lazy var headingLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "Finally, paste in your Database ID")
+    private lazy var headingLabel: RLabel = {
+        let label = RLabel(style: .heading, textString: "Paste in your Integration Token")
         return label
     }()
     
-    internal lazy var databaseIDTF: AppTextField = {
-        let tf = AppTextField(placeholderText: "Database ID")
+    internal lazy var integrationTokenTF: RTextField = {
+        let tf = RTextField(placeholderText: "Integration Token")
         tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return tf
     }()
     
-    internal lazy var nextButton: AppButton = {
-        let button = AppButton(isEnabled: false, style: .normal, text: "Next", #selector(handleButtonTapped), self)
+    internal lazy var nextButton: RTButton = {
+        let button = RTButton(isEnabled: false, style: .normal, text: "Next", #selector(handleButtonTapped), self)
         return button
     }()
     
@@ -34,7 +33,7 @@ class DatabaseIDInputVC: UIViewController {
         configureUI()
         configureTextFieldObservers()
         
-        Utilities().slideViewWhenShowKeyboard(self, #selector(self.keyboardWillShow(notification:)), #selector(self.keyboardWillHide))
+        RKeyboard().slideViewWhenShowKeyboard(self, #selector(self.keyboardWillShow(notification:)), #selector(self.keyboardWillHide))
     }
     
     deinit {
@@ -44,8 +43,8 @@ class DatabaseIDInputVC: UIViewController {
     
     //MARK: - Selectors
     @objc func handleButtonTapped() {
-        UserDefaults.standard.set(databaseIDTF.text ?? "", forKey: "databaseID")
-        navigationController?.pushViewController(NotificationSetupVC(), animated: true)
+        UserDefaults.standard.set(integrationTokenTF.text ?? "", forKey: "integrationToken")
+        navigationController?.pushViewController(SecondSetupVC(), animated: true)
     }
     
     //MARK: - Helpers
@@ -63,8 +62,8 @@ class DatabaseIDInputVC: UIViewController {
             paddingRight: 20
         )
         
-        view.addSubview(databaseIDTF)
-        databaseIDTF.anchor(
+        view.addSubview(integrationTokenTF)
+        integrationTokenTF.anchor(
             top: headingLabel.bottomAnchor,
             left: view.leftAnchor,
             right: view.rightAnchor,
@@ -83,3 +82,4 @@ class DatabaseIDInputVC: UIViewController {
         )
     }
 }
+

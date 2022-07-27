@@ -1,5 +1,5 @@
 //
-//  AppTextView.swift
+//  RTextView.swift
 //  Nano2
 //
 //  Created by Stephen Giovanni Saputra on 25/07/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppTextView: UITextView {
+class RTextView: UITextView {
 
     enum Style {
         case editable
@@ -67,7 +67,7 @@ class AppTextView: UITextView {
     }
 }
 
-extension AppTextView: UITextViewDelegate {
+extension RTextView: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         

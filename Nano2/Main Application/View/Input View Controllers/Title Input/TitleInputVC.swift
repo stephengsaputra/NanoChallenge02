@@ -10,29 +10,29 @@ import UIKit
 class TitleInputVC: UIViewController {
 
     //MARK: - Properties
-    private lazy var largeTitleLabel: AppLabel = {
-        let label = AppLabel(style: .largeTitle, textString: "Let’s write your Reflections")
+    private lazy var largeTitleLabel: RLabel = {
+        let label = RLabel(style: .largeTitle, textString: "Let’s write your Reflections")
         return label
     }()
     
-    private lazy var headingLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "First, let’s write\ndown a Title")
+    private lazy var headingLabel: RLabel = {
+        let label = RLabel(style: .heading, textString: "First, let’s write\ndown a Title")
         return label
     }()
     
-    private lazy var bodyLabel: AppLabel = {
-        let label = AppLabel(style: .body, textString: "It could be anything you want 😚")
+    private lazy var bodyLabel: RLabel = {
+        let label = RLabel(style: .body, textString: "It could be anything you want 😚")
         return label
     }()
     
-    private lazy var reflectionsTitleTF: AppTextField = {
-        let tf = AppTextField(placeholderText: "Reflections Title")
+    internal lazy var reflectionsTitleTF: RTextField = {
+        let tf = RTextField(placeholderText: "Reflections Title")
         tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return tf
     }()
     
-    private lazy var nextButton: AppButton = {
-        let button = AppButton(isEnabled: false, style: .normal, text: "Next", #selector(handleNextButtonTapped), self)
+    internal lazy var nextButton: RTButton = {
+        let button = RTButton(isEnabled: false, style: .normal, text: "Next", #selector(handleNextButtonTapped), self)
         return button
     }()
     
@@ -51,7 +51,7 @@ class TitleInputVC: UIViewController {
         configureUI()
         configureTextFieldObservers()
         
-        Utilities().slideViewWhenShowKeyboard(self, #selector(self.keyboardWillShow(notification:)), #selector(self.keyboardWillHide))
+        RKeyboard().slideViewWhenShowKeyboard(self, #selector(self.keyboardWillShow(notification:)), #selector(self.keyboardWillHide))
     }
     
     deinit {
@@ -132,45 +132,5 @@ class TitleInputVC: UIViewController {
             paddingLeft: 20,
             paddingBottom: 20
         )
-    }
-}
-
-extension TitleInputVC {
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            
-            let keyboardHeight = keyboardFrame.cgRectValue.height
-            let bottomSpacing = self.view.frame.height - (nextButton.frame.origin.y + nextButton.frame.height)
-            self.view.frame.origin.y -= keyboardHeight - bottomSpacing + 50
-        }
-    }
-    
-    @objc func keyboardWillHide() {
-        self.view.frame.origin.y = 0
-    }
-    
-    @objc func textFieldEditingChanged(_ textField: UITextField) {
-        
-        if textField.text != nil && textField.text!.isEmpty {
-            UIView.animate(withDuration: 0.2) {
-                self.nextButton.isEnabled = false
-            }
-        } else {
-            UIView.animate(withDuration: 0.2) {
-                self.nextButton.isEnabled = true
-            }
-        }
-    }
-    
-    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        reflectionsTitleTF.resignFirstResponder()
-    }
-    
-    private func configureTextFieldObservers() {
-        
-        var tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
-        self.view.addGestureRecognizer(tap)
     }
 }

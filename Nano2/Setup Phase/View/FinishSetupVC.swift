@@ -1,5 +1,5 @@
 //
-//  SuccessSubmitVC.swift
+//  FinishSetupVC.swift
 //  Nano2
 //
 //  Created by Stephen Giovanni Saputra on 25/07/22.
@@ -7,37 +7,37 @@
 
 import UIKit
 
-class SuccessSubmitVC: UIViewController {
+class FinishSetupVC: UIViewController {
 
     //MARK: - Properties
-    private lazy var headingLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "Success!!")
+    private lazy var headingLabel: RLabel = {
+        let label = RLabel(style: .heading, textString: "Congrats!!")
         return label
     }()
     
     private lazy var illustrationImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "successSend")?.withRenderingMode(.alwaysOriginal)
+        image.image = UIImage(named: "finishSetup")?.withRenderingMode(.alwaysOriginal)
         image.contentMode = .scaleAspectFill
         return image
     }()
     
-    private lazy var bodyLabel1: AppLabel = {
-        let label = AppLabel(style: .body, textString: "Your Reflection has been successfully uploaded to your Notion database!")
+    private lazy var bodyLabel1: RLabel = {
+        let label = RLabel(style: .body, textString: "You have successfully unlocked the ultimate Reflections hack!")
         return label
     }()
     
     private lazy var bodyLabel2: UILabel = {
-        let label = AppLabel(style: .body, textString: "Remember to keep writing your Reflections everyday consistently 🔥")
+        let label = RLabel(style: .body, textString: "You can always change those ID’s from the Settings screen")
         return label
     }()
     
-    private lazy var backToMainButton: AppButton = {
-        let button = AppButton(isEnabled: true, style: .normal, text: "Back to main", #selector(handleButtonTapped), self)
+    private lazy var startWritingButton: RTButton = {
+        let button = RTButton(isEnabled: true, style: .normal, text: "Start writing!", #selector(handleButtonTapped), self)
         return button
     }()
     
-    let sceneDelegate = UIApplication.shared.connectedScenes.first
+    let notification = UNUserNotificationCenter.current()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -48,19 +48,13 @@ class SuccessSubmitVC: UIViewController {
     
     //MARK: - Selectors
     @objc func handleButtonTapped() {
-        
-        UserDefaults.standard.set("", forKey: "reflectionTitle")
-        UserDefaults.standard.set("", forKey: "reflectionBody")
-        
-        if let scene: SceneDelegate = (self.sceneDelegate?.delegate as? SceneDelegate) {
-            scene.setToMain()
-        }
+        OnboardingManager().setOnboardingSeen()
+        navigationController?.pushViewController(TitleInputVC(), animated: true)
     }
     
     //MARK: - Helpers
     func configureUI() {
         
-        Utilities().vibrate(for: .success)
         view.backgroundColor = .backgroundColor
         
         view.addSubview(headingLabel)
@@ -71,6 +65,7 @@ class SuccessSubmitVC: UIViewController {
             paddingLeft: 20
         )
         
+        illustrationImage.alpha = 0
         view.addSubview(illustrationImage)
         illustrationImage.centerX(inView: view)
         illustrationImage.anchor(
@@ -81,7 +76,13 @@ class SuccessSubmitVC: UIViewController {
             paddingLeft: 0,
             paddingRight: 0
         )
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            UIView.animate(withDuration: 0.5) {
+                self.illustrationImage.alpha = 1
+            }
+        }
         
+        bodyLabel1.alpha = 0
         view.addSubview(bodyLabel1)
         bodyLabel1.centerX(inView: view)
         bodyLabel1.anchor(
@@ -93,6 +94,7 @@ class SuccessSubmitVC: UIViewController {
             paddingRight: 20
         )
         
+        bodyLabel2.alpha = 0
         view.addSubview(bodyLabel2)
         bodyLabel2.centerX(inView: view)
         bodyLabel2.anchor(
@@ -103,14 +105,26 @@ class SuccessSubmitVC: UIViewController {
             paddingLeft: 20,
             paddingRight: 20
         )
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            UIView.animate(withDuration: 0.5) {
+                self.bodyLabel1.alpha = 1
+                self.bodyLabel2.alpha = 1
+            }
+        }
         
-        view.addSubview(backToMainButton)
-        backToMainButton.centerX(inView: view)
-        backToMainButton.anchor(
+        startWritingButton.alpha = 0
+        view.addSubview(startWritingButton)
+        startWritingButton.centerX(inView: view)
+        startWritingButton.anchor(
             left: view.leftAnchor,
             bottom: view.safeAreaLayoutGuide.bottomAnchor,
             paddingLeft: 20,
             paddingBottom: 20
         )
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            UIView.animate(withDuration: 0.5) {
+                self.startWritingButton.alpha = 1
+            }
+        }
     }
 }

@@ -18,31 +18,31 @@ class BeforeSendVC: UIViewController {
         return button
     }()
     
-    private lazy var headingLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "Before we send, one last check")
+    private lazy var headingLabel: RLabel = {
+        let label = RLabel(style: .heading, textString: "Before we send, one last check")
         return label
     }()
     
-    private lazy var reflectionTitleLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: UserDefaults.standard.string(forKey: "reflectionTitle") ?? "")
+    private lazy var reflectionTitleLabel: RLabel = {
+        let label = RLabel(style: .heading, textString: UserDefaults.standard.string(forKey: "reflectionTitle") ?? "")
         label.font = UIFont(name: "Raleway-Bold", size: 20)
         return label
     }()
     
-    private lazy var reflectionEmojiLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "Your mood today: \(UserDefaults.standard.string(forKey: "emoji") ?? "")")
+    private lazy var reflectionEmojiLabel: RLabel = {
+        let label = RLabel(style: .heading, textString: "Your mood today: \(UserDefaults.standard.string(forKey: "emoji") ?? "")")
         label.font = UIFont(name: "Raleway-Bold", size: 16)
         return label
     }()
     
     private lazy var textView: UITextView = {
-        let tv = AppTextView(style: .nonEditable ,placeholderText: "Write it down here...")
+        let tv = RTextView(style: .nonEditable ,placeholderText: "Write it down here...")
         tv.text = UserDefaults.standard.string(forKey: "reflectionBody")
         return tv
     }()
     
-    private lazy var sendButton: AppButton = {
-        let button = AppButton(isEnabled: true, style: .normal, text: "Send", #selector(handleSendButtonTapped), self)
+    private lazy var sendButton: RTButton = {
+        let button = RTButton(isEnabled: true, style: .normal, text: "Send", #selector(handleSendButtonTapped), self)
         return button
     }()
     

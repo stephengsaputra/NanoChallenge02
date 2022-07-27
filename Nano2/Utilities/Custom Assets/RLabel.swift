@@ -1,5 +1,5 @@
 //
-//  AppLabel.swift
+//  RLabel.swift
 //  Nano2
 //
 //  Created by Stephen Giovanni Saputra on 24/07/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppLabel: UILabel {
+class RLabel: UILabel {
 
     enum Style {
         case largeTitle

@@ -1,32 +1,30 @@
 //
-//  SecondSetupVC.swift
+//  FirstSetupVC.swift
 //  Nano2
 //
 //  Created by Stephen Giovanni Saputra on 24/07/22.
 //
 
-import Foundation
 import UIKit
 
-class SecondSetupVC: UIViewController {
+class FirstSetupVC: UIViewController {
 
     //MARK: - Properties
     var setupContent: [Setup] = [
-        Setup(image: "2-1", step1: "Still on your Mac browser, open up your PERSONAL Notion Workspace from notion.so", step2: "(Psst! It’s the one that says Personal Plan)"),
-        Setup(image: "2-2", step1: "Add a new empty Page from the left side of your window, then choose Database Table option", step2: "DO NOT connect to a Data Source, instead choose “New database”"),
-        Setup(image: "2-3", step1: "Click on the “Share” button on the top right of your window, choose your Integration and click “Invite”.", step2: " "),
-        Setup(image: "2-4", step1: "Last, go to the URL bar and save the database ID. It starts after “.so/” and ends before “?v”. You’ll use that ID for the next screen", step2: "Congratulations! This is the final step *SERIOUSLY* 🎉")
+        Setup(image: "1-1", step1: "On your Safari or Chrome, login to your ADA Notion account", step2: "Then, open up notion.so/my-integrations and click the “New integration” button"),
+        Setup(image: "1-2", step1: "Fill in the Integration Name (anything you want) and choose your Personal Workspace", step2: "When finished, click Submit"),
+        Setup(image: "1-3", step1: "Save your unique Integration Token! You will use it on the next screen, so write it where you can easily paste it in\n\n(I prefer Apple's Notes)", step2: "Congratulations! You are halfway there 🙌🏻")
     ]
     
     var contentIsShown: Int = 0
     
-    private lazy var headingLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "Final Stretch")
+    private lazy var headingLabel: RLabel = {
+        let label = RLabel(style: .heading, textString: "First Setup")
         return label
     }()
     
-    private lazy var subtitleLabel: AppLabel = {
-        let label = AppLabel(style: .subHeading, textString: "Hang in there 🔥")
+    private lazy var subtitleLabel: RLabel = {
+        let label = RLabel(style: .subHeading, textString: "I know you can do it 💪🏻")
         return label
     }()
     
@@ -37,13 +35,13 @@ class SecondSetupVC: UIViewController {
         return image
     }()
     
-    private lazy var stepLabel1: AppLabel = {
-        let label = AppLabel(style: .body, textString: setupContent[contentIsShown].step1)
+    private lazy var stepLabel1: RLabel = {
+        let label = RLabel(style: .body, textString: setupContent[contentIsShown].step1)
         return label
     }()
     
     private lazy var stepLabel2: UILabel = {
-        let label = AppLabel(style: .body, textString: setupContent[contentIsShown].step2)
+        let label = RLabel(style: .body, textString: setupContent[contentIsShown].step2)
         return label
     }()
     
@@ -58,8 +56,8 @@ class SecondSetupVC: UIViewController {
         return pageControl
     }()
     
-    private lazy var nextButton: AppButton = {
-        let button = AppButton(isEnabled: true, style: .normal, text: "I got it!", #selector(handleButtonTapped), self)
+    private lazy var nextButton: RTButton = {
+        let button = RTButton(isEnabled: true, style: .normal, text: "I got it!", #selector(handleButtonTapped), self)
         return button
     }()
     
@@ -67,14 +65,13 @@ class SecondSetupVC: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        print(UserDefaults.standard.string(forKey: "integrationToken"))
         configureUI()
     }
     
     //MARK: - Selectors
     @objc func handleButtonTapped() {
         
-        if contentIsShown < 3 {
+        if contentIsShown < 2 {
             
             contentIsShown += 1
             
@@ -105,7 +102,8 @@ class SecondSetupVC: UIViewController {
             
             pageControl.currentPage = contentIsShown
         } else {
-            navigationController?.pushViewController(DatabaseIDInputVC(), animated: true)
+            contentIsShown = 0
+            navigationController?.pushViewController(IntegrationTokenInputVC(), animated: true)
         }
     }
     

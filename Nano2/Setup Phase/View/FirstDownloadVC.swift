@@ -17,23 +17,23 @@ class FirstDownloadVC: UIViewController {
         return label
     }()
     
-    private lazy var welcomeLabel: AppLabel = {
-        let label = AppLabel(style: .largeTitle, textString: "Welcome!!")
+    private lazy var welcomeLabel: RLabel = {
+        let label = RLabel(style: .largeTitle, textString: "Welcome!!")
         return label
     }()
     
-    private lazy var subHeadingLabel1: AppLabel = {
-        let label = AppLabel(style: .subHeading, textString: "Experience a new way to\nwrite Reflections")
+    private lazy var subHeadingLabel1: RLabel = {
+        let label = RLabel(style: .subHeading, textString: "Experience a new way to\nwrite Reflections")
         return label
     }()
     
     private lazy var subHeadingLabel2: UILabel = {
-        let label = AppLabel(style: .subHeading, textString: "By a Learner, for all Learners")
+        let label = RLabel(style: .subHeading, textString: "By a Learner, for all Learners")
         return label
     }()
     
-    private lazy var nextButton: AppButton = {
-        let button = AppButton(isEnabled: true, style: .normal, text: "Let's get started!", #selector(handleButtonTapped), self)
+    private lazy var nextButton: RTButton = {
+        let button = RTButton(isEnabled: true, style: .normal, text: "Let's get started!", #selector(handleButtonTapped), self)
         return button
     }()
     

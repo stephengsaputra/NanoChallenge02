@@ -10,47 +10,47 @@ import UIKit
 class FailedSubmitVC: UIViewController {
     
     //MARK: - Properties
-    private lazy var headingLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "Uh-oh!!")
+    private lazy var headingLabel: RLabel = {
+        let label = RLabel(style: .heading, textString: "Uh-oh!!")
         return label
     }()
     
-    private lazy var bodyLabel1: AppLabel = {
-        let label = AppLabel(style: .body, textString: "It seems that there has been an error!")
+    private lazy var bodyLabel1: RLabel = {
+        let label = RLabel(style: .body, textString: "It seems that there has been an error!")
         return label
     }()
     
     private lazy var bodyLabel2: UILabel = {
-        let label = AppLabel(style: .body, textString: "To make sure, please recheck your Integration Token and database ID below. You can edit it right here:")
+        let label = RLabel(style: .body, textString: "To make sure, please recheck your Integration Token and database ID below. You can edit it right here:")
         return label
     }()
     
-    private lazy var integrationTokenTFTitle: AppLabel = {
-        let label = AppLabel(style: .tfTitle, textString: "Integration Token")
+    private lazy var integrationTokenTFTitle: RLabel = {
+        let label = RLabel(style: .tfTitle, textString: "Integration Token")
         return label
     }()
     
-    private lazy var integrationTokenTF: AppTextField = {
-        let tf = AppTextField(placeholderText: "Integration Token")
+    private lazy var integrationTokenTF: RTextField = {
+        let tf = RTextField(placeholderText: "Integration Token")
         tf.text = UserDefaults.standard.string(forKey: "integrationToken")
         tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return tf
     }()
     
-    private lazy var databaseIDTFTitle: AppLabel = {
-        let label = AppLabel(style: .tfTitle, textString: "Database ID")
+    private lazy var databaseIDTFTitle: RLabel = {
+        let label = RLabel(style: .tfTitle, textString: "Database ID")
         return label
     }()
     
-    private lazy var databaseIDTF: AppTextField = {
-        let tf = AppTextField(placeholderText: "Database ID")
+    private lazy var databaseIDTF: RTextField = {
+        let tf = RTextField(placeholderText: "Database ID")
         tf.text = UserDefaults.standard.string(forKey: "databaseID")
         tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return tf
     }()
     
-    private lazy var backToSummaryButton: AppButton = {
-        let button = AppButton(isEnabled: true, style: .normal, text: "Back to summary", #selector(handleButtonTapped), self)
+    private lazy var backToSummaryButton: RTButton = {
+        let button = RTButton(isEnabled: true, style: .normal, text: "Back to summary", #selector(handleButtonTapped), self)
         return button
     }()
     
@@ -61,7 +61,7 @@ class FailedSubmitVC: UIViewController {
         configureUI()
         configureTextFieldObservers()
         
-        Utilities().slideViewWhenShowKeyboard(self, #selector(self.keyboardWillShow(notification:)), #selector(self.keyboardWillHide))
+        RKeyboard().slideViewWhenShowKeyboard(self, #selector(self.keyboardWillShow(notification:)), #selector(self.keyboardWillHide))
     }
     
     deinit {
@@ -80,7 +80,7 @@ class FailedSubmitVC: UIViewController {
     //MARK: - Helpers
     func configureUI() {
         
-        Utilities().vibrate(for: .error)
+        RVibration().vibrate(for: .error)
         view.backgroundColor = .backgroundColor
         
         view.addSubview(headingLabel)

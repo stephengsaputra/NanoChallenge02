@@ -1,22 +1,13 @@
 //
-//  Utilities.swift
+//  RNotifications.swift
 //  Nano2
 //
-//  Created by Stephen Giovanni Saputra on 22/07/22.
+//  Created by Stephen Giovanni Saputra on 27/07/22.
 //
 
 import UIKit
 
-class Utilities {
-    
-    func vibrate(for type: UINotificationFeedbackGenerator.FeedbackType) {
-        
-        DispatchQueue.main.async {
-            let notificationGenerator = UINotificationFeedbackGenerator()
-            notificationGenerator.prepare()
-            notificationGenerator.notificationOccurred(type)
-        }
-    }
+class RNotifications {
     
     func addNotification() {
         
@@ -52,11 +43,5 @@ class Utilities {
                 }
             }
         }
-    }
-    
-    func slideViewWhenShowKeyboard(_ target: Any, _ actionShowKeyboard: Selector, _ actionHideKeyboard: Selector) {
-        
-        NotificationCenter.default.addObserver(target, selector: actionShowKeyboard, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(target, selector: actionHideKeyboard, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 }

@@ -14,6 +14,13 @@
 		DB11472A288E9251002631C1 /* FailedSubmitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB114729288E9251002631C1 /* FailedSubmitVC.swift */; };
 		DB19B5ED288C71AD002EE3F1 /* FirstSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19B5EC288C71AD002EE3F1 /* FirstSetupVC.swift */; };
 		DB209A3D2890FCB70098AAC7 /* DatabaseIDInputVC + Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A3C2890FCB70098AAC7 /* DatabaseIDInputVC + Keyboard.swift */; };
+		DB209A3F289106F70098AAC7 /* RVibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A3E289106F70098AAC7 /* RVibration.swift */; };
+		DB209A41289107520098AAC7 /* RNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A40289107520098AAC7 /* RNotifications.swift */; };
+		DB209A432891081D0098AAC7 /* RKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A422891081D0098AAC7 /* RKeyboard.swift */; };
+		DB209A45289109090098AAC7 /* IntegrationTokenInputVC + Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A44289109090098AAC7 /* IntegrationTokenInputVC + Keyboard.swift */; };
+		DB209A48289109760098AAC7 /* NotificationSetup + Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A47289109760098AAC7 /* NotificationSetup + Alert.swift */; };
+		DB209A4B289109B70098AAC7 /* TitleInputVC + Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A4A289109B70098AAC7 /* TitleInputVC + Keyboard.swift */; };
+		DB209A4E28910A120098AAC7 /* BodyInputVC + Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A4D28910A120098AAC7 /* BodyInputVC + Keyboard.swift */; };
 		DB2129F4288DB6EC00EC6413 /* FinishSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2129F3288DB6EC00EC6413 /* FinishSetupVC.swift */; };
 		DB2129F7288DB9D600EC6413 /* TitleInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2129F6288DB9D600EC6413 /* TitleInputVC.swift */; };
 		DB2DD7A4288D4D4900FDC70F /* IntegrationTokenInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2DD7A3288D4D4900FDC70F /* IntegrationTokenInputVC.swift */; };
@@ -24,7 +31,6 @@
 		DB620134288A49A90026C0C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB620132288A49A90026C0C3 /* Main.storyboard */; };
 		DB620136288A49AA0026C0C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB620135288A49AA0026C0C3 /* Assets.xcassets */; };
 		DB620139288A49AA0026C0C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB620137288A49AA0026C0C3 /* LaunchScreen.storyboard */; };
-		DB620142288A60D00026C0C3 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB620140288A60D00026C0C3 /* Utilities.swift */; };
 		DB620143288A60D00026C0C3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB620141288A60D00026C0C3 /* Extensions.swift */; };
 		DB620148288A61AC0026C0C3 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB620145288A61AC0026C0C3 /* Raleway-Bold.ttf */; };
 		DB620149288A61AC0026C0C3 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB620146288A61AC0026C0C3 /* Raleway-SemiBold.ttf */; };
@@ -32,15 +38,15 @@
 		DB7F99B1288E42DB00649211 /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F99B0288E42DB00649211 /* OnboardingManager.swift */; };
 		DB7F99B4288E543D00649211 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F99B3288E543D00649211 /* SettingsVC.swift */; };
 		DB7F99B6288E5E0800649211 /* BodyInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F99B5288E5E0800649211 /* BodyInputVC.swift */; };
-		DB7F99B8288E5F0900649211 /* AppTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F99B7288E5F0900649211 /* AppTextView.swift */; };
+		DB7F99B8288E5F0900649211 /* RTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F99B7288E5F0900649211 /* RTextView.swift */; };
 		DB979DE3288D13C900EEEA43 /* SetupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB979DE2288D13C900EEEA43 /* SetupModel.swift */; };
 		DB979DE7288D199600EEEA43 /* SecondSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB979DE6288D199600EEEA43 /* SecondSetupVC.swift */; };
 		DBBEE79A288EB695002109B0 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBEE799288EB695002109B0 /* Helper.swift */; };
 		DBBEE79C288EC27D002109B0 /* ReflectionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBEE79B288EC27D002109B0 /* ReflectionsModel.swift */; };
-		DBCEFCA1288D95A00076E011 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCEFCA0288D95A00076E011 /* AppTextField.swift */; };
-		DBCEFCA3288D97830076E011 /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCEFCA2288D97830076E011 /* AppLabel.swift */; };
+		DBCEFCA1288D95A00076E011 /* RTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCEFCA0288D95A00076E011 /* RTextField.swift */; };
+		DBCEFCA3288D97830076E011 /* RLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCEFCA2288D97830076E011 /* RLabel.swift */; };
 		DBCEFCA5288D9D080076E011 /* NotificationSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCEFCA4288D9D080076E011 /* NotificationSetupVC.swift */; };
-		DBEA85AC288BE01C0036BAB8 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEA85AB288BE01C0036BAB8 /* AppButton.swift */; };
+		DBEA85AC288BE01C0036BAB8 /* RTButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEA85AB288BE01C0036BAB8 /* RTButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +57,13 @@
 		DB114729288E9251002631C1 /* FailedSubmitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailedSubmitVC.swift; sourceTree = "<group>"; };
 		DB19B5EC288C71AD002EE3F1 /* FirstSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSetupVC.swift; sourceTree = "<group>"; };
 		DB209A3C2890FCB70098AAC7 /* DatabaseIDInputVC + Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseIDInputVC + Keyboard.swift"; sourceTree = "<group>"; };
+		DB209A3E289106F70098AAC7 /* RVibration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RVibration.swift; sourceTree = "<group>"; };
+		DB209A40289107520098AAC7 /* RNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNotifications.swift; sourceTree = "<group>"; };
+		DB209A422891081D0098AAC7 /* RKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKeyboard.swift; sourceTree = "<group>"; };
+		DB209A44289109090098AAC7 /* IntegrationTokenInputVC + Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntegrationTokenInputVC + Keyboard.swift"; sourceTree = "<group>"; };
+		DB209A47289109760098AAC7 /* NotificationSetup + Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationSetup + Alert.swift"; sourceTree = "<group>"; };
+		DB209A4A289109B70098AAC7 /* TitleInputVC + Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TitleInputVC + Keyboard.swift"; sourceTree = "<group>"; };
+		DB209A4D28910A120098AAC7 /* BodyInputVC + Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BodyInputVC + Keyboard.swift"; sourceTree = "<group>"; };
 		DB2129F3288DB6EC00EC6413 /* FinishSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishSetupVC.swift; sourceTree = "<group>"; };
 		DB2129F6288DB9D600EC6413 /* TitleInputVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleInputVC.swift; sourceTree = "<group>"; };
 		DB2DD7A3288D4D4900FDC70F /* IntegrationTokenInputVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTokenInputVC.swift; sourceTree = "<group>"; };
@@ -63,7 +76,6 @@
 		DB620135288A49AA0026C0C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB620138288A49AA0026C0C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB62013A288A49AA0026C0C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DB620140288A60D00026C0C3 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		DB620141288A60D00026C0C3 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DB620145288A61AC0026C0C3 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
 		DB620146288A61AC0026C0C3 /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -71,15 +83,15 @@
 		DB7F99B0288E42DB00649211 /* OnboardingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
 		DB7F99B3288E543D00649211 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		DB7F99B5288E5E0800649211 /* BodyInputVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyInputVC.swift; sourceTree = "<group>"; };
-		DB7F99B7288E5F0900649211 /* AppTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextView.swift; sourceTree = "<group>"; };
+		DB7F99B7288E5F0900649211 /* RTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTextView.swift; sourceTree = "<group>"; };
 		DB979DE2288D13C900EEEA43 /* SetupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupModel.swift; sourceTree = "<group>"; };
 		DB979DE6288D199600EEEA43 /* SecondSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSetupVC.swift; sourceTree = "<group>"; };
 		DBBEE799288EB695002109B0 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		DBBEE79B288EC27D002109B0 /* ReflectionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionsModel.swift; sourceTree = "<group>"; };
-		DBCEFCA0288D95A00076E011 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
-		DBCEFCA2288D97830076E011 /* AppLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
+		DBCEFCA0288D95A00076E011 /* RTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTextField.swift; sourceTree = "<group>"; };
+		DBCEFCA2288D97830076E011 /* RLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLabel.swift; sourceTree = "<group>"; };
 		DBCEFCA4288D9D080076E011 /* NotificationSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSetupVC.swift; sourceTree = "<group>"; };
-		DBEA85AB288BE01C0036BAB8 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		DBEA85AB288BE01C0036BAB8 /* RTButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +108,10 @@
 		DB054406288F974C00491B0F /* Input View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DB2129F6288DB9D600EC6413 /* TitleInputVC.swift */,
+				DB209A49289109A80098AAC7 /* Title Input */,
 				DB054407288F976C00491B0F /* Emoji Picker */,
-				DB7F99B5288E5E0800649211 /* BodyInputVC.swift */,
+				DB209A4C289109F80098AAC7 /* Body Input */,
+				DB114724288E8673002631C1 /* BeforeSendVC.swift */,
 			);
 			path = "Input View Controllers";
 			sourceTree = "<group>";
@@ -121,12 +134,46 @@
 			path = "Response View Controller";
 			sourceTree = "<group>";
 		};
+		DB209A46289109600098AAC7 /* Notification Setup */ = {
+			isa = PBXGroup;
+			children = (
+				DBCEFCA4288D9D080076E011 /* NotificationSetupVC.swift */,
+				DB209A47289109760098AAC7 /* NotificationSetup + Alert.swift */,
+			);
+			path = "Notification Setup";
+			sourceTree = "<group>";
+		};
+		DB209A49289109A80098AAC7 /* Title Input */ = {
+			isa = PBXGroup;
+			children = (
+				DB2129F6288DB9D600EC6413 /* TitleInputVC.swift */,
+				DB209A4A289109B70098AAC7 /* TitleInputVC + Keyboard.swift */,
+			);
+			path = "Title Input";
+			sourceTree = "<group>";
+		};
+		DB209A4C289109F80098AAC7 /* Body Input */ = {
+			isa = PBXGroup;
+			children = (
+				DB7F99B5288E5E0800649211 /* BodyInputVC.swift */,
+				DB209A4D28910A120098AAC7 /* BodyInputVC + Keyboard.swift */,
+			);
+			path = "Body Input";
+			sourceTree = "<group>";
+		};
+		DB209A4F28910AF00098AAC7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DBBEE79B288EC27D002109B0 /* ReflectionsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DB2129F5288DB9B900EC6413 /* Main Application */ = {
 			isa = PBXGroup;
 			children = (
-				DB2129FA288DC11D00EC6413 /* View Controller */,
-				DBBEE799288EB695002109B0 /* Helper.swift */,
-				DBBEE79B288EC27D002109B0 /* ReflectionsModel.swift */,
+				DB209A4F28910AF00098AAC7 /* Model */,
+				DB2129FA288DC11D00EC6413 /* View */,
 			);
 			path = "Main Application";
 			sourceTree = "<group>";
@@ -139,27 +186,26 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		DB2129F9288DC10700EC6413 /* View Controller */ = {
+		DB2129F9288DC10700EC6413 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				DB620130288A49A90026C0C3 /* FirstDownloadVC.swift */,
 				DB2DD7A5288D4EA500FDC70F /* Integration Token Setup  */,
 				DB2DD7A8288D60C200FDC70F /* Database ID Setup */,
-				DBCEFCA4288D9D080076E011 /* NotificationSetupVC.swift */,
+				DB209A46289109600098AAC7 /* Notification Setup */,
 				DB2129F3288DB6EC00EC6413 /* FinishSetupVC.swift */,
 			);
-			path = "View Controller";
+			path = View;
 			sourceTree = "<group>";
 		};
-		DB2129FA288DC11D00EC6413 /* View Controller */ = {
+		DB2129FA288DC11D00EC6413 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				DB054406288F974C00491B0F /* Input View Controllers */,
-				DB114724288E8673002631C1 /* BeforeSendVC.swift */,
 				DB114726288E90BA002631C1 /* Response View Controller */,
 				DB7F99B3288E543D00649211 /* SettingsVC.swift */,
 			);
-			path = "View Controller";
+			path = View;
 			sourceTree = "<group>";
 		};
 		DB2DD7A5288D4EA500FDC70F /* Integration Token Setup  */ = {
@@ -167,6 +213,7 @@
 			children = (
 				DB19B5EC288C71AD002EE3F1 /* FirstSetupVC.swift */,
 				DB2DD7A3288D4D4900FDC70F /* IntegrationTokenInputVC.swift */,
+				DB209A44289109090098AAC7 /* IntegrationTokenInputVC + Keyboard.swift */,
 			);
 			path = "Integration Token Setup ";
 			sourceTree = "<group>";
@@ -204,8 +251,8 @@
 				DB62012E288A49A90026C0C3 /* SceneDelegate.swift */,
 				DB979DE4288D13D500EEEA43 /* Setup Phase */,
 				DB2129F5288DB9B900EC6413 /* Main Application */,
-				DB979DE5288D13E400EEEA43 /* Storyboard */,
 				DB620144288A60D40026C0C3 /* Utilities */,
+				DB979DE5288D13E400EEEA43 /* Storyboard */,
 				DB62014B288A61B10026C0C3 /* Fonts */,
 				DB620135288A49AA0026C0C3 /* Assets.xcassets */,
 				DB62013A288A49AA0026C0C3 /* Info.plist */,
@@ -216,9 +263,12 @@
 		DB620144288A60D40026C0C3 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				DBBEE799288EB695002109B0 /* Helper.swift */,
 				DB7F99B0288E42DB00649211 /* OnboardingManager.swift */,
 				DB620141288A60D00026C0C3 /* Extensions.swift */,
-				DB620140288A60D00026C0C3 /* Utilities.swift */,
+				DB209A3E289106F70098AAC7 /* RVibration.swift */,
+				DB209A40289107520098AAC7 /* RNotifications.swift */,
+				DB209A422891081D0098AAC7 /* RKeyboard.swift */,
 				DBBEE798288EB67F002109B0 /* Custom Assets */,
 			);
 			path = Utilities;
@@ -238,7 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				DB2129F8288DC0F900EC6413 /* Model */,
-				DB2129F9288DC10700EC6413 /* View Controller */,
+				DB2129F9288DC10700EC6413 /* View */,
 			);
 			path = "Setup Phase";
 			sourceTree = "<group>";
@@ -255,10 +305,10 @@
 		DBBEE798288EB67F002109B0 /* Custom Assets */ = {
 			isa = PBXGroup;
 			children = (
-				DBEA85AB288BE01C0036BAB8 /* AppButton.swift */,
-				DBCEFCA0288D95A00076E011 /* AppTextField.swift */,
-				DBCEFCA2288D97830076E011 /* AppLabel.swift */,
-				DB7F99B7288E5F0900649211 /* AppTextView.swift */,
+				DBEA85AB288BE01C0036BAB8 /* RTButton.swift */,
+				DBCEFCA0288D95A00076E011 /* RTextField.swift */,
+				DBCEFCA2288D97830076E011 /* RLabel.swift */,
+				DB7F99B7288E5F0900649211 /* RTextView.swift */,
 			);
 			path = "Custom Assets";
 			sourceTree = "<group>";
@@ -339,30 +389,36 @@
 			files = (
 				DB620143288A60D00026C0C3 /* Extensions.swift in Sources */,
 				DB054405288F93C200491B0F /* EmojiPickerVC.swift in Sources */,
+				DB209A4B289109B70098AAC7 /* TitleInputVC + Keyboard.swift in Sources */,
 				DB620131288A49A90026C0C3 /* FirstDownloadVC.swift in Sources */,
-				DBEA85AC288BE01C0036BAB8 /* AppButton.swift in Sources */,
+				DBEA85AC288BE01C0036BAB8 /* RTButton.swift in Sources */,
 				DB62012D288A49A90026C0C3 /* AppDelegate.swift in Sources */,
-				DB620142288A60D00026C0C3 /* Utilities.swift in Sources */,
+				DB209A45289109090098AAC7 /* IntegrationTokenInputVC + Keyboard.swift in Sources */,
 				DB7F99B1288E42DB00649211 /* OnboardingManager.swift in Sources */,
-				DBCEFCA3288D97830076E011 /* AppLabel.swift in Sources */,
+				DBCEFCA3288D97830076E011 /* RLabel.swift in Sources */,
 				DB114725288E8673002631C1 /* BeforeSendVC.swift in Sources */,
 				DB979DE3288D13C900EEEA43 /* SetupModel.swift in Sources */,
 				DB2DD7A7288D60BD00FDC70F /* DatabaseIDInputVC.swift in Sources */,
 				DB114728288E90DA002631C1 /* SuccessSubmitVC.swift in Sources */,
+				DB209A3F289106F70098AAC7 /* RVibration.swift in Sources */,
 				DB209A3D2890FCB70098AAC7 /* DatabaseIDInputVC + Keyboard.swift in Sources */,
-				DB7F99B8288E5F0900649211 /* AppTextView.swift in Sources */,
+				DB7F99B8288E5F0900649211 /* RTextView.swift in Sources */,
 				DB2129F7288DB9D600EC6413 /* TitleInputVC.swift in Sources */,
 				DB979DE7288D199600EEEA43 /* SecondSetupVC.swift in Sources */,
 				DB19B5ED288C71AD002EE3F1 /* FirstSetupVC.swift in Sources */,
 				DB054409288F978800491B0F /* EmojiContainerView.swift in Sources */,
+				DB209A41289107520098AAC7 /* RNotifications.swift in Sources */,
 				DB2DD7A4288D4D4900FDC70F /* IntegrationTokenInputVC.swift in Sources */,
+				DB209A48289109760098AAC7 /* NotificationSetup + Alert.swift in Sources */,
 				DBCEFCA5288D9D080076E011 /* NotificationSetupVC.swift in Sources */,
 				DB2129F4288DB6EC00EC6413 /* FinishSetupVC.swift in Sources */,
 				DB11472A288E9251002631C1 /* FailedSubmitVC.swift in Sources */,
 				DBBEE79C288EC27D002109B0 /* ReflectionsModel.swift in Sources */,
 				DB62012F288A49A90026C0C3 /* SceneDelegate.swift in Sources */,
+				DB209A4E28910A120098AAC7 /* BodyInputVC + Keyboard.swift in Sources */,
+				DB209A432891081D0098AAC7 /* RKeyboard.swift in Sources */,
 				DB7F99B6288E5E0800649211 /* BodyInputVC.swift in Sources */,
-				DBCEFCA1288D95A00076E011 /* AppTextField.swift in Sources */,
+				DBCEFCA1288D95A00076E011 /* RTextField.swift in Sources */,
 				DB7F99B4288E543D00649211 /* SettingsVC.swift in Sources */,
 				DBBEE79A288EB695002109B0 /* Helper.swift in Sources */,
 			);
