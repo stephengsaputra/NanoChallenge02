@@ -13,6 +13,7 @@
 		DB114728288E90DA002631C1 /* SuccessSubmitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB114727288E90DA002631C1 /* SuccessSubmitVC.swift */; };
 		DB11472A288E9251002631C1 /* FailedSubmitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB114729288E9251002631C1 /* FailedSubmitVC.swift */; };
 		DB19B5ED288C71AD002EE3F1 /* FirstSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19B5EC288C71AD002EE3F1 /* FirstSetupVC.swift */; };
+		DB209A3D2890FCB70098AAC7 /* DatabaseIDInputVC + Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A3C2890FCB70098AAC7 /* DatabaseIDInputVC + Keyboard.swift */; };
 		DB2129F4288DB6EC00EC6413 /* FinishSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2129F3288DB6EC00EC6413 /* FinishSetupVC.swift */; };
 		DB2129F7288DB9D600EC6413 /* TitleInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2129F6288DB9D600EC6413 /* TitleInputVC.swift */; };
 		DB2DD7A4288D4D4900FDC70F /* IntegrationTokenInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2DD7A3288D4D4900FDC70F /* IntegrationTokenInputVC.swift */; };
@@ -49,6 +50,7 @@
 		DB114727288E90DA002631C1 /* SuccessSubmitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessSubmitVC.swift; sourceTree = "<group>"; };
 		DB114729288E9251002631C1 /* FailedSubmitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailedSubmitVC.swift; sourceTree = "<group>"; };
 		DB19B5EC288C71AD002EE3F1 /* FirstSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSetupVC.swift; sourceTree = "<group>"; };
+		DB209A3C2890FCB70098AAC7 /* DatabaseIDInputVC + Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseIDInputVC + Keyboard.swift"; sourceTree = "<group>"; };
 		DB2129F3288DB6EC00EC6413 /* FinishSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishSetupVC.swift; sourceTree = "<group>"; };
 		DB2129F6288DB9D600EC6413 /* TitleInputVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleInputVC.swift; sourceTree = "<group>"; };
 		DB2DD7A3288D4D4900FDC70F /* IntegrationTokenInputVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTokenInputVC.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			children = (
 				DB979DE6288D199600EEEA43 /* SecondSetupVC.swift */,
 				DB2DD7A6288D60BD00FDC70F /* DatabaseIDInputVC.swift */,
+				DB209A3C2890FCB70098AAC7 /* DatabaseIDInputVC + Keyboard.swift */,
 			);
 			path = "Database ID Setup";
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				DB979DE3288D13C900EEEA43 /* SetupModel.swift in Sources */,
 				DB2DD7A7288D60BD00FDC70F /* DatabaseIDInputVC.swift in Sources */,
 				DB114728288E90DA002631C1 /* SuccessSubmitVC.swift in Sources */,
+				DB209A3D2890FCB70098AAC7 /* DatabaseIDInputVC + Keyboard.swift in Sources */,
 				DB7F99B8288E5F0900649211 /* AppTextView.swift in Sources */,
 				DB2129F7288DB9D600EC6413 /* TitleInputVC.swift in Sources */,
 				DB979DE7288D199600EEEA43 /* SecondSetupVC.swift in Sources */,
@@ -511,6 +515,7 @@
 				DEVELOPMENT_TEAM = L7SMRXB5WV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Nano2/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Reflecta;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -540,6 +545,7 @@
 				DEVELOPMENT_TEAM = L7SMRXB5WV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Nano2/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Reflecta;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

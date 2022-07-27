@@ -16,13 +16,13 @@ class DatabaseIDInputVC: UIViewController {
         return label
     }()
     
-    private lazy var databaseIDTF: AppTextField = {
+    internal lazy var databaseIDTF: AppTextField = {
         let tf = AppTextField(placeholderText: "Database ID")
         tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return tf
     }()
     
-    private lazy var nextButton: AppButton = {
+    internal lazy var nextButton: AppButton = {
         let button = AppButton(isEnabled: false, style: .normal, text: "Next", #selector(handleButtonTapped), self)
         return button
     }()
@@ -81,45 +81,5 @@ class DatabaseIDInputVC: UIViewController {
             paddingLeft: 20,
             paddingBottom: 20
         )
-    }
-}
-
-extension DatabaseIDInputVC {
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            
-            let keyboardHeight = keyboardFrame.cgRectValue.height
-            let bottomSpacing = self.view.frame.height - (nextButton.frame.origin.y + nextButton.frame.height)
-            self.view.frame.origin.y -= keyboardHeight - bottomSpacing + 50
-        }
-    }
-    
-    @objc func keyboardWillHide() {
-        self.view.frame.origin.y = 0
-    }
-    
-    @objc func textFieldEditingChanged(_ textField: UITextField) {
-        
-        if textField.text != nil && textField.text!.isEmpty {
-            UIView.animate(withDuration: 0.2) {
-                self.nextButton.isEnabled = false
-            }
-        } else {
-            UIView.animate(withDuration: 0.2) {
-                self.nextButton.isEnabled = true
-            }
-        }
-    }
-    
-    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        databaseIDTF.resignFirstResponder()
-    }
-    
-    private func configureTextFieldObservers() {
-        
-        var tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
-        self.view.addGestureRecognizer(tap)
     }
 }
