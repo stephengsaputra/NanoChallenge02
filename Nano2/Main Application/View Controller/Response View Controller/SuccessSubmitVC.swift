@@ -10,8 +10,8 @@ import UIKit
 class SuccessSubmitVC: UIViewController {
 
     //MARK: - Properties
-    private lazy var headingLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "Success!!")
+    private lazy var headingLabel: RLabel = {
+        let label = RLabel(style: .heading, textString: "Success!!")
         return label
     }()
     
@@ -22,18 +22,18 @@ class SuccessSubmitVC: UIViewController {
         return image
     }()
     
-    private lazy var bodyLabel1: AppLabel = {
-        let label = AppLabel(style: .body, textString: "Your Reflection has been successfully uploaded to your Notion database!")
+    private lazy var bodyLabel1: RLabel = {
+        let label = RLabel(style: .body, textString: "Your Reflection has been successfully uploaded to your Notion database!")
         return label
     }()
     
     private lazy var bodyLabel2: UILabel = {
-        let label = AppLabel(style: .body, textString: "Remember to keep writing your Reflections everyday consistently 🔥")
+        let label = RLabel(style: .body, textString: "Remember to keep writing your Reflections everyday consistently 🔥")
         return label
     }()
     
-    private lazy var backToMainButton: AppButton = {
-        let button = AppButton(isEnabled: true, style: .normal, text: "Back to main", #selector(handleButtonTapped), self)
+    private lazy var backToMainButton: RTButton = {
+        let button = RTButton(isEnabled: true, style: .normal, text: "Back to main", #selector(handleButtonTapped), self)
         return button
     }()
     
@@ -60,7 +60,7 @@ class SuccessSubmitVC: UIViewController {
     //MARK: - Helpers
     func configureUI() {
         
-        Utilities().vibrate(for: .success)
+        RVibration().vibrate(for: .success)
         view.backgroundColor = .backgroundColor
         
         view.addSubview(headingLabel)

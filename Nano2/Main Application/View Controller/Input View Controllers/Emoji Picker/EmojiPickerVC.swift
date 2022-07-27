@@ -18,18 +18,18 @@ class EmojiPickerVC: UIViewController {
         return button
     }()
     
-    private lazy var headingLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "Next, share your feelings today")
+    private lazy var headingLabel: RLabel = {
+        let label = RLabel(style: .heading, textString: "Next, share your feelings today")
         return label
     }()
     
-    private lazy var subHeadingLabel: AppLabel = {
-        let label = AppLabel(style: .subHeading, textString: "Choose one that suits your mood")
+    private lazy var subHeadingLabel: RLabel = {
+        let label = RLabel(style: .subHeading, textString: "Choose one that suits your mood")
         return label
     }()
     
-    private lazy var nextButton: AppButton = {
-        let button = AppButton(isEnabled: false, style: .normal, text: "Next", #selector(handleNextButtonTapped), self)
+    private lazy var nextButton: RTButton = {
+        let button = RTButton(isEnabled: false, style: .normal, text: "Next", #selector(handleNextButtonTapped), self)
         return button
     }()
     

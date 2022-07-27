@@ -18,19 +18,19 @@ class BodyInputVC: UIViewController {
         return button
     }()
     
-    private lazy var headingLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "Finally, let’s write your Reflection")
+    private lazy var headingLabel: RLabel = {
+        let label = RLabel(style: .heading, textString: "Finally, let’s write your Reflection")
         return label
     }()
     
-    private lazy var textView: AppTextView = {
-        let tv = AppTextView(style: .editable,
+    private lazy var textView: RTextView = {
+        let tv = RTextView(style: .editable,
             placeholderText: "Write it down here...")
         return tv
     }()
     
-    private lazy var finishButton: AppButton = {
-        let button = AppButton(isEnabled: false, style: .normal, text: "Finish", #selector(handleFinishButtonTapped), self)
+    private lazy var finishButton: RTButton = {
+        let button = RTButton(isEnabled: false, style: .normal, text: "Finish", #selector(handleFinishButtonTapped), self)
         return button
     }()
     

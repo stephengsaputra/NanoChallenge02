@@ -10,29 +10,29 @@ import UIKit
 class TitleInputVC: UIViewController {
 
     //MARK: - Properties
-    private lazy var largeTitleLabel: AppLabel = {
-        let label = AppLabel(style: .largeTitle, textString: "Let’s write your Reflections")
+    private lazy var largeTitleLabel: RLabel = {
+        let label = RLabel(style: .largeTitle, textString: "Let’s write your Reflections")
         return label
     }()
     
-    private lazy var headingLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "First, let’s write\ndown a Title")
+    private lazy var headingLabel: RLabel = {
+        let label = RLabel(style: .heading, textString: "First, let’s write\ndown a Title")
         return label
     }()
     
-    private lazy var bodyLabel: AppLabel = {
-        let label = AppLabel(style: .body, textString: "It could be anything you want 😚")
+    private lazy var bodyLabel: RLabel = {
+        let label = RLabel(style: .body, textString: "It could be anything you want 😚")
         return label
     }()
     
-    private lazy var reflectionsTitleTF: AppTextField = {
-        let tf = AppTextField(placeholderText: "Reflections Title")
+    private lazy var reflectionsTitleTF: RTextField = {
+        let tf = RTextField(placeholderText: "Reflections Title")
         tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return tf
     }()
     
-    private lazy var nextButton: AppButton = {
-        let button = AppButton(isEnabled: false, style: .normal, text: "Next", #selector(handleNextButtonTapped), self)
+    private lazy var nextButton: RTButton = {
+        let button = RTButton(isEnabled: false, style: .normal, text: "Next", #selector(handleNextButtonTapped), self)
         return button
     }()
     

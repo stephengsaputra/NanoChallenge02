@@ -11,19 +11,19 @@ import UIKit
 class DatabaseIDInputVC: UIViewController {
 
     //MARK: - Initializers
-    private lazy var headingLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "Finally, paste in your Database ID")
+    private lazy var headingLabel: RLabel = {
+        let label = RLabel(style: .heading, textString: "Finally, paste in your Database ID")
         return label
     }()
     
-    internal lazy var databaseIDTF: AppTextField = {
-        let tf = AppTextField(placeholderText: "Database ID")
+    internal lazy var databaseIDTF: RTextField = {
+        let tf = RTextField(placeholderText: "Database ID")
         tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return tf
     }()
     
-    internal lazy var nextButton: AppButton = {
-        let button = AppButton(isEnabled: false, style: .normal, text: "Next", #selector(handleButtonTapped), self)
+    internal lazy var nextButton: RTButton = {
+        let button = RTButton(isEnabled: false, style: .normal, text: "Next", #selector(handleButtonTapped), self)
         return button
     }()
     

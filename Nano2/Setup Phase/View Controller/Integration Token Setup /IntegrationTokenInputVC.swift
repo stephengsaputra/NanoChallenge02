@@ -10,19 +10,19 @@ import UIKit
 class IntegrationTokenInputVC: UIViewController {
 
     //MARK: - Initializers
-    private lazy var headingLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "Paste in your Integration Token")
+    private lazy var headingLabel: RLabel = {
+        let label = RLabel(style: .heading, textString: "Paste in your Integration Token")
         return label
     }()
     
-    private lazy var integrationTokenTF: AppTextField = {
-        let tf = AppTextField(placeholderText: "Integration Token")
+    private lazy var integrationTokenTF: RTextField = {
+        let tf = RTextField(placeholderText: "Integration Token")
         tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return tf
     }()
     
-    private lazy var nextButton: AppButton = {
-        let button = AppButton(isEnabled: false, style: .normal, text: "Next", #selector(handleButtonTapped), self)
+    private lazy var nextButton: RTButton = {
+        let button = RTButton(isEnabled: false, style: .normal, text: "Next", #selector(handleButtonTapped), self)
         return button
     }()
     

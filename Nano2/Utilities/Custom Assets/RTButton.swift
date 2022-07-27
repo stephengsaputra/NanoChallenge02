@@ -1,5 +1,5 @@
 //
-//  ReusableButton.swift
+//  RTButton.swift
 //  Nano2
 //
 //  Created by Stephen Giovanni Saputra on 23/07/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppButton: UIButton {
+class RTButton: UIButton {
 
     enum Style
     {

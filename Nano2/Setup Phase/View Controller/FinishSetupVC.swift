@@ -10,8 +10,8 @@ import UIKit
 class FinishSetupVC: UIViewController {
 
     //MARK: - Properties
-    private lazy var headingLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "Congrats!!")
+    private lazy var headingLabel: RLabel = {
+        let label = RLabel(style: .heading, textString: "Congrats!!")
         return label
     }()
     
@@ -22,18 +22,18 @@ class FinishSetupVC: UIViewController {
         return image
     }()
     
-    private lazy var bodyLabel1: AppLabel = {
-        let label = AppLabel(style: .body, textString: "You have successfully unlocked the ultimate Reflections hack!")
+    private lazy var bodyLabel1: RLabel = {
+        let label = RLabel(style: .body, textString: "You have successfully unlocked the ultimate Reflections hack!")
         return label
     }()
     
     private lazy var bodyLabel2: UILabel = {
-        let label = AppLabel(style: .body, textString: "You can always change those ID’s from the Settings screen")
+        let label = RLabel(style: .body, textString: "You can always change those ID’s from the Settings screen")
         return label
     }()
     
-    private lazy var startWritingButton: AppButton = {
-        let button = AppButton(isEnabled: true, style: .normal, text: "Start writing!", #selector(handleButtonTapped), self)
+    private lazy var startWritingButton: RTButton = {
+        let button = RTButton(isEnabled: true, style: .normal, text: "Start writing!", #selector(handleButtonTapped), self)
         return button
     }()
     

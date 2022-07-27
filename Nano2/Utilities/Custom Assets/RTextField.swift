@@ -1,5 +1,5 @@
 //
-//  AppTextField.swift
+//  RTextField.swift
 //  Nano2
 //
 //  Created by Stephen Giovanni Saputra on 24/07/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppTextField: UITextField {
+class RTextField: UITextField {
 
     //MARK: - Initializers
     public private(set) var placeholderText: String
@@ -61,7 +61,7 @@ class AppTextField: UITextField {
     }
 }
 
-extension AppTextField: UITextFieldDelegate {
+extension RTextField: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return textField.resignFirstResponder()

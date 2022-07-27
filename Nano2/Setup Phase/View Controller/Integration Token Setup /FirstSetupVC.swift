@@ -18,13 +18,13 @@ class FirstSetupVC: UIViewController {
     
     var contentIsShown: Int = 0
     
-    private lazy var headingLabel: AppLabel = {
-        let label = AppLabel(style: .heading, textString: "First Setup")
+    private lazy var headingLabel: RLabel = {
+        let label = RLabel(style: .heading, textString: "First Setup")
         return label
     }()
     
-    private lazy var subtitleLabel: AppLabel = {
-        let label = AppLabel(style: .subHeading, textString: "I know you can do it 💪🏻")
+    private lazy var subtitleLabel: RLabel = {
+        let label = RLabel(style: .subHeading, textString: "I know you can do it 💪🏻")
         return label
     }()
     
@@ -35,13 +35,13 @@ class FirstSetupVC: UIViewController {
         return image
     }()
     
-    private lazy var stepLabel1: AppLabel = {
-        let label = AppLabel(style: .body, textString: setupContent[contentIsShown].step1)
+    private lazy var stepLabel1: RLabel = {
+        let label = RLabel(style: .body, textString: setupContent[contentIsShown].step1)
         return label
     }()
     
     private lazy var stepLabel2: UILabel = {
-        let label = AppLabel(style: .body, textString: setupContent[contentIsShown].step2)
+        let label = RLabel(style: .body, textString: setupContent[contentIsShown].step2)
         return label
     }()
     
@@ -56,8 +56,8 @@ class FirstSetupVC: UIViewController {
         return pageControl
     }()
     
-    private lazy var nextButton: AppButton = {
-        let button = AppButton(isEnabled: true, style: .normal, text: "I got it!", #selector(handleButtonTapped), self)
+    private lazy var nextButton: RTButton = {
+        let button = RTButton(isEnabled: true, style: .normal, text: "I got it!", #selector(handleButtonTapped), self)
         return button
     }()
     
