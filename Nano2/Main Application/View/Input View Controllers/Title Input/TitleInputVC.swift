@@ -51,6 +51,8 @@ class TitleInputVC: UIViewController {
         configureUI()
         configureTextFieldObservers()
         
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
         RKeyboard().slideViewWhenShowKeyboard(self, #selector(self.keyboardWillShow(notification:)), #selector(self.keyboardWillHide))
     }
     

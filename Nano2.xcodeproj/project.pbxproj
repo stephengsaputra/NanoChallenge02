@@ -41,6 +41,7 @@
 		DB7F99B8288E5F0900649211 /* RTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F99B7288E5F0900649211 /* RTextView.swift */; };
 		DB979DE3288D13C900EEEA43 /* SetupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB979DE2288D13C900EEEA43 /* SetupModel.swift */; };
 		DB979DE7288D199600EEEA43 /* SecondSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB979DE6288D199600EEEA43 /* SecondSetupVC.swift */; };
+		DBAFAF2728938308000F80B9 /* BeforeSendVC + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFAF2628938308000F80B9 /* BeforeSendVC + Extensions.swift */; };
 		DBBEE79A288EB695002109B0 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBEE799288EB695002109B0 /* Helper.swift */; };
 		DBBEE79C288EC27D002109B0 /* ReflectionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBEE79B288EC27D002109B0 /* ReflectionsModel.swift */; };
 		DBCEFCA1288D95A00076E011 /* RTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCEFCA0288D95A00076E011 /* RTextField.swift */; };
@@ -86,6 +87,7 @@
 		DB7F99B7288E5F0900649211 /* RTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTextView.swift; sourceTree = "<group>"; };
 		DB979DE2288D13C900EEEA43 /* SetupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupModel.swift; sourceTree = "<group>"; };
 		DB979DE6288D199600EEEA43 /* SecondSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSetupVC.swift; sourceTree = "<group>"; };
+		DBAFAF2628938308000F80B9 /* BeforeSendVC + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeforeSendVC + Extensions.swift"; sourceTree = "<group>"; };
 		DBBEE799288EB695002109B0 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		DBBEE79B288EC27D002109B0 /* ReflectionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionsModel.swift; sourceTree = "<group>"; };
 		DBCEFCA0288D95A00076E011 /* RTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTextField.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				DB054407288F976C00491B0F /* Emoji Picker */,
 				DB209A4C289109F80098AAC7 /* Body Input */,
 				DB114724288E8673002631C1 /* BeforeSendVC.swift */,
+				DBAFAF2628938308000F80B9 /* BeforeSendVC + Extensions.swift */,
 			);
 			path = "Input View Controllers";
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				DBEA85AC288BE01C0036BAB8 /* RTButton.swift in Sources */,
 				DB62012D288A49A90026C0C3 /* AppDelegate.swift in Sources */,
 				DB209A45289109090098AAC7 /* IntegrationTokenInputVC + Keyboard.swift in Sources */,
+				DBAFAF2728938308000F80B9 /* BeforeSendVC + Extensions.swift in Sources */,
 				DB7F99B1288E42DB00649211 /* OnboardingManager.swift in Sources */,
 				DBCEFCA3288D97830076E011 /* RLabel.swift in Sources */,
 				DB114725288E8673002631C1 /* BeforeSendVC.swift in Sources */,

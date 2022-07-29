@@ -50,11 +50,10 @@ class SuccessSubmitVC: UIViewController {
     @objc func handleButtonTapped() {
         
         UserDefaults.standard.set("", forKey: "reflectionTitle")
+        UserDefaults.standard.set("", forKey: "emoji")
         UserDefaults.standard.set("", forKey: "reflectionBody")
         
-        if let scene: SceneDelegate = (self.sceneDelegate?.delegate as? SceneDelegate) {
-            scene.setToMain()
-        }
+        navigationController?.pushViewController(TitleInputVC(), animated: true)
     }
     
     //MARK: - Helpers
