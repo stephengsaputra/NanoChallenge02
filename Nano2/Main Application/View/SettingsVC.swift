@@ -200,7 +200,7 @@ extension SettingsVC {
     
     private func configureTextFieldObservers() {
         
-        var tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
         self.view.addGestureRecognizer(tap)
     }
     

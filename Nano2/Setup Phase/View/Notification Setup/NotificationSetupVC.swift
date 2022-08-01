@@ -49,8 +49,6 @@ class NotificationSetupVC: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        print(UserDefaults.standard.string(forKey: "integrationToken"))
-        print(UserDefaults.standard.string(forKey: "databaseID"))
         configureUI()
     }
     

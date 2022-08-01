@@ -49,7 +49,6 @@ class BodyInputVC: UIViewController {
     //MARK: - Selectors
     @objc func handleBackButtonTapped() {
         navigationController?.popViewController(animated: true)
-        print(UserDefaults.standard.string(forKey: "reflectionBody"))
     }
     
     @objc func handleFinishButtonTapped() {

@@ -54,7 +54,7 @@ class RTextField: UITextField {
         self.attributedPlaceholder = NSAttributedString(
             string: placeholderText,
             attributes: [
-                NSAttributedString.Key.foregroundColor: UIColor(named: "tFHintTextColor"),
+                NSAttributedString.Key.foregroundColor: UIColor(named: "tFHintTextColor") ?? UIColor.lightGray,
                 .font: UIFont.textField()
             ]
         )

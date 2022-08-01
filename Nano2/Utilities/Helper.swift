@@ -83,7 +83,7 @@ class Helper {
     static func getNetworkResponse(data: Data?, response: URLResponse?, error: Error?) -> Void {
         
         print("Response: \(response as Any)\n")
-        print("Error: \(error)\n")
+        print("Error: \(String(describing: error))\n")
         guard let data = data else { return }
         print(data, String(data: data, encoding: .utf8) ?? "*unknown encoding*")
     }
