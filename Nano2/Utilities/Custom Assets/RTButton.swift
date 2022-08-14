@@ -9,8 +9,7 @@ import UIKit
 
 class RTButton: UIButton {
 
-    enum Style
-    {
+    enum Style {
         case normal
         case destructive
         
@@ -56,7 +55,6 @@ class RTButton: UIButton {
         
         self.isEnabled = isEnabled
         
-        
         // in order to invoke didSet
         ({ self.isEnabled = self.isEnabled })()
         configureButton()
@@ -86,5 +84,29 @@ class RTButton: UIButton {
     
     private func configureButtonTarget() {
         addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        super.touchesBegan(touches, with: event)
+        
+        UIView.animate(
+            withDuration: 0.1,
+            delay: 0,
+            options: [.allowUserInteraction, .curveEaseIn]) {
+                self.transform = .init(scaleX: 0.975, y: 0.975)
+            }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        super.touchesEnded(touches, with: event)
+        
+        UIView.animate(
+            withDuration: 0.1,
+            delay: 0,
+            options: [.allowUserInteraction, .curveEaseOut]) {
+                self.transform = .identity
+            }
     }
 }
