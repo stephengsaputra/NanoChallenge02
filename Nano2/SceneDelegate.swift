@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if isOnboardingSeen {
             vc = TitleInputVC()
         } else {
-            vc = FirstDownloadVC()
+            vc = FinishSetupVC()
         }
         
         navigationController.pushViewController(vc, animated: false)

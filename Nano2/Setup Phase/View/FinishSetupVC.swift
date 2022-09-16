@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class FinishSetupVC: UIViewController {
 
@@ -58,24 +59,20 @@ class FinishSetupVC: UIViewController {
         view.backgroundColor = .backgroundColor
         
         view.addSubview(headingLabel)
-        headingLabel.anchor(
-            top: view.topAnchor,
-            left: view.leftAnchor,
-            paddingTop: UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 120 : 80,
-            paddingLeft: 20
-        )
+        headingLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 120 : 80)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         illustrationImage.alpha = 0
         view.addSubview(illustrationImage)
-        illustrationImage.centerX(inView: view)
-        illustrationImage.anchor(
-            top: headingLabel.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: 0,
-            paddingLeft: 0,
-            paddingRight: 0
-        )
+        illustrationImage.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(headingLabel.snp.bottom).offset(0)
+            make.leading.equalToSuperview().offset(0)
+            make.trailing.equalToSuperview().offset(0)
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             UIView.animate(withDuration: 0.5) {
                 self.illustrationImage.alpha = 1
@@ -84,27 +81,21 @@ class FinishSetupVC: UIViewController {
         
         bodyLabel1.alpha = 0
         view.addSubview(bodyLabel1)
-        bodyLabel1.centerX(inView: view)
-        bodyLabel1.anchor(
-            top: illustrationImage.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: 0,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        bodyLabel1.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(illustrationImage.snp.bottom).offset(0)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         bodyLabel2.alpha = 0
         view.addSubview(bodyLabel2)
-        bodyLabel2.centerX(inView: view)
-        bodyLabel2.anchor(
-            top: bodyLabel1.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: 25,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        bodyLabel2.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(bodyLabel1.snp.bottom).offset(25)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             UIView.animate(withDuration: 0.5) {
                 self.bodyLabel1.alpha = 1
@@ -114,13 +105,12 @@ class FinishSetupVC: UIViewController {
         
         startWritingButton.alpha = 0
         view.addSubview(startWritingButton)
-        startWritingButton.centerX(inView: view)
-        startWritingButton.anchor(
-            left: view.leftAnchor,
-            bottom: view.safeAreaLayoutGuide.bottomAnchor,
-            paddingLeft: 20,
-            paddingBottom: 20
-        )
+        startWritingButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             UIView.animate(withDuration: 0.5) {
                 self.startWritingButton.alpha = 1

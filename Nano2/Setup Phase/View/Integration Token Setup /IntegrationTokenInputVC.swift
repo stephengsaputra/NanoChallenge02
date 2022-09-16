@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class IntegrationTokenInputVC: UIViewController {
 
@@ -53,33 +54,24 @@ class IntegrationTokenInputVC: UIViewController {
         view.backgroundColor = .backgroundColor
         
         view.addSubview(headingLabel)
-        headingLabel.anchor(
-            top: view.topAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 120 : 80,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        headingLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset( UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 120 : 80)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         view.addSubview(integrationTokenTF)
-        integrationTokenTF.anchor(
-            top: headingLabel.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: view.frame.height / 3.4,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        integrationTokenTF.snp.makeConstraints { make in
+            make.top.equalTo(headingLabel.snp.bottom).offset(view.frame.height / 3.4)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         view.addSubview(nextButton)
-        nextButton.centerX(inView: view)
-        nextButton.anchor(
-            left: view.leftAnchor,
-            bottom: view.safeAreaLayoutGuide.bottomAnchor,
-            paddingLeft: 20,
-            paddingBottom: 20
-        )
+        nextButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
     }
 }
-
