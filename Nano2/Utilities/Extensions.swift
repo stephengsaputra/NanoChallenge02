@@ -361,3 +361,20 @@ extension UITextField {
     }
 }
 
+extension UIView {
+    
+    func pinToParent(parent: UIView) {
+        translatesAutoresizingMaskIntoConstraints = false
+        parent.addSubview(self)
+        NSLayoutConstraint.activate([
+            topAnchor.constraint(equalTo: parent.topAnchor),
+            leadingAnchor.constraint(equalTo: parent.leadingAnchor),
+            trailingAnchor.constraint(equalTo: parent.trailingAnchor),
+            bottomAnchor.constraint(equalTo: parent.bottomAnchor)
+        ])
+    }
+    
+    func removeAllSubviews() {
+        subviews.forEach({ $0.removeFromSuperview() })
+    }
+}

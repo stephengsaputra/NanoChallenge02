@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class FirstSetupVC: UIViewController {
 
@@ -101,6 +102,7 @@ class FirstSetupVC: UIViewController {
             }
             
             pageControl.currentPage = contentIsShown
+            
         } else {
             contentIsShown = 0
             navigationController?.pushViewController(IntegrationTokenInputVC(), animated: true)
@@ -113,32 +115,24 @@ class FirstSetupVC: UIViewController {
         view.backgroundColor = .backgroundColor
         
         view.addSubview(headingLabel)
-        headingLabel.anchor(
-            top: view.topAnchor,
-            left: view.leftAnchor,
-            paddingTop: UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 120 : 80,
-            paddingLeft: 20
-        )
+        headingLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 120 : 80)
+            make.leading.equalToSuperview().offset(20)
+        }
 
         view.addSubview(subtitleLabel)
-        subtitleLabel.anchor(
-            top: headingLabel.bottomAnchor,
-            left: view.leftAnchor,
-            paddingTop: 3,
-            paddingLeft: 20
-        )
+        subtitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(headingLabel.snp.bottom).offset(3)
+            make.leading.equalToSuperview().offset(20)
+        }
         
         illustrationImage.alpha = 0
         view.addSubview(illustrationImage)
-        illustrationImage.centerX(inView: view)
-        illustrationImage.anchor(
-            top: subtitleLabel.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: 0,
-            paddingLeft: 0,
-            paddingRight: 0
-        )
+        illustrationImage.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(subtitleLabel.snp.bottom)
+            make.centerX.equalToSuperview()
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             UIView.animate(withDuration: 0.5) {
                 self.illustrationImage.alpha = 1
@@ -147,27 +141,21 @@ class FirstSetupVC: UIViewController {
         
         stepLabel1.alpha = 0
         view.addSubview(stepLabel1)
-        stepLabel1.centerX(inView: view)
-        stepLabel1.anchor(
-            top: illustrationImage.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: 0,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        stepLabel1.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(illustrationImage.snp.bottom)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         stepLabel2.alpha = 0
         view.addSubview(stepLabel2)
-        stepLabel2.centerX(inView: view)
-        stepLabel2.anchor(
-            top: stepLabel1.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: 25,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        stepLabel2.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(stepLabel1.snp.bottom).offset(25)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             UIView.animate(withDuration: 0.5) {
                 self.stepLabel1.alpha = 1
@@ -177,13 +165,11 @@ class FirstSetupVC: UIViewController {
         
         nextButton.alpha = 0
         view.addSubview(nextButton)
-        nextButton.centerX(inView: view)
-        nextButton.anchor(
-            left: view.leftAnchor,
-            bottom: view.safeAreaLayoutGuide.bottomAnchor,
-            paddingLeft: 20,
-            paddingBottom: 20
-        )
+        nextButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             UIView.animate(withDuration: 0.5) {
                 self.nextButton.alpha = 1
@@ -192,11 +178,10 @@ class FirstSetupVC: UIViewController {
         
         pageControl.alpha = 0
         view.addSubview(pageControl)
-        pageControl.centerX(inView: view)
-        pageControl.anchor(
-            bottom: nextButton.topAnchor,
-            paddingBottom: 25
-        )
+        pageControl.snp.makeConstraints { make in
+            make.bottom.equalTo(nextButton.snp.top).offset(-25)
+            make.centerX.equalToSuperview()
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             UIView.animate(withDuration: 0.5) {
                 self.pageControl.alpha = 1

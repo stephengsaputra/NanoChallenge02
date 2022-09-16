@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class FirstDownloadVC: UIViewController {
     
@@ -56,29 +57,23 @@ class FirstDownloadVC: UIViewController {
         view.backgroundColor = .backgroundColor
         
         view.addSubview(emojiHi)
-        emojiHi.anchor(
-            top: view.safeAreaLayoutGuide.topAnchor,
-            left: view.leftAnchor,
-            paddingTop: UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 160 : 100,
-            paddingLeft: 14
-        )
+        emojiHi.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(160)
+            make.leading.equalToSuperview().offset(14)
+        }
         
         view.addSubview(welcomeLabel)
-        welcomeLabel.anchor(
-            top: emojiHi.bottomAnchor,
-            left: view.leftAnchor,
-            paddingTop: 5,
-            paddingLeft: 20
-        )
+        welcomeLabel.snp.makeConstraints { make in
+            make.top.equalTo(emojiHi.snp.bottom).offset(5)
+            make.leading.equalToSuperview().offset(20)
+        }
         
         subHeadingLabel1.alpha = 0
         view.addSubview(subHeadingLabel1)
-        subHeadingLabel1.anchor(
-            top: welcomeLabel.bottomAnchor,
-            left: view.leftAnchor,
-            paddingTop: 35,
-            paddingLeft: 20
-        )
+        subHeadingLabel1.snp.makeConstraints { make in
+            make.top.equalTo(welcomeLabel.snp.bottom).offset(35)
+            make.leading.equalToSuperview().offset(20)
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             UIView.animate(withDuration: 0.5) {
                 self.subHeadingLabel1.alpha = 1
@@ -87,12 +82,10 @@ class FirstDownloadVC: UIViewController {
         
         subHeadingLabel2.alpha = 0
         view.addSubview(subHeadingLabel2)
-        subHeadingLabel2.anchor(
-            top: subHeadingLabel1.bottomAnchor,
-            left: view.leftAnchor,
-            paddingTop: 140,
-            paddingLeft: 20
-        )
+        subHeadingLabel2.snp.makeConstraints { make in
+            make.top.equalTo(subHeadingLabel1.snp.bottom).offset(140)
+            make.leading.equalToSuperview().offset(20)
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             UIView.animate(withDuration: 0.5) {
                 self.subHeadingLabel2.alpha = 1
@@ -101,13 +94,10 @@ class FirstDownloadVC: UIViewController {
         
         nextButton.alpha = 0
         view.addSubview(nextButton)
-        nextButton.centerX(inView: view)
-        nextButton.anchor(
-            left: view.leftAnchor,
-            bottom: view.safeAreaLayoutGuide.bottomAnchor,
-            paddingLeft: 20,
-            paddingBottom: 20
-        )
+        nextButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.leading.equalToSuperview().offset(20)
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.75) {
             UIView.animate(withDuration: 0.5) {
                 self.nextButton.alpha = 1
@@ -115,4 +105,3 @@ class FirstDownloadVC: UIViewController {
         }
     }
 }
-

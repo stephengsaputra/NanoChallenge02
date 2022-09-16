@@ -25,6 +25,7 @@
 		DB2129F7288DB9D600EC6413 /* TitleInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2129F6288DB9D600EC6413 /* TitleInputVC.swift */; };
 		DB2DD7A4288D4D4900FDC70F /* IntegrationTokenInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2DD7A3288D4D4900FDC70F /* IntegrationTokenInputVC.swift */; };
 		DB2DD7A7288D60BD00FDC70F /* DatabaseIDInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2DD7A6288D60BD00FDC70F /* DatabaseIDInputVC.swift */; };
+		DB34913C28D42D980035951C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DB34913B28D42D980035951C /* SnapKit */; };
 		DB62012D288A49A90026C0C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62012C288A49A90026C0C3 /* AppDelegate.swift */; };
 		DB62012F288A49A90026C0C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62012E288A49A90026C0C3 /* SceneDelegate.swift */; };
 		DB620131288A49A90026C0C3 /* FirstDownloadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB620130288A49A90026C0C3 /* FirstDownloadVC.swift */; };
@@ -101,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB34913C28D42D980035951C /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +334,9 @@
 			dependencies = (
 			);
 			name = Nano2;
+			packageProductDependencies = (
+				DB34913B28D42D980035951C /* SnapKit */,
+			);
 			productName = Nano2;
 			productReference = DB620129288A49A90026C0C3 /* Nano2.app */;
 			productType = "com.apple.product-type.application";
@@ -360,6 +365,9 @@
 				Base,
 			);
 			mainGroup = DB620120288A49A90026C0C3;
+			packageReferences = (
+				DB34913A28D42D980035951C /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = DB62012A288A49A90026C0C3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -646,6 +654,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DB34913A28D42D980035951C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DB34913B28D42D980035951C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB34913A28D42D980035951C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DB620121288A49A90026C0C3 /* Project object */;
 }
