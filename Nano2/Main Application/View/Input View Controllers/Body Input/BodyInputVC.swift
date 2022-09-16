@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class BodyInputVC: UIViewController {
 
@@ -62,42 +63,32 @@ class BodyInputVC: UIViewController {
         view.backgroundColor = .backgroundColor
         
         view.addSubview(backButton)
-        backButton.anchor(
-            top: view.safeAreaLayoutGuide.topAnchor,
-            left: view.leftAnchor,
-            paddingTop: 26,
-            paddingLeft: 20
-        )
+        backButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(26)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         view.addSubview(headingLabel)
-        headingLabel.anchor(
-            top: view.topAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: 151,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        headingLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(151)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         view.addSubview(finishButton)
-        finishButton.centerX(inView: view)
-        finishButton.anchor(
-            left: view.leftAnchor,
-            bottom: view.safeAreaLayoutGuide.bottomAnchor,
-            paddingLeft: 20,
-            paddingBottom: 20
-        )
+        finishButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         view.addSubview(textView)
-        textView.anchor(
-            top: headingLabel.bottomAnchor,
-            left: view.leftAnchor,
-            bottom: finishButton.topAnchor,
-            right: view.rightAnchor,
-            paddingTop: 16,
-            paddingLeft: 20,
-            paddingBottom: 16,
-            paddingRight: 20
-        )
+        textView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.top.equalTo(headingLabel.snp.bottom).offset(16)
+            make.bottom.equalTo(finishButton.snp.top).offset(16)
+        }
     }
 }

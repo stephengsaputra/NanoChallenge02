@@ -70,62 +70,46 @@ class BeforeSendVC: UIViewController {
         view.backgroundColor = .backgroundColor
         
         view.addSubview(backButton)
-        backButton.anchor(
-            top: view.safeAreaLayoutGuide.topAnchor,
-            left: view.leftAnchor,
-            paddingTop: 26,
-            paddingLeft: 20
-        )
+        backButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(26)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         view.addSubview(headingLabel)
-        headingLabel.anchor(
-            top: view.topAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: 151,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        headingLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(151)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         view.addSubview(reflectionTitleLabel)
-        reflectionTitleLabel.anchor(
-            top: headingLabel.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: 32,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        reflectionTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(headingLabel.snp.bottom).offset(32)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         view.addSubview(reflectionEmojiLabel)
-        reflectionEmojiLabel.anchor(
-            top: reflectionTitleLabel.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: 10,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        reflectionEmojiLabel.snp.makeConstraints { make in
+            make.top.equalTo(reflectionTitleLabel.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         view.addSubview(sendButton)
-        sendButton.centerX(inView: view)
-        sendButton.anchor(
-            left: view.leftAnchor,
-            bottom: view.safeAreaLayoutGuide.bottomAnchor,
-            paddingLeft: 20,
-            paddingBottom: 20
-        )
+        sendButton.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+        }
         
         view.addSubview(textView)
-        textView.anchor(
-            top: reflectionEmojiLabel.bottomAnchor,
-            left: view.leftAnchor,
-            bottom: sendButton.topAnchor,
-            right: view.rightAnchor,
-            paddingTop: 16,
-            paddingLeft: 20,
-            paddingBottom: 20,
-            paddingRight: 20
-        )
+        textView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.top.equalTo(reflectionEmojiLabel.snp.bottom).offset(16)
+            make.bottom.equalTo(sendButton.snp.top).offset(-16)
+        }
     }
 }

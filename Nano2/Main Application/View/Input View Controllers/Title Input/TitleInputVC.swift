@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class TitleInputVC: UIViewController {
 
@@ -77,62 +78,47 @@ class TitleInputVC: UIViewController {
         view.backgroundColor = .backgroundColor
         
         view.addSubview(settingsButton)
-        settingsButton.setDimensions(
-            height: view.frame.height / 19.2,
-            width: view.frame.width / 8.53)
-        settingsButton.anchor(
-            top: view.safeAreaLayoutGuide.topAnchor,
-            right: view.rightAnchor,
-            paddingTop: 26,
-            paddingRight: 10
-        )
+        settingsButton.snp.makeConstraints { make in
+            make.height.equalTo(view.frame.height / 19.2)
+            make.width.equalTo(view.frame.width / 8.53)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(26)
+            make.trailing.equalToSuperview().offset(-10)
+        }
         
         view.addSubview(largeTitleLabel)
-        largeTitleLabel.anchor(
-            top: view.topAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 140 : 100,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        largeTitleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 140 : 100)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         view.addSubview(headingLabel)
-        headingLabel.anchor(
-            top: largeTitleLabel.bottomAnchor,
-            left: view.leftAnchor,
-            paddingTop: view.frame.height / 10.68,
-            paddingLeft: 20
-        )
+        headingLabel.snp.makeConstraints { make in
+            make.top.equalTo(largeTitleLabel.snp.bottom).offset(view.frame.height / 10.68)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         view.addSubview(bodyLabel)
-        bodyLabel.centerX(inView: view)
-        bodyLabel.anchor(
-            top: headingLabel.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: 25,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        bodyLabel.snp.makeConstraints { make in
+            make.top.equalTo(headingLabel.snp.bottom).offset(25)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         view.addSubview(reflectionsTitleTF)
-        reflectionsTitleTF.anchor(
-            top: bodyLabel.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: 60,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        reflectionsTitleTF.snp.makeConstraints { make in
+            make.top.equalTo(bodyLabel.snp.bottom).offset(60)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         view.addSubview(nextButton)
-        nextButton.centerX(inView: view)
-        nextButton.anchor(
-            left: view.leftAnchor,
-            bottom: view.safeAreaLayoutGuide.bottomAnchor,
-            paddingLeft: 20,
-            paddingBottom: 20
-        )
+        nextButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+        }
     }
 }

@@ -43,6 +43,8 @@
 		DB979DE3288D13C900EEEA43 /* SetupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB979DE2288D13C900EEEA43 /* SetupModel.swift */; };
 		DB979DE7288D199600EEEA43 /* SecondSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB979DE6288D199600EEEA43 /* SecondSetupVC.swift */; };
 		DBAFAF2728938308000F80B9 /* BeforeSendVC + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFAF2628938308000F80B9 /* BeforeSendVC + Extensions.swift */; };
+		DBAFFC0D28D4D897000FD3E2 /* FailedSubmitVC + Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFFC0C28D4D897000FD3E2 /* FailedSubmitVC + Keyboard.swift */; };
+		DBAFFC0F28D4D909000FD3E2 /* SettingsVC + Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFFC0E28D4D909000FD3E2 /* SettingsVC + Keyboard.swift */; };
 		DBBEE79A288EB695002109B0 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBEE799288EB695002109B0 /* Helper.swift */; };
 		DBBEE79C288EC27D002109B0 /* ReflectionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBEE79B288EC27D002109B0 /* ReflectionsModel.swift */; };
 		DBCEFCA1288D95A00076E011 /* RTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCEFCA0288D95A00076E011 /* RTextField.swift */; };
@@ -89,6 +91,8 @@
 		DB979DE2288D13C900EEEA43 /* SetupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupModel.swift; sourceTree = "<group>"; };
 		DB979DE6288D199600EEEA43 /* SecondSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSetupVC.swift; sourceTree = "<group>"; };
 		DBAFAF2628938308000F80B9 /* BeforeSendVC + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeforeSendVC + Extensions.swift"; sourceTree = "<group>"; };
+		DBAFFC0C28D4D897000FD3E2 /* FailedSubmitVC + Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FailedSubmitVC + Keyboard.swift"; sourceTree = "<group>"; };
+		DBAFFC0E28D4D909000FD3E2 /* SettingsVC + Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsVC + Keyboard.swift"; sourceTree = "<group>"; };
 		DBBEE799288EB695002109B0 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		DBBEE79B288EC27D002109B0 /* ReflectionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionsModel.swift; sourceTree = "<group>"; };
 		DBCEFCA0288D95A00076E011 /* RTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTextField.swift; sourceTree = "<group>"; };
@@ -115,8 +119,7 @@
 				DB209A49289109A80098AAC7 /* Title Input */,
 				DB054407288F976C00491B0F /* Emoji Picker */,
 				DB209A4C289109F80098AAC7 /* Body Input */,
-				DB114724288E8673002631C1 /* BeforeSendVC.swift */,
-				DBAFAF2628938308000F80B9 /* BeforeSendVC + Extensions.swift */,
+				DBAFFC0628D4C9A6000FD3E2 /* Before Send Reflection */,
 			);
 			path = "Input View Controllers";
 			sourceTree = "<group>";
@@ -133,8 +136,8 @@
 		DB114726288E90BA002631C1 /* Response View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DB114727288E90DA002631C1 /* SuccessSubmitVC.swift */,
-				DB114729288E9251002631C1 /* FailedSubmitVC.swift */,
+				DBAFFC0828D4D818000FD3E2 /* Success Submit Reflection */,
+				DBAFFC0928D4D826000FD3E2 /* Failed Submit Reflection */,
 			);
 			path = "Response View Controller";
 			sourceTree = "<group>";
@@ -208,7 +211,7 @@
 			children = (
 				DB054406288F974C00491B0F /* Input View Controllers */,
 				DB114726288E90BA002631C1 /* Response View Controller */,
-				DB7F99B3288E543D00649211 /* SettingsVC.swift */,
+				DBAFFC0728D4D809000FD3E2 /* Settings View Controller */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -305,6 +308,41 @@
 				DB620137288A49AA0026C0C3 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		DBAFFC0628D4C9A6000FD3E2 /* Before Send Reflection */ = {
+			isa = PBXGroup;
+			children = (
+				DB114724288E8673002631C1 /* BeforeSendVC.swift */,
+				DBAFAF2628938308000F80B9 /* BeforeSendVC + Extensions.swift */,
+			);
+			path = "Before Send Reflection";
+			sourceTree = "<group>";
+		};
+		DBAFFC0728D4D809000FD3E2 /* Settings View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DB7F99B3288E543D00649211 /* SettingsVC.swift */,
+				DBAFFC0E28D4D909000FD3E2 /* SettingsVC + Keyboard.swift */,
+			);
+			path = "Settings View Controller";
+			sourceTree = "<group>";
+		};
+		DBAFFC0828D4D818000FD3E2 /* Success Submit Reflection */ = {
+			isa = PBXGroup;
+			children = (
+				DB114727288E90DA002631C1 /* SuccessSubmitVC.swift */,
+			);
+			path = "Success Submit Reflection";
+			sourceTree = "<group>";
+		};
+		DBAFFC0928D4D826000FD3E2 /* Failed Submit Reflection */ = {
+			isa = PBXGroup;
+			children = (
+				DB114729288E9251002631C1 /* FailedSubmitVC.swift */,
+				DBAFFC0C28D4D897000FD3E2 /* FailedSubmitVC + Keyboard.swift */,
+			);
+			path = "Failed Submit Reflection";
 			sourceTree = "<group>";
 		};
 		DBBEE798288EB67F002109B0 /* Custom Assets */ = {
@@ -413,6 +451,7 @@
 				DB2DD7A7288D60BD00FDC70F /* DatabaseIDInputVC.swift in Sources */,
 				DB114728288E90DA002631C1 /* SuccessSubmitVC.swift in Sources */,
 				DB209A3F289106F70098AAC7 /* RVibration.swift in Sources */,
+				DBAFFC0F28D4D909000FD3E2 /* SettingsVC + Keyboard.swift in Sources */,
 				DB209A3D2890FCB70098AAC7 /* DatabaseIDInputVC + Keyboard.swift in Sources */,
 				DB7F99B8288E5F0900649211 /* RTextView.swift in Sources */,
 				DB2129F7288DB9D600EC6413 /* TitleInputVC.swift in Sources */,
@@ -426,6 +465,7 @@
 				DB2129F4288DB6EC00EC6413 /* FinishSetupVC.swift in Sources */,
 				DB11472A288E9251002631C1 /* FailedSubmitVC.swift in Sources */,
 				DBBEE79C288EC27D002109B0 /* ReflectionsModel.swift in Sources */,
+				DBAFFC0D28D4D897000FD3E2 /* FailedSubmitVC + Keyboard.swift in Sources */,
 				DB62012F288A49A90026C0C3 /* SceneDelegate.swift in Sources */,
 				DB209A4E28910A120098AAC7 /* BodyInputVC + Keyboard.swift in Sources */,
 				DB209A432891081D0098AAC7 /* RKeyboard.swift in Sources */,

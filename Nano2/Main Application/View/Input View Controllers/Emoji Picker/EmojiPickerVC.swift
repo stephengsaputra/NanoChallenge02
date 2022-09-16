@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class EmojiPickerVC: UIViewController {
     
@@ -88,38 +89,35 @@ class EmojiPickerVC: UIViewController {
         view.backgroundColor = .backgroundColor
         
         view.addSubview(backButton)
-        backButton.anchor(
-            top: view.safeAreaLayoutGuide.topAnchor,
-            left: view.leftAnchor,
-            paddingTop: 26,
-            paddingLeft: 20
-        )
+        backButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(26)
+            make.leading.equalToSuperview().offset(20)
+        }
         
         view.addSubview(headingLabel)
-        headingLabel.anchor(
-            top: view.topAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: 151,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        headingLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(151)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         view.addSubview(subHeadingLabel)
-        subHeadingLabel.anchor(
-            top: headingLabel.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: 5,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        subHeadingLabel.snp.makeConstraints { make in
+            make.top.equalTo(headingLabel.snp.bottom).offset(5)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         let views = [excitedEmojiView, happyEmojiView, alrightEmojiView, mehEmojiView, unhappyEmojiView, stressedEmojiView]
         views.forEach {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onViewSelected(_:)))
             $0.addGestureRecognizer(tapGesture)
-            $0.setDimensions(height: view.frame.width / 3.57, width: view.frame.width / 3.57)
+            
+            $0.snp.makeConstraints { make in
+                make.height.equalTo(view.frame.width / 3.57)
+                make.width.equalTo(view.frame.width / 3.57)
+            }
+            
             $0.layer.cornerRadius = 12
             $0.setupShadow(
                 opacity: 0.2,
@@ -134,31 +132,28 @@ class EmojiPickerVC: UIViewController {
         stack1.spacing = 10
         
         view.addSubview(stack1)
-        stack1.anchor(
-            top: subHeadingLabel.bottomAnchor,
-            left: view.leftAnchor,
-            paddingTop: 36,
-            paddingLeft: 20
-        )
+        stack1.snp.makeConstraints { make in
+            make.top.equalTo(subHeadingLabel.snp.bottom).offset(36)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         let stack2 = UIStackView(arrangedSubviews: [mehEmojiView, unhappyEmojiView, stressedEmojiView])
         stack2.axis = .horizontal
         stack2.spacing = 10
         
         view.addSubview(stack2)
-        stack2.anchor(
-            top: stack1.bottomAnchor,
-            left: view.leftAnchor,
-            paddingTop: 10,
-            paddingLeft: 20
-        )
+        stack2.snp.makeConstraints { make in
+            make.top.equalTo(stack1.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         view.addSubview(nextButton)
-        nextButton.anchor(
-            left: view.leftAnchor,
-            bottom: view.safeAreaLayoutGuide.bottomAnchor,
-            paddingLeft: 20,
-            paddingBottom: 20
-        )
+        nextButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
     }
 }

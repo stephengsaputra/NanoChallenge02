@@ -58,7 +58,7 @@ class FirstDownloadVC: UIViewController {
         
         view.addSubview(emojiHi)
         emojiHi.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(160)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 160 : 100)
             make.leading.equalToSuperview().offset(14)
         }
         

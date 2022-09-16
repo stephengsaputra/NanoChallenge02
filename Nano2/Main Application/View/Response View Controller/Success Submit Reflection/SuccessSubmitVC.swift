@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class SuccessSubmitVC: UIViewController {
 
@@ -44,6 +45,7 @@ class SuccessSubmitVC: UIViewController {
         
         super.viewDidLoad()
         configureUI()
+        RVibration().vibrate(for: .success)
     }
     
     //MARK: - Selectors
@@ -59,57 +61,44 @@ class SuccessSubmitVC: UIViewController {
     //MARK: - Helpers
     func configureUI() {
         
-        RVibration().vibrate(for: .success)
         view.backgroundColor = .backgroundColor
         
         view.addSubview(headingLabel)
-        headingLabel.anchor(
-            top: view.topAnchor,
-            left: view.leftAnchor,
-            paddingTop: UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 120 : 80,
-            paddingLeft: 20
-        )
+        headingLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0 > 20 ? 120 : 80)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         view.addSubview(illustrationImage)
-        illustrationImage.centerX(inView: view)
-        illustrationImage.anchor(
-            top: headingLabel.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: 0,
-            paddingLeft: 0,
-            paddingRight: 0
-        )
+        illustrationImage.snp.makeConstraints { make in
+            make.top.equalTo(headingLabel.snp.top).offset(0)
+            make.leading.equalToSuperview().offset(0)
+            make.trailing.equalToSuperview().offset(0)
+            make.centerX.equalToSuperview()
+        }
         
         view.addSubview(bodyLabel1)
-        bodyLabel1.centerX(inView: view)
-        bodyLabel1.anchor(
-            top: illustrationImage.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: 0,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        bodyLabel1.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.top.equalTo(illustrationImage.snp.bottom).offset(0)
+            make.centerX.equalToSuperview()
+        }
         
         view.addSubview(bodyLabel2)
-        bodyLabel2.centerX(inView: view)
-        bodyLabel2.anchor(
-            top: bodyLabel1.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: 25,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        bodyLabel2.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.top.equalTo(bodyLabel1.snp.bottom).offset(25)
+            make.centerX.equalToSuperview()
+        }
         
         view.addSubview(backToMainButton)
-        backToMainButton.centerX(inView: view)
-        backToMainButton.anchor(
-            left: view.leftAnchor,
-            bottom: view.safeAreaLayoutGuide.bottomAnchor,
-            paddingLeft: 20,
-            paddingBottom: 20
-        )
+        backToMainButton.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+        }
     }
 }

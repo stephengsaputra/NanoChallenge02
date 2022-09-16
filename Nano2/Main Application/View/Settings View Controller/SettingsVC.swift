@@ -7,38 +7,39 @@
 
 import UIKit
 import UserNotifications
+import SnapKit
 
 class SettingsVC: UIViewController {
 
     //MARK: - Properties
-    private lazy var headingLabel: RLabel = {
+    internal lazy var headingLabel: RLabel = {
         let label = RLabel(style: .heading, textString: "Settings")
         return label
     }()
     
-    private lazy var integrationTokenTFTitle: RLabel = {
+    internal lazy var integrationTokenTFTitle: RLabel = {
         let label = RLabel(style: .tfTitle, textString: "Integration Token")
         return label
     }()
     
-    private lazy var integrationTokenTF: RTextField = {
+    internal lazy var integrationTokenTF: RTextField = {
         let tf = RTextField(placeholderText: "Integration Token")
         tf.text = UserDefaults.standard.string(forKey: "integrationToken")
         return tf
     }()
     
-    private lazy var databaseIDTFTitle: RLabel = {
+    internal lazy var databaseIDTFTitle: RLabel = {
         let label = RLabel(style: .tfTitle, textString: "Database ID")
         return label
     }()
     
-    private lazy var databaseIDTF: RTextField = {
+    internal lazy var databaseIDTF: RTextField = {
         let tf = RTextField(placeholderText: "Database ID")
         tf.text = UserDefaults.standard.string(forKey: "databaseID")
         return tf
     }()
     
-    private lazy var backButton: UIButton = {
+    internal lazy var backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "backIcon")?.withRenderingMode(.alwaysTemplate), for: .normal)
         button.tintColor = .textColor
@@ -46,12 +47,12 @@ class SettingsVC: UIViewController {
         return button
     }()
     
-    private lazy var enableNotificationsButton: RTButton = {
+    internal lazy var enableNotificationsButton: RTButton = {
         let button = RTButton(isEnabled: true, style: .normal, text: "Enable notifications", #selector(handleNotificationButtonTapped), self)
         return button
     }()
     
-    private lazy var toSettingsButton: RTButton = {
+    internal lazy var toSettingsButton: RTButton = {
         let button = RTButton(isEnabled: true, style: .normal, text: "Enable in Settings", #selector(handleToSettingsButtonTapped), self)
         return button
     }()
@@ -113,48 +114,37 @@ class SettingsVC: UIViewController {
         view.backgroundColor = .backgroundColor
         
         view.addSubview(backButton)
-        backButton.anchor(
-            top: view.safeAreaLayoutGuide.topAnchor,
-            left: view.leftAnchor,
-            paddingTop: 26,
-            paddingLeft: 20
-        )
+        backButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(26)
+            make.leading.equalToSuperview().offset(20)
+        }
         
         view.addSubview(headingLabel)
-        headingLabel.anchor(
-            top: view.topAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: 151,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        headingLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(151)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         let integrationStack = UIStackView(arrangedSubviews: [integrationTokenTFTitle, integrationTokenTF])
         integrationStack.spacing = 7
         integrationStack.axis = .vertical
         view.addSubview(integrationStack)
-        integrationStack.anchor(
-            top: headingLabel.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: view.frame.height / 14.07,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        integrationStack.snp.makeConstraints { make in
+            make.top.equalTo(headingLabel.snp.bottom).offset(view.frame.height / 14.07)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         let databaseStack = UIStackView(arrangedSubviews: [databaseIDTFTitle, databaseIDTF])
         databaseStack.spacing = 5
         databaseStack.axis = .vertical
         view.addSubview(databaseStack)
-        databaseStack.anchor(
-            top: integrationStack.bottomAnchor,
-            left: view.leftAnchor,
-            right: view.rightAnchor,
-            paddingTop: 45,
-            paddingLeft: 20,
-            paddingRight: 20
-        )
+        databaseStack.snp.makeConstraints { make in
+            make.top.equalTo(integrationStack.snp.bottom).offset(45)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
         if check == false {
             
@@ -164,82 +154,23 @@ class SettingsVC: UIViewController {
                 if settings.authorizationStatus == .denied {
                     DispatchQueue.main.async {
                         self.view.addSubview(self.toSettingsButton)
-                        self.toSettingsButton.anchor(
-                            left: self.view.leftAnchor,
-                            bottom: self.view.bottomAnchor,
-                            right: self.view.rightAnchor,
-                            paddingLeft: 20,
-                            paddingBottom: 250,
-                            paddingRight: 20
-                        )
+                        self.toSettingsButton.snp.makeConstraints { make in
+                            make.leading.equalToSuperview().offset(20)
+                            make.trailing.equalToSuperview().offset(-20)
+                            make.bottom.equalToSuperview().offset(-250)
+                        }
                     }
                 } else {
                     DispatchQueue.main.async {
                         self.view.addSubview(self.enableNotificationsButton)
-                        self.enableNotificationsButton.anchor(
-                            left: self.view.leftAnchor,
-                            bottom: self.view.bottomAnchor,
-                            right: self.view.rightAnchor,
-                            paddingLeft: 20,
-                            paddingBottom: 250,
-                            paddingRight: 20
-                        )
+                        self.enableNotificationsButton.snp.makeConstraints { make in
+                            make.leading.equalToSuperview().offset(20)
+                            make.trailing.equalToSuperview().offset(-20)
+                            make.bottom.equalToSuperview().offset(-250)
+                        }
                     }
                 }
             }
         }
-    }
-}
-
-extension SettingsVC {
-    
-    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        integrationTokenTF.resignFirstResponder()
-        databaseIDTF.resignFirstResponder()
-    }
-    
-    private func configureTextFieldObservers() {
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
-        self.view.addGestureRecognizer(tap)
-    }
-    
-    func checkNotification() {
-        
-        let center = UNUserNotificationCenter.current()
-        center.getNotificationSettings { settings in
-
-            if settings.authorizationStatus == .authorized {
-                print("Push notification is enabled")
-                self.check = true
-            } else if settings.authorizationStatus == .denied {
-                print("Push notification is denied")
-                self.check = false
-            } else {
-                print("Push notification is not enabled")
-                self.check = false
-            }
-        }
-    }
-    
-    func doNotAllowAlert() -> UIViewController {
-        
-        let alert = UIAlertController(
-            title: "Reminders Not Allowed!",
-            message: "If this is an accident, you can turn on the notifications in Settings.",
-            preferredStyle: .alert
-        )
-        alert.view.tintColor = UIColor.textColor
-        
-        let action = UIAlertAction(title: "Alrighty!", style: .cancel) { action in
-            self.dismiss(animated: true)
-            UIView.animate(withDuration: 0.5) {
-                self.enableNotificationsButton.alpha = 0
-            }
-        }
-        
-        alert.addAction(action)
-        
-        return alert
     }
 }
