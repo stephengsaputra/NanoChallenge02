@@ -16,7 +16,6 @@
 		DB209A3D2890FCB70098AAC7 /* DatabaseIDInputVC + Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A3C2890FCB70098AAC7 /* DatabaseIDInputVC + Keyboard.swift */; };
 		DB209A3F289106F70098AAC7 /* RVibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A3E289106F70098AAC7 /* RVibration.swift */; };
 		DB209A41289107520098AAC7 /* RNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A40289107520098AAC7 /* RNotifications.swift */; };
-		DB209A432891081D0098AAC7 /* RKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A422891081D0098AAC7 /* RKeyboard.swift */; };
 		DB209A45289109090098AAC7 /* IntegrationTokenInputVC + Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A44289109090098AAC7 /* IntegrationTokenInputVC + Keyboard.swift */; };
 		DB209A48289109760098AAC7 /* NotificationSetup + Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A47289109760098AAC7 /* NotificationSetup + Alert.swift */; };
 		DB209A4B289109B70098AAC7 /* TitleInputVC + Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB209A4A289109B70098AAC7 /* TitleInputVC + Keyboard.swift */; };
@@ -40,6 +39,7 @@
 		DB7F99B4288E543D00649211 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F99B3288E543D00649211 /* SettingsVC.swift */; };
 		DB7F99B6288E5E0800649211 /* BodyInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F99B5288E5E0800649211 /* BodyInputVC.swift */; };
 		DB7F99B8288E5F0900649211 /* RTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F99B7288E5F0900649211 /* RTextView.swift */; };
+		DB90316E28EE88BF00B79909 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DB90316D28EE88BF00B79909 /* IQKeyboardManagerSwift */; };
 		DB979DE3288D13C900EEEA43 /* SetupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB979DE2288D13C900EEEA43 /* SetupModel.swift */; };
 		DB979DE7288D199600EEEA43 /* SecondSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB979DE6288D199600EEEA43 /* SecondSetupVC.swift */; };
 		DBAFAF2728938308000F80B9 /* BeforeSendVC + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFAF2628938308000F80B9 /* BeforeSendVC + Extensions.swift */; };
@@ -63,7 +63,6 @@
 		DB209A3C2890FCB70098AAC7 /* DatabaseIDInputVC + Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseIDInputVC + Keyboard.swift"; sourceTree = "<group>"; };
 		DB209A3E289106F70098AAC7 /* RVibration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RVibration.swift; sourceTree = "<group>"; };
 		DB209A40289107520098AAC7 /* RNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNotifications.swift; sourceTree = "<group>"; };
-		DB209A422891081D0098AAC7 /* RKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKeyboard.swift; sourceTree = "<group>"; };
 		DB209A44289109090098AAC7 /* IntegrationTokenInputVC + Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntegrationTokenInputVC + Keyboard.swift"; sourceTree = "<group>"; };
 		DB209A47289109760098AAC7 /* NotificationSetup + Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationSetup + Alert.swift"; sourceTree = "<group>"; };
 		DB209A4A289109B70098AAC7 /* TitleInputVC + Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TitleInputVC + Keyboard.swift"; sourceTree = "<group>"; };
@@ -107,6 +106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB34913C28D42D980035951C /* SnapKit in Frameworks */,
+				DB90316E28EE88BF00B79909 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +276,6 @@
 				DB620141288A60D00026C0C3 /* Extensions.swift */,
 				DB209A3E289106F70098AAC7 /* RVibration.swift */,
 				DB209A40289107520098AAC7 /* RNotifications.swift */,
-				DB209A422891081D0098AAC7 /* RKeyboard.swift */,
 				DBBEE798288EB67F002109B0 /* Custom Assets */,
 			);
 			path = Utilities;
@@ -374,6 +373,7 @@
 			name = Nano2;
 			packageProductDependencies = (
 				DB34913B28D42D980035951C /* SnapKit */,
+				DB90316D28EE88BF00B79909 /* IQKeyboardManagerSwift */,
 			);
 			productName = Nano2;
 			productReference = DB620129288A49A90026C0C3 /* Nano2.app */;
@@ -405,6 +405,7 @@
 			mainGroup = DB620120288A49A90026C0C3;
 			packageReferences = (
 				DB34913A28D42D980035951C /* XCRemoteSwiftPackageReference "SnapKit" */,
+				DB90316C28EE88BF00B79909 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = DB62012A288A49A90026C0C3 /* Products */;
 			projectDirPath = "";
@@ -468,7 +469,6 @@
 				DBAFFC0D28D4D897000FD3E2 /* FailedSubmitVC + Keyboard.swift in Sources */,
 				DB62012F288A49A90026C0C3 /* SceneDelegate.swift in Sources */,
 				DB209A4E28910A120098AAC7 /* BodyInputVC + Keyboard.swift in Sources */,
-				DB209A432891081D0098AAC7 /* RKeyboard.swift in Sources */,
 				DB7F99B6288E5E0800649211 /* BodyInputVC.swift in Sources */,
 				DBCEFCA1288D95A00076E011 /* RTextField.swift in Sources */,
 				DB7F99B4288E543D00649211 /* SettingsVC.swift in Sources */,
@@ -625,7 +625,7 @@
 				INFOPLIST_FILE = Nano2/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Reflecta;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
@@ -655,7 +655,7 @@
 				INFOPLIST_FILE = Nano2/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Reflecta;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
@@ -704,6 +704,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		DB90316C28EE88BF00B79909 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -711,6 +719,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DB34913A28D42D980035951C /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		DB90316D28EE88BF00B79909 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB90316C28EE88BF00B79909 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

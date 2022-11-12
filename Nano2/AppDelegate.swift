@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Hold app at launch screen
         Thread.sleep(forTimeInterval: 1)
+        
+        IQKeyboardManager.shared.enable = true
         
         return true
     }

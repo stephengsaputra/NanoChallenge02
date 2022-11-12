@@ -77,8 +77,9 @@ class EmojiContainerView: UIView {
         stack.alignment = .center
         
         addSubview(stack)
-        stack.centerX(inView: self)
-        stack.centerY(inView: self)
+        stack.snp.makeConstraints { make in
+            make.centerX.centerY.equalTo(self)
+        }
         
         setupEmojiContainer()
     }

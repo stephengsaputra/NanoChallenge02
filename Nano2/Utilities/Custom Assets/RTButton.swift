@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class RTButton: UIButton {
 
@@ -74,7 +75,10 @@ class RTButton: UIButton {
     
     private func configureButtonStyle() {
         self.titleLabel?.font = UIFont.buttonText()
-        self.setDimensions(height: 50, width: UIScreen.main.bounds.width - 40)
+        self.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.width.equalTo(UIScreen.main.bounds.width - 40)
+        }
         self.layer.cornerRadius = 12
     }
     

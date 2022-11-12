@@ -62,18 +62,12 @@ class FailedSubmitVC: UIViewController {
         configureUI()
         configureTextFieldObservers()
         
-        RKeyboard().slideViewWhenShowKeyboard(self, #selector(self.keyboardWillShow(notification:)), #selector(self.keyboardWillHide))
-        
         RVibration().vibrate(for: .error)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     //MARK: - Selectors
     @objc func handleButtonTapped() {
+        
         UserDefaults.standard.set(integrationTokenTF.text ?? "", forKey: "integrationToken")
         UserDefaults.standard.set(databaseIDTF.text ?? "", forKey: "databaseID")
         

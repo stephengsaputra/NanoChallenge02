@@ -9,20 +9,6 @@ import UIKit
 
 extension BodyInputVC {
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            
-            let keyboardHeight = keyboardFrame.cgRectValue.height
-            let bottomSpacing = self.view.frame.height - (headingLabel.frame.origin.y + textView.frame.height)
-            self.view.frame.origin.y -= keyboardHeight - bottomSpacing
-        }
-    }
-    
-    @objc func keyboardWillHide() {
-        self.view.frame.origin.y = 0
-    }
-    
     @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         
         textView.resignFirstResponder()

@@ -9,20 +9,6 @@ import UIKit
 
 extension FailedSubmitVC {
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            
-            let keyboardHeight = keyboardFrame.cgRectValue.height
-            let bottomSpacing = self.view.frame.height - (bodyLabel2.frame.origin.y + bodyLabel2.frame.height)
-            self.view.frame.origin.y -= keyboardHeight - bottomSpacing + 400
-        }
-    }
-    
-    @objc func keyboardWillHide() {
-        self.view.frame.origin.y = 0
-    }
-    
     @objc func textFieldEditingChanged(_ textField: UITextField) {
         
         if textField.text != nil && textField.text!.isEmpty {

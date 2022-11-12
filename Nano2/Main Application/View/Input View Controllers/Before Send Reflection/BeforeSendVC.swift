@@ -73,7 +73,6 @@ class BeforeSendVC: UIViewController {
         backButton.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(26)
             make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
         }
         
         view.addSubview(headingLabel)

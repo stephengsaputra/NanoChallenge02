@@ -54,10 +54,8 @@ class RLabel: UILabel {
         switch style {
             case .largeTitle:
                 self.font = UIFont.largeTitle()
-                self.text = textString
             case .heading:
                 self.font = UIFont.heading()
-                self.text = textString
             case .subHeading:
                 self.font = UIFont.subHeading()
                 
